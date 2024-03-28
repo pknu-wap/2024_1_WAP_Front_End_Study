@@ -1,0 +1,134 @@
+인라인 스타일이란 HTML 요소 내부에 style 속성을 사용하여 CSS 스타일을 적용하는 방법입니다.
+
+이러한 인라인 스타일은 해당 요소에만 스타일을 적용할 수 있습니다.
+#그동안 말한거랑 css스타일 적용한거는 무슨 차이?
+#css적용하면 더 좋은게 있나?
+
+
+CSS 선택자(selector)
+스타일을 적용할 HTML 요소를 선택하는데 사용하는 대표적인 선택자는 다음과 같습니다.
+
+ 
+
+- HTML 요소 선택자
+
+- 아이디(id) 선택자
+
+- 클래스(class) 선택자
+
+ 
+
+CSS 선택자에 대한 더 자세한 사항은 CSS 선택자 수업에서 확인할 수 있습니다.
+#css와 HTML을 섞어서 설명하는 부분들이 이해가 안됨...
+#6. HTML 확장은 다시 봐야할듯
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Changes</title>
+	<script>document.createElement("newPara")</script>
+	<style>
+		newPara {
+			background-color: #F0F0F0;
+			display: block;
+			padding: 10px;
+			font-size: 14px;
+		} 
+	</style> 
+</head>
+
+<body>
+
+	<h1>새로운 HTML 요소의 정의</h1>
+	<h2>제목 2입니다.</h2>
+	<p>단락입니다.</p>
+	<newPara>우리 수업에서만 사용하는 단락입니다!</newPara>
+    #newPara가 HTML5에서만 열리는건가?, 왜 우리 수업에서만 사용하는 단락인거지?
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Changes</title>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+</script>
+<![endif]-->
+
+<style>
+	header {
+		background-color:lightgrey;
+		height:100px;
+	}
+	nav {
+		background-color:#339999;
+		color:white;
+		width:200px;
+		height:300px;
+		float:left;
+	}
+	section {
+		width:200px;
+		text-align:left;
+		float:left;
+		padding:10px;
+	}
+	footer {
+		background-color:#FFCC00;
+		height:100px;
+		clear:both;
+	}
+	header, nav, section, footer { text-align:center; }
+	header, footer { line-height:100px; }
+	nav, section { line-height:240px; }
+</style>
+</head>
+#HTML Shiv 방법
+#우선 아래의 주석 코드를 <head>태그 내에 삽입합니다.라고 되어있는데
+#<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+</script>
+<![endif]-->
+#주석은 영향을 안주는것 아니였나...?, 위의 코드만 예외인건가?, http://html5shiv.googlecode.com/svn/trunk/html5.js도 똑같이 써야 HTML Shiv가 가능한가?
+
+
+
+
+<body>
+
+	<h1>HTML Shiv 방법</h1>
+	<header>
+		<h2>HEADER 영역</h2>
+	</header>
+	<nav>
+		<h2>NAV 영역</h2>
+	</nav>
+	<section>
+		<p>SECTION 영역</p>
+	</section>
+	<footer>
+		<h2>FOOTER 영역</h2>
+	</footer>
+
+</body>
+
+</html>
+
+
+footer 요소는 HTML 문서나 섹션(section) 부분에 대한 푸터(footer)을 정의합니다.
+
+HTML 문서의 푸터(footer)에는 일반적으로 사이트의 작성자나 그에 따른 저작권 정보, 연락처 등을 명시합니다.
+
+또한, 한 문서 내에 여러 개의 footer 요소가 존재할 수 있습니다.
+#그냥 입력이랑 뭐가 다른지 모르겠음
+

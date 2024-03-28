@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Paragraph</title>
+</head>
+
+<body>
+
+	<p>
+줄을 나누고 싶어서<br>
+이렇게 줄을 나눠봤습니다.<br>
+<br>
+과연     그대로     출력이     될까요?
+#띄어쓰기를 더 했는데도 일반 띄어쓰기랑 다른게 없다... 더 띄어쓰기 한것을 그대로 내보내려면?
+ #25~47줄에 나와있음
+	</p>
+
+
+</body>
+
+
+
+</html>
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Paragraph</title>
+</head>
+
+<body>
+
+	<pre>
+줄을 나누고 싶어서
+이렇게 줄을 나눠봤습니다.
+
+과연     그대로     출력이     될까요?
+#<pre>를 쓰면 되는데 <p>은 어디에 쓰지?
+	</pre>
+
+</body>
+
+</html>
+
+
+	<h1>b태그와 strong태그의 차이점</h1>
+	<p><b>"이 부분"</b>은 단순히 글씨가 굵은 부분이에요!</p>
+	<p><strong>"이 부분"</strong>은 중요한 부분이라서 굵게 표현됐어요!</p>
+#그럼 육안으로는 구분이 없나?
+#아무거나 써도 상관없는거 아닌가?, 어디에 쓰이지?, 중요한 부분이라서 바뀐것은 나중에 다르게 작용하나?
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Formatting</title>
+</head>
+
+<body>
+
+	<h1>mark태그를 이용한 하이라이팅</h1>
+	<p><mark>"이 부분"</mark>만 하이라이팅하고 싶어요.</p>
+    #하이라이팅 색은 못정하나?
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Quotations</title>
+</head>
+
+<body>
+
+	<h1>q태그를 이용한 짧은 인용구</h1>
+	<p>HTML의 정의는
+	<q>웹 페이지를 만들기 위한 하이퍼텍스트 마크업 언어</q>
+	입니다.</p>
+    #그냥 ""랑 뭐가 다른거지?
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Quotations</title>
+</head>
+
+<body>
+
+	<h1>blockquote태그를 이용한 블록 인용구</h1>
+	<p>HTML의 정의</p>
+	<blockquote>
+	인터넷 서비스의 하나인 월드 와이드 웹을 통해 볼 수 있는 문서를 만들 때 사용하는 프로그래밍 언어의 한 종류이다.
+	</blockquote>
+# 문단을 만들어 주는건가...?, 정확히 어떻게 쓰는지 잘 모르겠음...
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Quotations</title>
+</head>
+
+<body>
+
+	<h1>abbr태그를 이용한 축약형 표현</h1>
+	<p>아래의 단락에서 HTML5이라는 단어 위에 마우스를 올려놓아 보세요!</p>
+	<p>  <strong> <abbr title="HyperText Markup Language 5">HTML5</abbr> </strong>
+	란 웹 문서를 제작하는 데 쓰이는 프로그래밍 언어인 HTML의 최신규격입니다.  </p>
+    #<abbr title="HyperText Markup Language 5">HTML5</abbr>는 HTML5에 마우스를 가까이 대면 title의 내용이 보인다.
+
+</body>
+
+</html>
+
+
+엔티티(Entity)
+#이해 안됨-다시
+
+
+<p><p> 태그는 두 번째로 큰 제목을 나타내는 태그입니다.</p>
+
+<p>&lt;p&gt;태그는 단락을 나타내는 태그입니다.</p>
+#이해 안됨-"<p> 태그는 두 번째로 큰 제목을 나타내는 태그입니다."에서 왜 <p>는 안보이지?, &lt;p&gt;도 마찬가지
+#&lt;p&gt;가 무슨뜻인지 알겠는데, <,>가 크다 작다라는 뜻인데 그냥 괄호역할도 하는건가?
+
+
+<h1 style="text-align:center">
+# 가운데 말고 다른 방향들은 어떻게...?
+    style 속성을 이용한 문단 정렬 변경
+
+</h1>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Backgrounds</title>
+</head>
+
+<body background="/examples/images/img_background_good.png">
+#이미지 주소는 어떻게 알수 있지...?
+	<h1>배경으로 이미지 삽입하기</h1>
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Links</title>
+</head>
+
+<body>
+
+	<h1>a태그의 target 속성값</h1>
+	<h2><a href="/html/intro" target="_blank">blank</a></h2>
+	<h2><a href="/html/intro" target="_self">self</a></h2>
+	<h2><a href="/html/intro" target="_parent">parent</a></h2>
+	<h2><a href="/html/intro" target="_top">top</a></h2>
+	<h2><a href="/html/intro" target="myframe">myframe</a></h2>
+	<iframe name="myframe" style="width:50%; height: 330px"></iframe>
+#target을 안정하면 self로 되는건가?
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Images</title>
+	<style>
+		img {
+			width:100%;
+            #이 width로는 영향이 있음, 밑에랑 왜 다르지?
+			border: solid 1px black;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>이미지의 크기 설정</h1>
+	<img src="/examples/images/img_flag.png" alt="html size" width="11" height="210">
+    #왜 width에는 반응이 없고 height에만 반응이 있지?
+	<img src="/examples/images/img_flag.png" alt="style size" style="width:320px; height:214px">
+    #얘는  style="width:320px; height:214px에서 바꾸니까 되는데...
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Images</title>
+</head>
+
+<body>
+
+	<h1>이미지 맵 만들기</h1>
+	<img src="/examples/images/img_imagemap.jpg" alt="진실혹은거짓" usemap="#vending" style="width:320px; height:240px" />
+	<map name="vending"> 
+		<area  shape="rect" coords="90,60,180,130" alt="거짓" href="https://ko.wikipedia.org/wiki/%EA%B1%B0%EC%A7%93%EB%A7%90">
+		<area  shape="rect" coords="210,200,70,130" alt="진실" href="https://ko.wikipedia.org/wiki/%EC%A7%84%EC%8B%A4">
+	</map>
+	<p>표지판을 눌러보세요!</p>
+
+</body>
+
+</html>
+
+#이거랑 이미지에 링크설정이랑 무엇이 다르지?
+#위에를 어떻게 해야하지...?
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Lists</title>
+</head>
+
+<body>
+
+	<h1>정의 리스트</h1>
+	<dl>
+		<dt>   호박</dt>
+        #위치가 어정쩡 한데 <dt>사이에 띄어쓰기를 해도 안보이는데 어떻게 해야 위치나 크기를 바꿀수 있지?
+		<dd>박과의 한해살이 덩굴성 채소</dd>
+		<dt>상추</dt>
+		<dd>국화과의 한해살이 또는 두해살이풀</dd>
+	</dl>
+
+</body>
+
+</html>
+
+
+iframe 요소의 페이지 변경하기
+<a>태그를 이용하면 iframe 요소의 최초 페이지를 중간에 변경할 수 있습니다.
+
+<a>태그의 target 속성과 iframe 요소의 name 속성을 연결하면, <a>태그를 통해 iframe 요소의 페이지를 변경할 수 있게 됩니다.
+#뭔말인지 이해 안됨...그냥 열려있는거랑 뭐가 다른거지?
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Layouts</title>
+	<style>
+		#header {
+			background-color:lightgrey;
+			height:100px;
+		}
+		#nav {
+			background-color:#339999;
+			color:white;
+			width:200px;
+			height:300px;
+			float:left;
+		}
+		#section {
+			width:200px;
+			text-align:left;
+			float:left;
+            ####변화가 있는데 어떤 원리인지 모르겠음, 왜 이런 변화가...?
+			padding:10px;
+            
+		}
+		#footer {
+			background-color:#FFCC00;
+			height:100px;
+			clear:both;
+		}
+		#header, #nav, #section, #footer { text-align:center; }
+		#header, #footer { line-height:100px; }
+		#nav, #section { line-height:240px; }
+	</style>
+</head>
+
+<body>
+
+	<h1>div 요소를 이용한 레이아웃</h1>
+	<div id="header">
+		<h2>HEADER 영역</h2>
+	</div>
+	<div id="nav">
+		<h2>NAV 영역</h2>
+	</div>
+	<div id="section">
+		<p>SECTION 영역</p>
+	</div>
+	<div id="footer">
+		<h2>FOOTER 영역</h2>
+	</div>
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Forms</title>
+</head>
+
+<body>
+
+	<h1>텍스트 입력</h1>
+	<form action="/examples/media/request.php">
+		검색할 내용을 입력하세요 :
+		<input type="text" name="search">
+        #"search은(는) ㅇㅇ(으)로 입력하셨습니다."의 형식으로 나오는데 이 형식은 못바꾸는건가?
+	</form>
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Forms</title>
+</head>
+
+<body>
+
+	<h1>체크박스</h1>
+	<p>다음 중 재밌고 내용이 알찬 강좌를 모두 골라주세요.</p>
+	<form>
+		<input type="checkbox" name="lecture" value="html" checked> HTML <br>
+		<input type="checkbox" name="lecture" value="css"> CSS <br>
+		<input type="checkbox" name="lecture" value="java"> JAVA <br>
+		<input type="checkbox" name="lecture" value="cpp" disabled> C++
+	</form>
+
+</body>
+
+</html>
+#중복체크 안되게는 어떻게 하지?

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>가나다</title>
+  #타이틀은 왜 안나오나?
+  #타이틀은 어디서 확인하고 어디에 쓰이는가?
+  
+</head>
+
+<body>
+
+	<h1>속성값의 따옴표</h1>
+	<p>속성값에 정말로 따옴표가 필요할까요?</p>
+	<img src="quotes.jpg" alt="이미지가 없어요"><br>
+	<="quotes.jpg" alt=이미지가 없어요>
+	#img src=이미지 없어요 옆에 임티?
+    #<태그이름+속성명="속성값">이면 img src="quotes.jpg" alt=에서는 속성명이 뭐지?=가 2개인데...
+    #태그이름, 속성명은 직접 정하는건가?
+    #<img>태그의 alt 속성은 이미지를 불러올 수 없는 상황에서 이미지 대신 보이는 문자열을 설정할 수 있습니다.:뭔말이여...
+    #16번 맨 뒤에 <br>은 뭐지...?
+	 #-<br>태그(break line)를 사용하면 새로운 단락을 만들지 않고도 줄을 나눌 수 있습니다.
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Headings</title>
+    <h1>제목1의 크기입니다!</h1>
+    #<head>에 <h>들어가도 문제없이 출력됨. 그럼 <head>랑 <body>는 구분하기 쉽게 하려고 만든건가...?
+</head>
+
+<body>
+
+	<h1>제목1의 크기입니다!</h1>
+	<h2>제목2의 크기입니다!</h2>
+	<h3>제목3의 크기입니다!</h3>
+	<h4>제목4의 크기입니다!</h4>
+	<h5>제목5의 크기입니다!</h5>
+	<h6>제목6의 크기입니다!</h6>
+
+</body>
+
+
+</html>
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Headings</title>
+</head>
+
+<body>
+
+	<h2>종료 태그가 없어도 표현이 잘 될까요?</h2>
+     
+
+</body>
+  
+<body2>
+  <h1>이렇게 body2 만들어도 되나?  되네</h1>
+</body2>
+#<body2>해보니까 내 맘대로 구역 나누는거 가능한듯
+</html>
