@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+		body { background-color: rgb(0, 0, 0); color: white; }
+        header,nav, section { text-align:center; }
+		header { line-height:100px;  background-color: white; color: black;}
+        nav, section { 
+            line-height:50px; 
+            border-left: 100px solid white;
+            border-right: 100px solid white; 
+            height: 150vh; /* 뷰포트 높이로 설정하여 전체 높이로 확장 */
+        }
+        li {
+            transition: transform 0.5s ease; /* transform 속성에 대한 변화를 0.5초 동안 부드럽게 적용합니다. */
+        }
+        
+        li:hover {
+            transform: scale(1.2); /* 마우스를 호버할 때 이미지를 1.2배로 확대합니다. */
+        }
+        
+	</style>
+    <link  rel="stylesheet" href="style.css" type="text/css">
+    <title>메뉴 3</title>
+</head>
+<body>
+    <aside class="side-bar">
+        <p> 관련사이트</p>
+        <p> 깃허브:https://github.com/pknujaewan </p>
+        <p> 노션:https://www.notion.so/invite/6eea8a6d2db3be63b96513de4603e8a4639e87b4</p>
+        <p> 기타:https://example.com/project6</p>
+        
+    </aside>
+
+    <header>
+		<h1 style="font-size: 300%;">관련 사이트</h1>
+	</header>
+    <nav>
+        <img src="https://th.bing.com/th/id/OIP._-YJWueUVj0C2hehvJhSMQHaHa?rs=1&pid=ImgDetMain" width="200" height="200"><br>
+        <li><a href="https://github.com/pknujaewan">깃허브</a></li><br>
+        <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5366%2F2020%2F06%2F25%2F2020062513163201438bf45d5d5ea18013416985_20200625134501582.jpg&type=sc960_832" width="200" height="200"><br>
+        <li><a href="https://www.notion.so/invite/6eea8a6d2db3be63b96513de4603e8a4639e87b4">노션</a></li><br>
+        <li><a href="https://example.com/project6">기타</a></li><br>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+/*사이드바*/
+:root {
+    --side-bar-width: 270px;
+    --side-bar-height: 90vh;
+}
+
+.side-bar p {
+    position: relative; color: rgb(0, 0, 0);
+    margin-left:30px;
+}
+/* 마우스 인식 시 원래의 위치로 이동 */
+.side-bar:hover {
+    transform: translate(-20px, 0);   /* 둥근 모서리의 너비만큼 X축 이동, Y축 고정 */
+}
+.side-bar {
+    border-radius: 20px;
+    transform: translate(calc(var(--side-bar-width) * -0.8), 0);  /* X축 이동, Y축 고정 */
+    transition: .5s;
+}
+.side-bar {
+    position: fixed;    /* 스크롤을 따라오도록 지정 */
+    background-color: rgb(255, 255, 255);
+    width: var(--side-bar-width);
+    min-height: var(--side-bar-height);   /* 사이드바의 높이를 전체 화면 높이의 90%로 지정 */
+    margin-top: calc((100vh - var(--side-bar-height)) / 2);    /* 사이드바 위와 아래의 마진을 동일하게 지정 */
+}

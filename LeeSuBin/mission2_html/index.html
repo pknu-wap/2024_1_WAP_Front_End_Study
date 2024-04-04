@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="style.css" type="text/css">
+    <style>body { background-color: rgb(0, 0, 0); color: white; }
+
+        /* 헤더 관련 */
+        header, nav { 
+            text-align:center; 
+        }
+        header { 
+            line-height:100px; 
+            background-color: white; 
+            color: black; 
+        } /* 헤더의 배경색을 흰색으로 설정하고, 내용 색상을 검정색으로 지정 */
+        
+        /* NAV 관련 */
+        nav { 
+            line-height:100px; 
+            border-left: 100px solid white;
+            border-right: 100px solid white; 
+            height: 100vh; /* 뷰포트 높이로 설정하여 전체 높이로 확장 */
+        }
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        nav li {
+            display: inline-block; /* inline-block으로 설정하여 항목들이 옆으로 나열되게 함 */
+            margin-right: 20px; /* 각 항목들 사이의 간격 조절 */
+        }
+        nav li:last-child {
+            margin-right: 0; /* 마지막 항목의 오른쪽 마진을 0으로 설정하여 여백 제거 */
+        }
+        nav li a {
+            padding: 0;
+            text-decoration: none;
+            color: white;
+            display: block; /* 링크를 블록 요소로 변경하여 전체 항목 영역을 클릭 가능하게 함 */
+        }
+        nav li img {
+            width: 200px; /* 이미지 크기 조절 */
+            height: 200px;
+        }
+        
+        /* img 관련 */
+        img {
+            transition: transform 0.5s ease; /* transform 속성에 대한 변화를 0.5초 동안 부드럽게 적용합니다. */
+        }
+        img:hover {
+            transform: scale(1.2); /* 마우스를 호버할 때 이미지를 1.2배로 확대합니다. */
+        }
+        
+        
+        </style>
+    <title>introduce 김재완</title>
+</head>
+<body>
+    <aside class="side-bar">
+        <p> 자기소개</p>
+        <p> 이름: 김재완 </p>
+        <p> 이력:000</p>
+        <p> 학력: 부경대학교 컴공 24학번</p>
+        <p> 장점: 정리정돈</p>
+        <p> 좌우명: 금강산도 식후경</p>
+    </aside>
+
+    <header>
+        <h1 style="font-size: 300%;">introduce 김재완</h1>
+    </header>
+    <nav>
+        <ul>
+            <br>
+            <li><a href="menu1.html"><img src="https://media.istockphoto.com/id/1332100919/ko/%EB%B2%A1%ED%84%B0/%EB%82%A8%EC%9E%90-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9E%85%EB%8B%88%EB%8B%A4-%EA%B2%80%EC%9D%80-%EC%83%89-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%82%AC%EB%9E%8C-%EA%B8%B0%ED%98%B8.jpg?s=612x612&w=0&k=20&c=1Yl9GjV828rS9b9v6OZOMaFq_TNAEkhWXU_246cLNrg=" alt="소개"></a></li>
+            <li><a href="menu2.html"><img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F256%2F2235%2F2235919.png&type=sc960_832" alt="프로젝트"></a></li>
+            <li><a href="menu3.html"><img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F180%2F180163.png&type=sc960_832" alt="관련 사이트"></a></li>
+            <p style="font-size: 150%; word-spacing: 150px;"> 소개 프로젝트 관련사이트</p>
+            <!--사진바로 밑에 글자 넣는법 몰라서 word-spacing사용해서 대충 맞춘거임... -->
+
+        </ul>
+    </nav>
+    
+</body>
+</html>
+
