@@ -1,32 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>이지원의 자기소개</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0; /* 라이트 그레이 */
-            
+        img {
+            transition: transform 0.5s ease; /* 변환에 대한 0.5초의 이징 효과 */
         }
-        h1, h2, h3 {
-            margin-top: 0;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        a {
-            text-decoration: none;
-            color: #007bff;
-        }
-        a:hover {
-            text-decoration: underline;
+        /* 마우스를 올릴 때 버튼 확대 */
+        img:hover {
+            transform: scale(0.5); /* 마우스를 올릴 때 1.1배 확대 */
         }
         .black-button {
             display: inline-block;
@@ -59,14 +43,9 @@
     </style>
 </head>
 <body>
-    <h1>Contents</h1>
-        <li><a href="./about.html">About</a></li>
-        <li><a href="./nickname.html">Nickname</a></li>
-        <li><a href="./treasure.html">Treasure</a></li>
-        <li><a href="./extraInfo.html">Extra</a></li>
-    </ul>
+    <h1>Nickname</h1>
+    <img src="https://media.istockphoto.com/id/187613497/photo/easy-button.jpg?s=612x612&w=0&k=20&c=9bdSfPv3UM6J-19dD2J-gZ9a47PdAsZSWMZikbC1rc8=" alt="이미지 설명">
     <button class="black-button" onclick="openPopup()">팝업 열기</button>
-
     <div class="popup" id="popupContent">
         <h2>이지원에 대한 요약</h2>
 
@@ -84,7 +63,6 @@
             - 잘 부탁드립니당~~</p>
         <button onclick="closePopup()">닫기</button>
     </div>
-
     <script>
         // 팝업 열기 함수
         function openPopup() {
@@ -96,6 +74,5 @@
             document.getElementById('popupContent').style.display = 'none';
         }
     </script>
-
 </body>
 </html>
