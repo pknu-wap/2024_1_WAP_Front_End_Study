@@ -1,0 +1,132 @@
+body{
+    background-color: #f4e970 ;
+}
+ .frame{
+    margin: 30px 150px;
+    display: flex;
+    flex-direction: column;
+
+ } 
+ .navigator{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ }
+ li{
+    display: inline;
+    align-self: center;
+    margin: 0;
+    margin-left: 20px;
+ }
+ul{
+    margin: 0;
+}
+.sitename{
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+.navmenu{
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+
+    color: black;
+    text-decoration:none;
+    }
+a.navmenu:hover{
+    color: #9e725b;
+    transition: 0.3s;
+}
+.dashboard{
+    margin-top: 60px;
+    font-family: 'Nanum Pen Script', sans-serif;
+    font-size: 40px;
+}
+.sample1:hover{
+    color: #bdf470;
+    transition: 1.5s;
+}
+.made{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+.f{
+    text-align: right;
+    margin-top: 120px;
+}
+.work-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.footermain{
+    font-family: 'Montserrat' sans-serif;
+    font-size: 40px;
+    font-weight: 300;
+    border-bottom: 1px solid black;
+}
+.gn{
+    font-family: "Nanum Pen Script" sans-serif;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    margin: 50px 100px;
+    margin-right: 30px;
+}
+#profilepicture{
+    width: 300px;
+    margin-right: 60px;
+    border: solid;
+    color: black;
+}
+#htmlcss{
+    width: 40px;
+}
+.im>p{
+    font-family: "Nanum Pen Script", sans-serif;
+    font-size: 30px;
+    
+}
+.hobbysection{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+}
+.hobby{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+    align-items: center;
+}
+.hobbyicon1{
+    width: 100px;
+    height: 100px;
+    padding: 3px;
+    border: 2px solid;
+    color: #9e725b;
+    border-radius: 100px;
+    
+}
+.hobbyintro{
+    margin-left: 30px;
+}
+.hobbyname{
+    font-family: "Nanum Pen Script", sans-serif;
+    font-size: 30px;
+    font-weight: 600px;
+     
+}
+.hobbyex{
+    font-family: "Nanum Pen Script", sans-serif;
+    font-size: 23px;
+}
+.hobbyicon1:hover{
+    transform: scale( 1.5 )
+}
