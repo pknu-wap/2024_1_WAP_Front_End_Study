@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 페이지 예시</title>
+    <style>
+        /* 전체 페이지 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* 목차 링크 스타일 */
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        /* 이미지 스타일 */
+        img {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+        /* 애니메이션 스타일 */
+        .animation1 {
+            animation: slide 2s ease infinite alternate;
+        }
+        .animation2 {
+            animation: rotate 2s linear infinite;
+        }
+        .animation3 {
+            animation: fade 2s ease infinite alternate;
+        }
+        /* 요약 텍스트 팝업 스타일 */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        /* 버튼 스타일 */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- 목차 페이지 -->
+    <nav>
+        <a href="#page1">Page 1</a>
+        <a href="#page2">Page 2</a>
+        <a href="#page3">Page 3</a>
+    </nav>
+
+    <!-- 페이지 1 -->
+    <div id="page1">
+        <h1>Page 1</h1>
+        <img src="image1.jpg" alt="Image 1" class="animation1">
+        <button onclick="showPopup('Page 1에 대한 요약 텍스트')">요약 보기</button>
+    </div>
+
+    <!-- 페이지 2 -->
+    <div id="page2">
+        <h1>Page 2</h1>
+        <img src="image2.jpg" alt="Image 2" class="animation2">
+        <button onclick="showPopup('Page 2에 대한 요약 텍스트')">요약 보기</button>
+    </div>
+
+    <!-- 페이지 3 -->
+    <div id="page3">
+        <h1>Page 3</h1>
+        <img src="image3.jpg" alt="Image 3" class="animation3">
+        <button onclick="showPopup('Page 3에 대한 요약 텍스트')">요약 보기</button>
+    </div>
+
+    <!-- 요약 텍스트 팝업 -->
+    <div id="popup" class="popup"></div>
+
+    <script>
+        // 요약 텍스트 팝업을 보여주는 함수
+        function showPopup(summary) {
+            var popup = document.getElementById("popup");
+            popup.textContent = summary;
+            popup.style.display = "block";
+            setTimeout(function() {
+                popup.style.display = "none";
+            }, 3000); // 3초 후에 팝업을 자동으로 닫음
+        }
+    </script>
+</body>
+</html>

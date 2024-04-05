@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            background-color: rgb(0, 0, 0); 
+            color: white; 
+            font-family: Arial, sans-serif; /* 글꼴 지정 */
+            margin: 0; /* body의 margin을 0으로 설정합니다. */
+        }
+        header { 
+            text-align:center; 
+            background-color: black; /* 헤더의 배경색을 검정색으로 설정 */
+            color: white; /* 헤더의 텍스트 색상을 흰색으로 설정 */
+            padding: 20px 0; /* 헤더의 위아래로 20px의 패딩을 추가 */
+        }
+        nav { 
+            text-align:center; 
+            background-color: black; /* 네비게이션의 배경색을 검정색으로 설정 */
+            color: white; /* 네비게이션의 텍스트 색상을 흰색으로 설정 */
+            padding: 20px 0; /* 네비게이션의 위아래로 20px의 패딩을 추가 */
+        }
+        nav ul {
+            padding: 0;
+            list-style-type: none; /* 목록 기호 제거 */
+        }
+        nav li {
+            display: inline; /* 수평으로 배치 */
+            margin: 0 10px; /* 좌우로 각 아이템 간격 조절 */
+        }
+        nav li a {
+            text-decoration: none; /* 링크 밑줄 제거 */
+            color: white; /* 링크 텍스트 색상을 흰색으로 설정 */
+        }
+        nav li a:hover {
+            color: #888; /* 링크에 호버할 때 색상 변경 */
+        }
+        button {
+            background-color: black; /* 버튼 배경색을 검정색으로 설정 */
+            color: white; /* 버튼 텍스트 색상을 흰색으로 설정 */
+            border: none; /* 버튼 테두리 제거 */
+            padding: 10px 20px; /* 버튼 내부 패딩 설정 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경하여 버튼임을 나타냄 */
+            position: absolute; /* 버튼의 위치를 절대적으로 설정 */
+            left: 20px; /* 왼쪽 여백 20px */
+            top: 50%; /* 상단 여백은 화면 세로 중앙에 배치하기 위해 50%로 설정 */
+            transform: translateY(-50%); /* 버튼을 수직 중앙으로 정렬 */
+        }
+        button:hover {
+            background-color: #444; /* 버튼에 호버할 때 배경색 변경 */
+        }
+    </style>
+    <title>introduce 김재완</title>
+</head>
+<body>
+
+    <header>
+        <h1 style="font-size: 300%;">introduce 김재완</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="menu1.html">소개</a></li>
+            <li><a href="menu2.html">프로젝트</a></li>
+            <li><a href="menu3.html">관련 사이트</a></li>
+        </ul>
+    </nav>
+
+    <button onclick="toggleDescription()">내 소개 보기</button>
+    <div id="description">
+        <p>안녕하세요! 제 이름은 김재완입니다.</p>
+        <p>웹 개발을 공부하고 있으며 프론트엔드와 백엔드 모두에 관심이 있습니다.</p>
+        <p>새로운 기술을 배우는 것을 즐기고, 항상 더 나은 개발자가 되기 위해 노력합니다.</p>
+        <p>팀으로 일하는 것을 좋아하며 협업에 능숙합니다.</p>
+        <p>감사합니다!</p>
+    </div>
+
+    <script>
+        function toggleDescription() {
+            var description = document.getElementById("description");
+            if (description.style.display === "none") {
+                description.style.display = "block";
+            } else {
+                description.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+

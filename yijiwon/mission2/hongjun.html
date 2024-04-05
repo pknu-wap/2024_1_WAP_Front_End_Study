@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <nav>
+        <ul>
+            <li><a href="#AboutMe" onclick="showSection('AboutMe')">About Me</a></li>
+            <li><a href="#Nickname" onclick="showSection('Nickname')">Nickname</a></li>
+            <li><a href="#Favorites" onclick="showSection('Favorites')">Favorites</a></li>
+            <li><a href="#StressRelief" onclick="showSection('StressRelief')">Stress Relief</a></li>
+        </ul>
+    </nav>
+    <title>About HONG JUN</title>
+    <style>
+        body {
+            background-color: gainsboro;
+            transition: background-color 0.5s ease;
+        }
+
+        header {
+            background-color: lightgray;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        nav ul li a:hover {
+            color: darkblue;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>About HONG JUN</h1>
+    </header>
+
+    <main>
+        <section id="AboutMe">
+            <h2>About Me</h2>
+            <p>이름, MBTI, 나이</p>
+            <ul>
+                <li>장홍준 (26)</li>
+                <li>ENFP</li>
+                <li>가장 소중한 물건: 맥북</li>
+                <li>일어나자마자 하는 일: 샤워</li>
+                <li>잠버릇: 몸을 뒤집어서 잠</li>
+                <img src=https://www.flaticon.com/kr/free-icon/computer_13768520?term=%EB%A7%A5%EB%B6%81&page=1&position=1&origin=search&related_id=13768520" alt="맥북">
+            </ul>
+            <button onclick="showPopup('맥북을 좋아하는 ENFP')">About Me 요약</button>
+        </section>
+
+        <section id="Nickname">
+            <h2>Nicknames</h2>
+            <ul>
+                <li>외국인 관련 모든 별명 (OFFLINE)</li>
+                <li>wkdghdwns199 (ONLINE)</li>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/3354/3354482.svg" alt="외국인 일러스트">
+            </ul>
+            <button onclick="showPopup('외국인 관련 모든 별명')">Nicknames 요약</button>
+        </section>
+
+        <section id="Favorites">
+            <h2>Favorites</h2>
+            <ul>
+                <li>팝송</li>
+                <li>피자</li>
+                <li>잠</li>
+                <img src="https://www.flaticon.com/kr/free-icon/pizza_1867845?term=%ED%94%BC%EC%9E%90&page=1&position=2&origin=search&related_id=1867845" alt="피자">
+            </ul>
+            <button onclick="showPopup('팝송, 피자, 잠을 좋아해요~')">Favorites 요약</button>
+        </section>
+
+        <section id="StressRelief">
+            <h2>Stress Relief</h2>
+            <p>기타 치는 거
+                <img src="https://images.app.goo.gl/dQ4L2TozDF9wG9Jf8" alt="기타">
+            </p>
+            <button onclick="showPopup('기타 치면 스트레스가 풀리는 편')">Stress Relief 요약</button>
+        </section>
+    </main>
+    
+    <div id="popup" class="popup"></div>
+
+    <script>
+        // 요약 텍스트 팝업을 보여주는 함수
+        function showPopup(summary) {
+            var popup = document.getElementById("popup");
+            popup.textContent = summary;
+            popup.style.display = "block";
+            setTimeout(function () {
+                popup.style.display = "none";
+            }, 3000); // 3초 후에 팝업을 자동으로 닫음
+        }
+
+        // 페이지마다 다른 애니메이션 효과 적용
+        document.querySelectorAll('section').forEach(function (section, index) {
+            var animations = ['slide', 'rotate', 'fade'];
+            var animationClass = 'animation-' + animations[index % animations.length];
+            section.classList.add(animationClass);
+        });
+
+        // 페이지 애니메이션 효과
+        var slideKeyframes = `@keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50px); }
+        }`;
+        var rotateKeyframes = `@keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }`;
+        var fadeKeyframes = `@keyframes fade {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }`;
+
+        var style = document.createElement('style');
+        style.innerHTML = slideKeyframes + rotateKeyframes + fadeKeyframes;
+        document.head.appendChild(style);
+
+    // 선택한 섹션을 표시하는 함수
+    function showSection(sectionId) {
+        // 모든 섹션 숨기기
+        document.querySelectorAll('section').forEach(function(section) {
+            section.style.display = 'none';
+        });
+        // 선택한 섹션 보이기
+        document.getElementById(sectionId).style.display = 'block';
+    }
+</script>
+</body>
+
+</html>
