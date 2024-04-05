@@ -130,3 +130,103 @@ a.navmenu:hover{
 .hobbyicon1:hover{
     transform: scale( 1.5 )
 }
+.pbutton{
+    width: 120px;
+    height: 40px;
+    color: white;
+    background: black;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rbba(0,79,255,0.3);
+    transition: 0.3;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    margin-left: 35px;
+
+}
+
+
+
+
+.pbutton:focus{
+    outline: 0;
+
+}
+.pbutton:hover{
+    background: rgba(0,79,255,0.9);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,79,255,0.6);
+
+}
+#htmlcss{
+    width: 30px;
+}
+.pt{
+    padding: 15px 20px;
+  background-color: #444444;
+  border-radius: 5px;
+  color: #ffffff;
+  display: none;
+}
+.pbutton:hover + .pt{
+    display:block
+}
+
+.hbutton{
+    width: 120px;
+    height: 40px;
+    color: white;
+    background: black;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rbba(0,79,255,0.3);
+    transition: 0.3;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    margin-left: 35px;
+
+}
+
+.hbutton:focus{
+    outline: 0;
+
+}
+.hbutton:hover{
+    background: rgba(0,79,255,0.9);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,79,255,0.6);
+
+}
+
+.ht{
+    padding: 15px 20px;
+  background-color: #444444;
+  border-radius: 5px;
+  color: #ffffff;
+  display: none;
+}
+.hbutton:hover + .ht{
+    display:block
+}
+.hbutton{
+    width: 120px;
+    height: 40px;
+    color: white;
+    background: black;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rbba(0,79,255,0.3);
+    transition: 0.3;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    margin-left: 35px;
+}
