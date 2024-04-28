@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 자기소개</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>body { background-color: rgb(0, 0, 0); color: white; }
+    /* NAV 관련 */
+        nav { 
+            
+            text-align: center;
+        }
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        nav li {
+            display: inline-block; /* inline-block으로 설정하여 항목들이 옆으로 나열되게 함 */
+            margin-right: 20px; /* 각 항목들 사이의 간격 조절 */
+        }
+        nav li:last-child {
+            margin-right: 0; /* 마지막 항목의 오른쪽 마진을 0으로 설정하여 여백 제거 */
+        }
+        nav li a {
+            padding: 0;
+            text-decoration: none;
+            color: white;
+            display: block; /* 링크를 블록 요소로 변경하여 전체 항목 영역을 클릭 가능하게 함 */
+            position: relative;
+        }
+        nav li img {
+            width: 200px; /* 이미지 크기 조절 */
+            height: 200px;
+            display: block; /* 이미지를 블록 요소로 변경하여 가운데 정렬 */
+            margin: 0 auto; /* 이미지를 수평 가운데 정렬 */
+        }
+
+        nav li span {
+            display: block; /* 블록 요소로 변경하여 텍스트를 아래에 배치 */
+            margin-top: 20px; /* 이미지와 텍스트 사이 간격 조절 */
+        }
+        
+        /* img 관련 */
+        img {
+            transition: transform 0.5s ease; /* transform 속성에 대한 변화를 0.5초 동안 부드럽게 적용합니다. */
+        }
+        img:hover {
+            transform: scale(1.2); /* 마우스를 호버할 때 이미지를 1.2배로 확대합니다. */
+        }
+        </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 style="font-size: 270%;">Introduce 김재완</h1>
+        <button id="showDetails">자세히 보기</button>
+        <div id="details" style="display: none;">
+            <h2 style="color: black;">프론트엔드 개발자(자기 진로 적기)</h2>
+            <p style="color: black;">
+                안녕하세요! 저는 김재완입니다.<br>
+                저는 아직 학생이지만 프로그래밍에 대해 열정과 관심을 가지고 있습니다.<br>
+                현재 프론트엔드를 하고 있습니다<br>
+                잘부탁드립니다!
+            </p>
+        </div>
+    </div>
+
+
+    
+
+    <nav>
+        <ul>
+            <br>
+            <li><a href="menu1.html">
+                <img src="https://media.istockphoto.com/id/1332100919/ko/%EB%B2%A1%ED%84%B0/%EB%82%A8%EC%9E%90-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9E%85%EB%8B%88%EB%8B%A4-%EA%B2%80%EC%9D%80-%EC%83%89-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%82%AC%EB%9E%8C-%EA%B8%B0%ED%98%B8.jpg?s=612x612&w=0&k=20&c=1Yl9GjV828rS9b9v6OZOMaFq_TNAEkhWXU_246cLNrg=" alt="소개">
+                <span style="font-size: 150%; color: white; ">소개</span></a></li>
+            <li><a href="menu2.html">
+                <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F256%2F2235%2F2235919.png&type=sc960_832" alt="프로젝트">
+                <span style="font-size: 150%; color: white; ">프로젝트</span></a></li>
+            <li><a href="menu3.html">
+                <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F180%2F180163.png&type=sc960_832" alt="관련 사이트">
+                <span style="font-size: 150%; color: white; ">관련사이트</span></a></li>
+
+        </ul>
+    </nav>
+
+    <script>
+    var detailsVisible = false; // 초기에는 세부 정보가 숨겨진 상태입니다.
+
+    document.getElementById("showDetails").addEventListener("click", function() {
+        if (!detailsVisible) { // 세부 정보가 보이지 않는 상태일 때
+        document.getElementById("details").style.display = "block"; // 세부 정보를 보이게 합니다.
+        detailsVisible = true; // 세부 정보가 보이는 상태로 변경합니다.
+        document.getElementById("showDetails").innerText = "간단히 보기"; // 버튼 텍스트를 변경합니다.
+        } else { // 세부 정보가 보이는 상태일 때
+        document.getElementById("details").style.display = "none"; // 세부 정보를 숨깁니다.
+        detailsVisible = false; // 세부 정보가 숨겨진 상태로 변경합니다.
+        document.getElementById("showDetails").innerText = "자세히 보기"; // 버튼 텍스트를 변경합니다.
+        }
+    });
+
+    </script>
+</body>
+</html>
+
+
