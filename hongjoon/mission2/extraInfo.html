@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            transition: transform 0.5s ease; /* 이미지 변환에 대한 0.5초의 이징 효과 */
+        }
+
+        img:hover {
+            transform: rotateY(180deg);
+        }
+        .black-button {
+            display: inline-block;
+            background-color: #000; /* 검은색 배경색 */
+            color: #fff; /* 흰색 텍스트색 */
+            padding: 10px 20px; /* 버튼 안 여백 설정 */
+            text-decoration: none; /* 텍스트에 밑줄 제거 */
+            border: none; /* 테두리 제거 */
+            cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능한 상태로 표시 */
+            border-radius: 5px; /* 버튼 모서리를 둥글게 만듦 */
+            transition: transform 0.5s ease; /* 변환에 대한 0.5초의 이징 효과 */
+        }
+        /* 마우스를 올릴 때 버튼 확대 */
+        .black-button:hover {
+            transform: scale(1.1); /* 마우스를 올릴 때 1.1배 확대 */
+        }
+        
+        .popup {
+            display: none; /* 기본적으로 숨겨진 상태 */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 9999; /* 다른 요소 위에 표시되도록 설정 */
+        }
+    </style>
+</head>
+<body>
+    <h1>Extra</h1>
+    <img src="https://media.istockphoto.com/id/1398132096/ko/벡터/물음표-아이콘입니다.jpg?s=612x612&w=0&k=20&c=WdC5VTGtdCpCYaPHAYDoMOPcYeHRBUOIT9ByXYsa7Yo=" alt="이미지 설명">
+    <button class="black-button" onclick="openPopup()">팝업 열기</button>
+
+    <div class="popup" id="popupContent">
+        <h2>이지원에 대한 요약</h2>
+
+        <p>        - 이름: 이지원
+            - 나이: 21
+            - 좋아하는 것 리스트: 강아지, 초콜릿
+            - 싫어하는 것 리스트: 시간낭비
+            - MBTI: ISTP
+            - 별명 리스트: 없어요,,,,.....
+            - 가장 소중한 물건: 바이올린
+            - 인터넷 닉네임: easyone
+            - 일어나자마자 하는 일: 폰
+            - 잠버릇: 이불 뺏기
+            - 스트레스 해소 하는 법 (다수 작성 가능): 잠
+            - 잘 부탁드립니당~~</p>
+        <button onclick="closePopup()">닫기</button>
+    </div>
+    <script>
+        // 팝업 열기 함수
+        function openPopup() {
+            document.getElementById('popupContent').style.display = 'block';
+        }
+
+        // 팝업 닫기 함수
+        function closePopup() {
+            document.getElementById('popupContent').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
