@@ -6,10 +6,6 @@
     <title>Document</title>
 
     <style>
-        a{
-        text-decoration: none; /* #3 */ 
-        color: white /* #3 */
-        }
         /* 헤더 */
         header {
             display: flex;
@@ -19,29 +15,36 @@
 		    padding: 8px 8px; /* #4 */ 
         }
         header nav ul {
-            display:flex; text-align: center;
+            display:flex;
+            text-align: center;
+            list-style:none;
         }
         header nav ul li {
-            padding: 30px 30px; width: 80px;
+            padding: 30px 30px;width: 80px;text-align: center;
         }
         header li:hover {
         background-color: rgb(47, 47, 47); /* #1 */
         border-radius: 4px; /* #2 */
         }
-        ul {
-            list-style:none;
-            text-align: left;
-        }
-        body {
-        margin: 0; /* #2 */
-        } 
-        h1{
-            word-spacing: 10px;
+        header h1{
             text-align: center; 
             color: white; 
             padding-left: 30px;
         }
+        a{
+        text-decoration: none; /* #3 */ 
+        color: white /* #3 */
+        }
 
+        /* body */
+        body {
+        margin: 0; /* #2 */
+        background-color: black;
+        }
+
+        h1{
+            word-spacing: 10px;
+        }
         
     </style>
 
@@ -60,4 +63,19 @@
     </header>
 
 </body>
+<script>
+    var detailsVisible = false; // 초기에는 세부 정보가 숨겨진 상태입니다.
+
+    document.getElementById("showDetails").addEventListener("click", function() {
+        if (!detailsVisible) { // 세부 정보가 보이지 않는 상태일 때
+        document.getElementById("details").style.display = "block"; // 세부 정보를 보이게 합니다.
+        detailsVisible = true; // 세부 정보가 보이는 상태로 변경합니다.
+        document.getElementById("showDetails").innerText = "숨기기"; // 버튼 텍스트를 변경합니다.
+        } else { // 세부 정보가 보이는 상태일 때
+        document.getElementById("details").style.display = "none"; // 세부 정보를 숨깁니다.
+        detailsVisible = false; // 세부 정보가 숨겨진 상태로 변경합니다.
+        document.getElementById("showDetails").innerText = "요약"; // 버튼 텍스트를 변경합니다.
+        }
+    });
+</script>
 </html>
