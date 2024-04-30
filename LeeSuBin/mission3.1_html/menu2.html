@@ -60,8 +60,16 @@
         div div p{
             color: rgb(255, 255, 255);
         }
-        /* nav */
         
+        /* nav */
+        /* 그냥 nav에 글자 크기 바꾸고 싶은데 다른곳에 있는 nav까지 변동됨 */
+        div nav li {
+            transition: transform 0.5s ease; /* transform 속성에 대한 변화를 0.5초 동안 부드럽게 적용합니다. */
+        }
+        
+        div nav li:hover {
+            transform: scale(1.2); /* 마우스를 호버할 때 이미지를 1.2배로 확대합니다. */
+        }
 
 
         
@@ -89,11 +97,13 @@
                 2024.03.20 ~ 2024.06.04: 웹 프론트엔드 스터디 및 토이 플젝
             </p>
         </div>
+        <nav style="font-size: larger;">
+            <br><li><a href="https://example.com/project1">2024.03.20 ~ 2024.06.04: 웹 프론트엔드 스터디 및 토이 플젝</a></li><br>
+        </nav>
     </div>
+    
 
-    <nav style="font-size: larger;">
-        <li><a href="https://example.com/project1">2024.03.20 ~ 2024.06.04: 웹 프론트엔드 스터디 및 토이 플젝</a></li><br>
-    </nav>
+    
 
 
 </body>
