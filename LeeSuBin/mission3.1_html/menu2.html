@@ -59,6 +59,16 @@
             <h1>
                 최근 프로젝트
             </h1>
+            <button id="showDetails">요약</button>
+            <div id="details" style="display: none;">
+                <h2 style="color: rgb(255, 255, 255);">프로젝트 요약</h2>
+                <p style="color: rgb(255, 255, 255);">
+                2024.03.20 ~ 2024.06.04:<br> 웹 프론트엔드 스터디 및 토이 플젝<br>
+                :https://example.com/project1<br><br>
+                2024.06.20 ~ 2025.01.01:<br> 프로젝트1<br>
+                :https://blog.naver.com/sona_ta/80143292237
+                </p>
+            </div>
             <nav style="font-size: larger;">
                 <li><a href="https://example.com/project1" target="n_call">2024.03.20 ~ 2024.06.04:<br> 웹 프론트엔드 스터디 및 토이 플젝</a></li><br>
                 <li><a href="https://blog.naver.com/sona_ta/80143292237" target="n_call">2024.06.20 ~ 2025.01.01:<br> 프로젝트1</a></li><br>
@@ -70,4 +80,19 @@
     </div>
 
 </body>
+<script>
+    var detailsVisible = false; // 초기에는 세부 정보가 숨겨진 상태입니다.
+    
+    document.getElementById("showDetails").addEventListener("click", function() {
+        if (!detailsVisible) { // 세부 정보가 보이지 않는 상태일 때
+        document.getElementById("details").style.display = "block"; // 세부 정보를 보이게 합니다.
+        detailsVisible = true; // 세부 정보가 보이는 상태로 변경합니다.
+        document.getElementById("showDetails").innerText = "숨기기"; // 버튼 텍스트를 변경합니다.
+        } else { // 세부 정보가 보이는 상태일 때
+        document.getElementById("details").style.display = "none"; // 세부 정보를 숨깁니다.
+        detailsVisible = false; // 세부 정보가 숨겨진 상태로 변경합니다.
+        document.getElementById("showDetails").innerText = "요약"; // 버튼 텍스트를 변경합니다.
+        }
+    });
+    </script>
 </html>
