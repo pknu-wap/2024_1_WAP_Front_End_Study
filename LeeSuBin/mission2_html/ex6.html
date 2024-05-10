@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            background-color: rgb(0, 0, 0); 
+            color: white; 
+            display: flex; /* 화면을 가운데로 정렬하기 위해 flex를 사용합니다. */
+            justify-content: center; /* 수평 가운데 정렬 */
+            align-items: center; /* 수직 가운데 정렬 */
+            height: 100vh; /* 화면의 전체 높이를 차지하도록 설정합니다. */
+            margin: 0; /* body의 margin을 0으로 설정합니다. */
+        }
+        
+        #description {
+            display: none; /* 처음에는 설명이 숨겨져 있도록 설정합니다. */
+            text-align: left; /* 텍스트를 왼쪽 정렬합니다. */
+            padding: 20px; /* 내용 주위에 여백을 추가합니다. */
+        }
+
+        label {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease; /* 배경색 변화에 대한 전환 효과를 추가합니다. */
+        }
+
+        label:hover {
+            background-color: #0056b3; /* 마우스 호버 시 배경색이 진하게 변합니다. */
+        }
+    </style>
+    <title>내 소개</title>
+</head>
+<body>
+    <label onclick="toggleDescription()">내 소개 보기</label>
+    <div id="description">
+        <p>안녕하세요! 제 이름은 김재완입니다.</p>
+        <p>웹 개발을 공부하고 있으며 프론트엔드와 백엔드 모두에 관심이 있습니다.</p>
+        <p>새로운 기술을 배우는 것을 즐기고, 항상 더 나은 개발자가 되기 위해 노력합니다.</p>
+        <p>팀으로 일하는 것을 좋아하며 협업에 능숙합니다.</p>
+        <p>감사합니다!</p>
+    </div>
+
+    <script>
+        function toggleDescription() {
+            var description = document.getElementById("description");
+            if (description.style.display === "none") {
+                description.style.display = "block";
+            } else {
+                description.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+

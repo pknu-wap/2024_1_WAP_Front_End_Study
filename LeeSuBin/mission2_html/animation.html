@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            background-color: rgb(0, 0, 0); 
+            color: white; 
+            display: flex; /* 화면을 가운데로 정렬하기 위해 flex를 사용합니다. */
+            justify-content: center; /* 수평 가운데 정렬 */
+            align-items: center; /* 수직 가운데 정렬 */
+            height: 100vh; /* 화면의 전체 높이를 차지하도록 설정합니다. */
+            margin: 0; /* body의 margin을 0으로 설정합니다. */
+        }
+        
+        img {
+            transition: transform 0.5s ease; /* transform 속성에 대한 변화를 0.5초 동안 부드럽게 적용합니다. */
+        }
+        
+        img:hover {
+            transform: scale(1.2); /* 마우스를 호버할 때 이미지를 1.2배로 확대합니다. */
+        }
+    </style>
+    <title>Transition Animation</title>
+</head>
+<body>
+    <img src="/img_html5_logo.png" alt="HTML5 Logo">
+</body>
+</html>

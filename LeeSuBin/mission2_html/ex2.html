@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 홈페이지</title>
+    <style>
+        body { background-color: rgb(0, 0, 0); color:rgb(255, 255, 255);}
+        nav {
+			background-color: black;
+			color: white;
+			width: 200px;
+			padding: 30px;
+			border: 10px solid white;
+			margin: 10px;
+		}
+        /* 여기에 CSS 스타일을 추가하세요 */
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>introduce 김재완</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="scrollToSection('소개')">소개</a></li>
+                <li><a href="#" onclick="scrollToSection('프로젝트')">프로젝트</a></li>
+                <li><a href="#" onclick="scrollToSection('관련 사이트')">관련 사이트</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="소개">
+            <h2>소개</h2>
+            <p>
+                이름:김재환<br>
+                나이:2005년생<br>
+                이력:dddddd<br>
+            </p>
+        </section>
+
+        <section id="프로젝트">
+            <h2>프로젝트</h2>
+            <p>
+                <a href="https://example.com/project1">2024.03.20 ~ 2024.06.04: 웹 프론트엔드 스터디 및 토이 플젝</a><br>
+                <a href="https://example.com/project2">2023.00.00 ~ 2023.00.00: 난 모름 알아서 적으셈</a><br>
+            </p>
+        </section>
+
+        <section id="관련 사이트">
+            <h2>관련 사이트</h2>
+            <p>
+                <a href="https://example.com/project1">깃허브</a><br>
+                <a href="https://example.com/project1">노션</a><br>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 wap 프로젝트</p>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>메뉴 2</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>body { background-color: rgb(0, 0, 0); color: white; }
+            nav { 
+                text-align:center; 
+                line-height:60px;
+            }
+            
+            img {
+                transition: transform 0.5s ease; /* transform 속성에 대한 변화를 0.5초 동안 부드럽게 적용합니다. */
+            }
+            
+            img:hover {
+                transform: scale(1.2); /* 마우스를 호버할 때 이미지를 1.2배로 확대합니다. */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 style="font-size: 270%;">프로젝트</h1>
+            <button id="showDetails">요약</button>
+            <div id="details" style="display: none;">
+                <h2 style="color: black;">프로젝트 요약</h2>
+                <p style="color: black;">
+                    2024.03.20 ~ 2024.06.04: 웹 프론트엔드 스터디 및 토이 플젝
+                </p>
+            </div>
+        </div>
+
+        <nav style="font-size: larger;">
+            <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F256%2F2235%2F2235919.png&type=sc960_832" width="150" height="200"><br>
+            <li><a href="https://example.com/project1">2024.03.20 ~ 2024.06.04: 웹 프론트엔드 스터디 및 토이 플젝</a></li><br>
+        </nav>
+    
+    </body>
+    <script>
+    var detailsVisible = false; // 초기에는 세부 정보가 숨겨진 상태입니다.
+
+    document.getElementById("showDetails").addEventListener("click", function() {
+        if (!detailsVisible) { // 세부 정보가 보이지 않는 상태일 때
+        document.getElementById("details").style.display = "block"; // 세부 정보를 보이게 합니다.
+        detailsVisible = true; // 세부 정보가 보이는 상태로 변경합니다.
+        document.getElementById("showDetails").innerText = "숨기기"; // 버튼 텍스트를 변경합니다.
+        } else { // 세부 정보가 보이는 상태일 때
+        document.getElementById("details").style.display = "none"; // 세부 정보를 숨깁니다.
+        detailsVisible = false; // 세부 정보가 숨겨진 상태로 변경합니다.
+        document.getElementById("showDetails").innerText = "요약"; // 버튼 텍스트를 변경합니다.
+        }
+    });
+    </script>
+</html>
