@@ -29,11 +29,13 @@
 
 </aside>
 <br>
+<br>
 
 <aside>
 🤑 지각은 무조건 1000원!
 
 </aside>
+<br>
 <br>
 
 <aside>
@@ -43,6 +45,7 @@
 - 오늘 기분이 ~하다 ☕
 - 등 하고 싶은 말 🗣️
 </aside>
+<br>
 <br>
 
 <aside>
