@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Title from './styledComponents/Title';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -9,7 +10,7 @@ function Square({ value, onSquareClick }) {
 }
 
 function Board({ xIsNext, squares, onPlay }) {
-  function handleClick(i) {
+    function handleClick(i) {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -32,6 +33,7 @@ function Board({ xIsNext, squares, onPlay }) {
 
   return (
     <>
+      <Title>안녕</Title>
       <div className="status">{status}</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Title from './styledComponents/Title';
 function Square() {
   const [value, setValue] = useState(null);
   
@@ -7,6 +8,8 @@ function Square() {
   }
 
   return (
+    
+
     <button
       className="square"
       onClick={handleClick}
@@ -19,6 +22,7 @@ function Square() {
 export default function Board() {
   return (
     <>
+      <Title>이수빈</Title>
       <div className="board-row">
         <Square />
         <Square />
