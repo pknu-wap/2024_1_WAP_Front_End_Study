@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import React, { styledComponents } from 'react';
+import Title from './styledComponents/Title';
+
 
 function Square({ value, onSquareClick }) {
   return (
@@ -25,14 +28,16 @@ function Board({ xIsNext, squares, onPlay }) {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = '승자는: ' + winner;
   } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    status = '순서: ' + (xIsNext ? 'X' : 'O');
   }
 
   return (
     <>
-      <Title>안녕</Title>
+      <div>
+        <Title>틱택토</Title>
+      </div>
       <div className="status">{status}</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
@@ -76,9 +81,9 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      description = move+'번째';
     } else {
-      description = 'Go to game start';
+      description = '시작!!';
     }
     return (
       <li key={move}>

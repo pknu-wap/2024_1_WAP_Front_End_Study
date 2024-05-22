@@ -1,8 +1,8 @@
 import React from 'react';
-import UsePromiseSample from './UsePromiseSample';
+import UsePromise from './usePromise';
 
 const App = () => {
-  return <UsePromiseSample/>
+  return <UsePromise/>
 };
 
 export default App;
