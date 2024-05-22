@@ -51,6 +51,7 @@ ul {
 }
 
 body {
+  background-color:#40696e;
   font-family: "Jua", sans-serif;
   margin: 20px;
   padding: 0;
@@ -65,14 +66,14 @@ body {
 .square {
   font-family: "Jua", sans-serif;
   background: #fff;
-  border: 2px solid #999;
+  border: 10px solid #213538;
   float: right;  font-size: 100px;
-  color:red;
+  color:#68a6af;
   line-height: 34px;
   height: 200px;
   width: 200px;
-  margin-right: -2px;
-  margin-top: -2px;
+  margin-right: -10px;
+  margin-top: -10px;
   padding: 0;
   text-align: center;
 }
@@ -98,4 +99,5 @@ body {
 .game-info {
   margin-left: 20px;
 }
+
 
