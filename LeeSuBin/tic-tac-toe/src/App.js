@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Title from './styledComponents/Title';
 
 function Square({ value, onSquareClick }) {
   return (
