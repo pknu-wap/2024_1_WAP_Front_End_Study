@@ -1,0 +1,11 @@
+<HTML>
+    <BODY>
+        <form name='test_form'>
+            <textarea name='content' cols=50 rows=10>우리는 민족중흥의 역사적 사명을 띠고...</textarea><br>
+            <iframe name="test_frame" width=300 height=100 src='test.htm'></iframe>
+            <input type='button' value='내용보이기' onClick='frames.test_frame.document.body.innerHTML=test_form.content.value'>
+        </form>
+    </BODY>
+    <SCRIPT LANGUAGE="JavaScript">
+    </SCRIPT>
+</HTML>

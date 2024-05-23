@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /*header*/
+        ul {
+        list-style:none;
+        text-align: left;
+        }
+        /* body */
+        body {
+        margin: 0; /* #2 */
+        background-color: black;
+        text-align: center;
+        }
+
+        h1{
+        word-spacing: 10px;
+        }
+        /* div */
+        div h1{
+            color: rgb(255, 255, 255);
+            font-size: 270%;
+        }
+        div div{
+            display: none;
+        }
+        div div h2{
+            color: rgb(255, 255, 255);
+        }
+        div div p{
+            color: rgb(255, 255, 255);
+        }
+        
+        /* nav */
+        /* 그냥 nav에 글자 크기 바꾸고 싶은데 다른곳에 있는 nav까지 변동됨 */
+        div nav li {
+            transition: transform 0.5s ease; /* transform 속성에 대한 변화를 0.5초 동안 부드럽게 적용합니다. */
+        }
+        
+        div nav li:hover {
+            transform: scale(1.2); /* 마우스를 호버할 때 이미지를 1.2배로 확대합니다. */
+        }
+
+
+        
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1> introduce 김재완</h1>
+    	<nav>
+    		<ul>
+    			<li><a href="index.html">메인화면</a></li>
+    			<li><a href="menu1.html">자기소개</a></li>
+    			<li><a href="menu2.html">프로젝트</a></li>
+    			<li><a href="menu3.html">관련사이트</a></li>
+    		</ul>
+    	</nav>
+    </header>
+    <div class="container">
+        <h1>프로젝트</h1>
+        <button id="showDetails">요약</button>
+        <div id="details">
+            <h2>프로젝트 요약</h2>
+            <p>
+                2024.03.20 ~ 2024.06.04: 웹 프론트엔드 스터디 및 토이 플젝
+            </p>
+        </div>
+        <nav style="font-size: larger;">
+            <br><li><a href="https://example.com/project1">2024.03.20 ~ 2024.06.04: 웹 프론트엔드 스터디 및 토이 플젝</a></li><br>
+        </nav>
+    </div>
+    
+
+    
+
+
+</body>
+<script>
+    var detailsVisible = false; // 초기에는 세부 정보가 숨겨진 상태입니다.
+
+    document.getElementById("showDetails").addEventListener("click", function() {
+        if (!detailsVisible) { // 세부 정보가 보이지 않는 상태일 때
+        document.getElementById("details").style.display = "block"; // 세부 정보를 보이게 합니다.
+        detailsVisible = true; // 세부 정보가 보이는 상태로 변경합니다.
+        document.getElementById("showDetails").innerText = "숨기기"; // 버튼 텍스트를 변경합니다.
+        } else { // 세부 정보가 보이는 상태일 때
+        document.getElementById("details").style.display = "none"; // 세부 정보를 숨깁니다.
+        detailsVisible = false; // 세부 정보가 숨겨진 상태로 변경합니다.
+        document.getElementById("showDetails").innerText = "요약"; // 버튼 텍스트를 변경합니다.
+        }
+    });
+</script>
+</html>

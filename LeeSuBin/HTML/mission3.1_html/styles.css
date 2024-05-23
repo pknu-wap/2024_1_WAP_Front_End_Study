@@ -1,0 +1,33 @@
+/* 헤더 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: rgb(0, 0, 0); /* #1 */
+    padding: 8px 8px; /* #4 */ 
+}
+header h1{
+    word-spacing: 10px;
+    text-align: center; 
+    color: white; 
+    padding-left: 30px;
+}
+header nav ul {
+    display:flex; text-align: center;
+}
+header nav ul li {
+    padding: 30px 30px; 
+    width: 80px;
+}
+header li:hover {
+background-color: rgb(47, 47, 47); /* #1 */
+border-radius: 4px; /* #2 */
+}
+
+
+a{ /* #3 */ 
+color: white /* #3 */
+}
+a{
+    text-decoration: none;
+}
