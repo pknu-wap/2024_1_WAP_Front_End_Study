@@ -51,14 +51,15 @@
   }
   
   body {
+    background-color: rgb(95, 104, 134);
     font-family: sans-serif;
     margin: 20px;
     padding: 0;
   }
   
   .square {
-    background: #fff;
-    border: 1px solid #999;
+    background-color: rgb(95, 104, 134);
+    border: 1px solid #c31d1d;
     float: left;
     font-size: 24px;
     font-weight: bold;
@@ -69,7 +70,8 @@
     padding: 0;
     text-align: center;
     width: 34px;
-  }
+    border-radius: 10px; /* 모서리를 둥글게 */
+  }  
   
   .board-row:after {
     clear: both;

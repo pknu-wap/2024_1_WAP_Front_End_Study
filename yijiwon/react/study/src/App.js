@@ -1,9 +1,20 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import './App.css';
 import Title from './components/Title';
 
-function Square({value, onSquareClick}) {
+function Square({ value, onSquareClick }) {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (value) {
+      setAnimate(true);
+      const timeout = setTimeout(() => setAnimate(false), 300); // 애니메이션 시간에 맞춰 타이머 설정
+      return () => clearTimeout(timeout);
+    }
+  }, [value]);
+
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button className={`square ${animate ? 'animate' : ''}`} onClick={onSquareClick}>
       {value}
     </button>
   );
