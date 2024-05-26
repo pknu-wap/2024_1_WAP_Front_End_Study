@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-function Ji() {
+function Ji({refs}) {
   return (
     <main>
-      <section id="ji">
+      <section id="ji" ref={refs?.jiRef}>
         <br/>
         <br/>
         <br/>

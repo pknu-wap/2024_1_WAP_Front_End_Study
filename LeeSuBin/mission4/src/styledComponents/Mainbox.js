@@ -6,14 +6,15 @@ import Su from './mainbox/Su';
 import Ji from './mainbox/Ji';
  // 스타일을 위한 CSS 파일을 임포트합니다.
 
-function Mainbox() {
+ function Mainbox({ mainRef, ideaRef, jaeRef, suRef, jiRef }){
+
   return (
     <div className="Mainbox">
-        <Main />
-        <Idea />
-        <Jae />
-        <Su />
-        <Ji />
+      <Main ref={{ mainRef }} />
+      <Idea ref={{ ideaRef }} />
+      <Jae ref={{ jaeRef }} />
+      <Su ref={{ suRef }} />
+      <Ji ref={{ jiRef }} />
     </div>
   );
 }

@@ -14,6 +14,11 @@ h2{
 
 button{
     font-family: "Nanum Myeongjo", serif;
+    height: 40px;
+    width: 70px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
 }
 
 Header{

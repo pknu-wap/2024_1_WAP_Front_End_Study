@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-function Jae() {
+function Jae({refs}) {
   return (
     <main>
-      <section id="Jae">
+      <section id="jae" ref={refs?.jaeRef}>
         <br/>
         <br/>
         <br/>

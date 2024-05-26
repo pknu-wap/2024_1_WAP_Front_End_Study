@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles.css';
 import '../index.css';
 
-function Header() {
+function Header({ scrollToSection }) {
   return (
     <header>
       <br/>
@@ -11,11 +11,11 @@ function Header() {
       </button>
       <nav>
         <ul>
-          <button style={{float:'right'}}><a href="#ji">Jiwon</a></button>
-          <button style={{float:'right'}}><a href="#su">Subin</a></button>
-          <button style={{float:'right'}}><a href="#Jae">Jaewan</a></button>
-          <button style={{float:'right'}}><a href="#idea">idea</a></button>
-          <button style={{float:'right'}}><a href="#main">main</a></button>
+          <button style={{float:'right'}} onClick={() => scrollToSection('ji')}>Jiwon</button>
+          <button style={{float:'right'}} onClick={() => scrollToSection('su')}>Subin</button>
+          <button style={{float:'right'}} onClick={() => scrollToSection('jae')}>Jaewan</button>
+          <button style={{float:'right'}} onClick={() => scrollToSection('idea')}>idea</button>
+          <button style={{float:'right'}} onClick={() => scrollToSection('main')}>main</button>
           <br/>
         </ul>
       </nav>

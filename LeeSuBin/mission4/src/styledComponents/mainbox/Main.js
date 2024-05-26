@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-function Main() {
+function Main({refs}) {
   return (
     <main>
-      <section id="main">
+      <section id="main" ref={refs?.mainRef}>
         <br/>
         <br/>
         <br/>
@@ -13,12 +13,13 @@ function Main() {
         <br/>
         <br/>
         <br/>
-        <h2>main</h2>
-        <p>Welcome to the homepage!</p>
+        <h2>Main</h2>
+        <p>Main</p>
       </section>
     </main>
   );
 }
 
 export default Main;
+
 

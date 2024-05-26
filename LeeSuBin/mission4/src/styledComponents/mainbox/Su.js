@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-function Su() {
+function Su({ refs }) {
   return (
     <main>
-      <section id="su">
+      <section id="su" ref={refs?.suRef}>
         <br/>
         <br/>
         <br/>
