@@ -4,8 +4,17 @@ function Ji() {
   return (
     <main>
       <section id="ji">
-        <h2>Ji</h2>
-        <p>Ji</p>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h2>Jiwon</h2>
+        <p>Jiwon's story</p>
       </section>
     </main>
   );

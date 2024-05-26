@@ -3,9 +3,18 @@ import React from 'react';
 function Jae() {
   return (
     <main>
-      <section id="jae">
-        <h2>Jae</h2>
-        <p>Jae</p>
+      <section id="Jae">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h2>Jaewan</h2>
+        <p>Jaewan's story</p>
       </section>
     </main>
   );

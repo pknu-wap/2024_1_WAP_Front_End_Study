@@ -4,8 +4,17 @@ function Su() {
   return (
     <main>
       <section id="su">
-        <h2>Su</h2>
-        <p>Su</p>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h2>Subin</h2>
+        <p>Subin's story</p>
       </section>
     </main>
   );

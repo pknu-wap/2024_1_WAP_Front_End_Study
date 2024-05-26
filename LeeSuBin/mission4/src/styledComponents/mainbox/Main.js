@@ -5,6 +5,14 @@ function Main() {
     <main>
       <section id="main">
         <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <h2>main</h2>
         <p>Welcome to the homepage!</p>
       </section>

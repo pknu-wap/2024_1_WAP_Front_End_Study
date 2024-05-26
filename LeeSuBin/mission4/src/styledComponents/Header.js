@@ -11,8 +11,8 @@ function Header() {
       </button>
       <nav>
         <ul>
-          <button style={{float:'right'}}><a href="#Ji">Jiwon</a></button>
-          <button style={{float:'right'}}><a href="#Su">Subin</a></button>
+          <button style={{float:'right'}}><a href="#ji">Jiwon</a></button>
+          <button style={{float:'right'}}><a href="#su">Subin</a></button>
           <button style={{float:'right'}}><a href="#Jae">Jaewan</a></button>
           <button style={{float:'right'}}><a href="#idea">idea</a></button>
           <button style={{float:'right'}}><a href="#main">main</a></button>
