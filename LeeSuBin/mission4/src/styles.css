@@ -1,6 +1,26 @@
+
+
 .custom-button{
     height: 100px;
     width: 1000px;
     font-size: 40px;
-    color: #4296a3;
+    color: #cee0e3;
+    font-family: "Nanum Myeongjo", serif;
+    background-color: #1d4247;
+    border: 0px 
 }
+
+button{
+    font-family: "Nanum Myeongjo", serif;
+}
+
+Header{
+    background-color: #1d4247a4;
+    
+}
+
+.nanum-myeongjo-regular {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-style: normal;
+  }

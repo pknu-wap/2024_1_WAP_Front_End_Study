@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles.css';
-
+import '../index.css';
 
 function Header() {
   return (
@@ -11,11 +11,11 @@ function Header() {
       </button>
       <nav>
         <ul>
-          <ul style={{float:'right'}}><a href="#ji">Jiwon</a></ul>
-          <ul style={{float:'right'}}><a href="#Su">Subin</a></ul>
-          <ul style={{float:'right'}}><a href="#Jae">Jaewan</a></ul>
-          <ul style={{float:'right'}}><a href="#idea">idea</a></ul>
-          <ul style={{float:'right'}}><a href="#main">main</a></ul>
+          <button style={{float:'right'}}><a href="#Ji">Jiwon</a></button>
+          <button style={{float:'right'}}><a href="#Su">Subin</a></button>
+          <button style={{float:'right'}}><a href="#Jae">Jaewan</a></button>
+          <button style={{float:'right'}}><a href="#idea">idea</a></button>
+          <button style={{float:'right'}}><a href="#main">main</a></button>
           <br/>
         </ul>
       </nav>

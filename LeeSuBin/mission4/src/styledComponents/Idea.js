@@ -1,15 +1,14 @@
 import React from 'react';
 
-function Main() {
+function Idea() {
   return (
     <main>
-      <section id="main">
-        <h2>main</h2>
+      <section id="idea">
+        <h2>idea</h2>
         <p>Welcome to the homepage!</p>
       </section>
     </main>
   );
 }
 
-export default Main;
-
+export default Idea;
