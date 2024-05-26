@@ -1,13 +1,9 @@
 import React from 'react';
-import './App.css';
 import Header from './styledComponents/Header';
-import Main from './styledComponents/Main';
-import Idea from './styledComponents/Idea';
-import Jae from './styledComponents/Jae';
-import Su from './styledComponents/Su';
-import Ji from './styledComponents/Ji';
 import Footer from './styledComponents/Footer';
+import Mainbox from './styledComponents/Mainbox';
 import './styles.css';
+import './App.css';
 
 
 
@@ -18,11 +14,7 @@ function App() {
     <>
       <div className="App">
         <Header />
-        <Main />
-        <Idea />
-        <Jae />
-        <Su />
-        <Ji />
+        <Mainbox/>
         <Footer />
       </div>
     </>

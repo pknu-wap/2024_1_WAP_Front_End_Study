@@ -1,4 +1,6 @@
-
+h2{
+    font-family: "Nanum Myeongjo", serif;
+}
 
 .custom-button{
     height: 100px;
@@ -16,6 +18,11 @@ button{
 
 Header{
     background-color: #1d4247a4;
+    position: sticky;
+    top: 0px; /* 도달했을때 고정시킬 위치 */
+    padding: 5px;
+    border: 1px;
+    z-index: 10;
     
 }
 
@@ -24,3 +31,12 @@ Header{
     font-weight: 400;
     font-style: normal;
   }
+
+.Mainbox {
+    width: 1300px; /* 사각형의 너비 */
+    height: 3000px; /* 사각형의 높이 */
+    background-color: #132b2e; /* 사각형의 배경 색상 */
+    border: 0px; /* 사각형의 테두리 */
+    margin: auto;
+    color: #e3f6f9;
+}

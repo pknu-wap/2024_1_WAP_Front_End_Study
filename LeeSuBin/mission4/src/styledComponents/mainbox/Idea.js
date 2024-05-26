@@ -4,8 +4,8 @@ function Idea() {
   return (
     <main>
       <section id="idea">
-        <h2>idea</h2>
-        <p>Welcome to the homepage!</p>
+        <h2>Idea</h2>
+        <p>toy project 아이디어 공간</p>
       </section>
     </main>
   );
