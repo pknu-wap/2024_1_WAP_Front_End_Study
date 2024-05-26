@@ -10,11 +10,11 @@ import Ji from './mainbox/Ji';
 
   return (
     <div className="Mainbox">
-      <Main ref={{ mainRef }} />
-      <Idea ref={{ ideaRef }} />
-      <Jae ref={{ jaeRef }} />
-      <Su ref={{ suRef }} />
-      <Ji ref={{ jiRef }} />
+      <div ref={mainRef}><Main/></div>
+      <div ref={ideaRef}><Idea/></div>
+      <div ref={jaeRef}><Jae/></div>
+      <div ref={suRef}><Su/></div>
+      <div ref={jiRef}><Ji/></div>
     </div>
   );
 }
