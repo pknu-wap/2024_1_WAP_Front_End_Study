@@ -1,0 +1,43 @@
+#home {
+    padding: 100px 100px 150px 100px;
+    background: #d4c8c8;
+    text-align: center;
+    
+  }
+  button {
+    padding: 30px 60px;
+    cursor: pointer;
+    background-color: white;
+    margin-top: 100px;
+    border-radius: 12px; 
+    border: none;
+    font-size: 30px;
+    font-weight: bold
+  }
+  button:hover{
+    color: #d4c8c8;
+    transition: 0.3;
+
+  }
+ 
+  
+  .fade-in-section {
+    opacity: 0;
+    transition: opacity 2s ease-in;
+  }
+  
+  .fade-in-section.visible {
+    opacity: 1;
+  }
+  
+  
+  #home h1 {
+    font-size: 5em;
+    margin-top: 100px;
+    
+  }
+  
+  #home p {
+    font-size: 1.2em;
+  }
+  
