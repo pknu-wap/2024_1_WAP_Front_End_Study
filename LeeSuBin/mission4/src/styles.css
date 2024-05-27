@@ -12,7 +12,59 @@ h2{
     border: 0px 
 }
 
-button{
+.ji-button{
+    font-family: "Nanum Myeongjo", serif;
+    height: 40px;
+    width: 70px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
+    color: #e3f6f9;
+    background-color: #132b2e;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.su-button{
+    font-family: "Nanum Myeongjo", serif;
+    height: 40px;
+    width: 70px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
+    color: #e3f6f9;
+    background-color: #132b2e;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.jae-button{
+    font-family: "Nanum Myeongjo", serif;
+    height: 40px;
+    width: 70px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
+    color: #e3f6f9;
+    background-color: #132b2e;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.idea-button{
+    font-family: "Nanum Myeongjo", serif;
+    height: 40px;
+    width: 70px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
+    color: #e3f6f9;
+    background-color: #132b2e;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.main-button{
     font-family: "Nanum Myeongjo", serif;
     height: 40px;
     width: 70px;
@@ -56,4 +108,11 @@ html {
 
 main{
     margin-top: -183px;
+}
+
+.im-button{
+    background-image: url('img/eximg.jpg');
+    height: 400px;
+    width: 350px;
+    border: 0px;
 }

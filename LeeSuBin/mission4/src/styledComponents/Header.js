@@ -11,11 +11,11 @@ function Header({ scrollToSection }) {
       </button>
       <nav>
         <ul>
-          <button style={{float:'right'}} onClick={() => scrollToSection('ji')}>Jiwon</button>
-          <button style={{float:'right'}} onClick={() => scrollToSection('su')}>Subin</button>
-          <button style={{float:'right'}} onClick={() => scrollToSection('jae')}>Jaewan</button>
-          <button style={{float:'right'}} onClick={() => scrollToSection('idea')}>idea</button>
-          <button style={{float:'right'}} onClick={() => scrollToSection('main')}>main</button>
+          <button className='ji-button' style={{float:'right'}} onClick={() => scrollToSection('ji')}>Jiwon</button>
+          <button className='su-button' style={{float:'right'}} onClick={() => scrollToSection('su')}>Subin</button>
+          <button className='jae-button' style={{float:'right'}} onClick={() => scrollToSection('jae')}>Jaewan</button>
+          <button className='idea-button' style={{float:'right'}} onClick={() => scrollToSection('idea')}>idea</button>
+          <button className='main-button' style={{float:'right'}} onClick={() => scrollToSection('main')}>main</button>
           <br/>
         </ul>
       </nav>
