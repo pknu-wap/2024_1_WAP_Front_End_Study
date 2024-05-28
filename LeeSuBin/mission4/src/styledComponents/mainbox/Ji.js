@@ -1,5 +1,4 @@
 import React from "react";
-import Fadeji from "./fadein/Fadeji";
 
 function Ji({refs}) {
   return (
@@ -16,7 +15,7 @@ function Ji({refs}) {
         <br/>
         <h2>Jiwon</h2>
       </section>
-      <Fadeji/>
+      <button className="jiim-button"></button>
     </main>
   );
 }

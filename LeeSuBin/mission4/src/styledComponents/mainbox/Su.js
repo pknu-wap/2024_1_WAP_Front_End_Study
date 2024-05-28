@@ -1,6 +1,4 @@
 import React from "react";
-import Fadesu from "./fadein/Fadesu";
-
 
 function Su({ refs }) {
   return (
@@ -16,7 +14,7 @@ function Su({ refs }) {
         <br/>
         <br/>
         <h2>Subin</h2>
-        <Fadesu/>
+        <button className="suim-button"></button>
       </section>
     </main>
   );
