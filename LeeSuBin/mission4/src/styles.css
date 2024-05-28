@@ -130,8 +130,8 @@ main{
     width: 300px;
     border: 0px;
     margin-left: -150px;
-    background-size: cover;
-    position: absolute; /*안하면 이미지 짤림...*/
+    background-size: cover;/*안하면 이미지 짤림...*/
+    position: absolute; 
 }
 
 
@@ -145,38 +145,42 @@ main{
     position: absolute;
 }
 
-.suim-button:focus {
+.suim-button:hover {
     transform: translateX(-200px);
     transition-property: all;
+    transition-delay:0.5s;
     transition-duration: 2s;
 }
 
-.jaeim-button:focus {
+.jaeim-button:hover {
     transform: translateX(-200px);
     transition-property: all;
+    transition-delay:0.5s;
     transition-duration: 2s;
 }
 
-.jiim-button:focus {
+.jiim-button:hover {
     transform: translateX(-200px);
     transition-property: all;
+    transition-delay:0.5s;
     transition-duration: 2s;
+    
 }
 
 .suinformation{
-    color: #e3f6f9;
+    color: #132b2e;
     text-align: left;
     margin-left: 610px;
 }
 
 .jiinformation{
-    color: #e3f6f9;
+    color: #132b2e;
     text-align: left;
     margin-left: 610px;
 }
 
 .jaeinformation{
-    color: #e3f6f9;
+    color: #132b2e;
     text-align: left;
     margin-left: 610px;
    
