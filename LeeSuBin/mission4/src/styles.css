@@ -1,5 +1,6 @@
 h2{
     font-family: "Nanum Myeongjo", serif;
+    text-align: center;
 }
 
 .custom-button{
@@ -115,8 +116,11 @@ main{
     height: 400px;
     width: 300px;
     border: 0px;
+    margin-left: -150px;
     background-size: cover;
+    position: absolute;
 }
+
 
 
 
@@ -125,7 +129,9 @@ main{
     height: 400px;
     width: 300px;
     border: 0px;
-    background-size: cover; /*안하면 이미지 짤림...*/
+    margin-left: -150px;
+    background-size: cover;
+    position: absolute; /*안하면 이미지 짤림...*/
 }
 
 
@@ -134,7 +140,9 @@ main{
     height: 400px;
     width: 300px;
     border: 0px;
+    margin-left: -150px;
     background-size: cover;
+    position: absolute;
 }
 
 .suim-button:focus {
@@ -154,3 +162,27 @@ main{
     transition-property: all;
     transition-duration: 2s;
 }
+
+.suinformation{
+    color: #e3f6f9;
+    text-align: left;
+    margin-left: 610px;
+}
+
+.jiinformation{
+    color: #e3f6f9;
+    text-align: left;
+    margin-left: 610px;
+}
+
+.jaeinformation{
+    color: #e3f6f9;
+    text-align: left;
+    margin-left: 610px;
+   
+}
+
+.jaewrap{
+    position: relative;
+}
+
