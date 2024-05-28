@@ -15,6 +15,7 @@ function Su({ refs }) {
         <br/>
         <h2>Subin</h2>
         <p>Subin's story</p>
+        <button className='suim-button'></button>
       </section>
     </main>
   );

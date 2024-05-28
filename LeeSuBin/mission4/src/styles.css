@@ -110,9 +110,44 @@ main{
     margin-top: -183px;
 }
 
-.im-button{
-    background-image: url('img/eximg.jpg');
+.jaeim-button{
+    background-image: url('img/jae.jpg');
     height: 400px;
-    width: 350px;
+    width: 300px;
     border: 0px;
+    background-size: cover;
+}
+
+.jaeim-button:focus {
+    transform: translateX(-200px);
+    transition-property: all;
+    transition-duration: 2s;
+}
+
+.jiim-button{
+    background-image: url('img/ji.jpg');
+    height: 400px;
+    width: 300px;
+    border: 0px;
+    background-size: cover; /*안하면 이미지 짤림...*/
+}
+
+.jiim-button:focus {
+    transform: translateX(-200px);
+    transition-property: all;
+    transition-duration: 2s;
+}
+
+.suim-button{
+    background-image: url('img/IMG_5409.jpg');
+    height: 400px;
+    width: 300px;
+    border: 0px;
+    background-size: cover;
+}
+
+.suim-button:focus {
+    transform: translateX(-200px);
+    transition-property: all;
+    transition-duration: 2s;
 }

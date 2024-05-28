@@ -15,7 +15,7 @@ function Jae({refs}) {
         <br/>
         <h2>Jaewan</h2>
         <p>Jaewan's story</p>
-        <button className='im-button'></button>
+        <button className='jaeim-button'></button>
       </section>
     </main>
 
