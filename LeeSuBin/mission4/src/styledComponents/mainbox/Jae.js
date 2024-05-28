@@ -1,4 +1,6 @@
 import React from "react";
+import Fadejae from "./fadein/Fadejae";
+
 
 function Jae({refs}) {
   return (
@@ -14,9 +16,8 @@ function Jae({refs}) {
         <br/>
         <br/>
         <h2>Jaewan</h2>
-        <p>Jaewan's story</p>
-        <button className='jaeim-button'></button>
       </section>
+      <Fadejae/>
     </main>
 
     
