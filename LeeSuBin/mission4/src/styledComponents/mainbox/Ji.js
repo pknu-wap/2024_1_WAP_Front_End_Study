@@ -33,13 +33,13 @@ function Ji({ refs }) {
             onClick={handleButtonClick}
           ></button>
           <div className="jiinformation" style={{ color: color  }}>
-            <h3>2005.00.00</h3>
-            <h3>mbti:</h3>
-            <h3>컴퓨터인공지능공학부</h3>
-            <h3>장점:</h3>
+            <h3>2004.02.17</h3>
+            <h3>mbti:ISTP</h3>
+            <h3>전기공학과</h3>
+            <h3>장점: 귀엽다</h3>
             <h3>깃허브:</h3>
             <h3>그동안의 프로젝트</h3>
-            <h4>프로젝트1:설명sdfsgsgdfgsdfgddsddfgsdfgsfgsfds</h4>
+            <h4>프로젝트1:프론트 토이 프로젝트</h4>
             <h4>프로젝트2:설명</h4>
           </div>
         </div>

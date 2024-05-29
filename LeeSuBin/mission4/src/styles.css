@@ -190,3 +190,20 @@ main{
     position: relative;
 }
 
+.move-left{
+    text-align: left;
+    margin-left: 350px;
+    font-size: 15px;
+}
+
+.big{
+    font-size: 23px;
+    font-weight: bolder;
+}
+
+a{
+    text-decoration: underline;
+    color: #e3f6f9;
+    font-weight: bolder; 
+    font-size: 18px;
+}
