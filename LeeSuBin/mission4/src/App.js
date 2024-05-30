@@ -8,6 +8,7 @@ import './App.css';
 
 function App() {
   // useRef를 사용하여 각 섹션을 가리키는 ref를 만듭니다.
+  //이수빈
   const mainRef = useRef(null);
   const ideaRef = useRef(null);
   const jaeRef = useRef(null);
