@@ -80,6 +80,10 @@ body {
   border-radius:8px
 }
 
+.fade-in {
+  opacity: 1;
+  animation: fadeIn ease-in-out 1s;
+}
 
 
 .board-row:after {

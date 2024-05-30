@@ -1,17 +1,23 @@
 import { useState } from 'react';
 import Title from './styledComponents/Title';
+import FadeIn from 'react-fade-in';
 
 
 function Square({ value, onSquareClick }) {
   return (
+    
     <button className="square" onClick={onSquareClick}>
       {value}
     </button>
+    
+    
   );
 }
 
 function Board({ xIsNext, squares, onPlay }) {
+  
     function handleClick(i) {
+    
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -22,8 +28,9 @@ function Board({ xIsNext, squares, onPlay }) {
       nextSquares[i] = 'O';
     }
     onPlay(nextSquares);
+    
   }
-
+  
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
@@ -53,6 +60,7 @@ function Board({ xIsNext, squares, onPlay }) {
       </div>
     </>
   );
+  
 }
 
 export default function Game() {
