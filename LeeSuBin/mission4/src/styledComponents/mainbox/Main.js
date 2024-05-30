@@ -21,5 +21,3 @@ function Main({refs}) {
 }
 
 export default Main;
-
-
