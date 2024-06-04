@@ -16,14 +16,14 @@ function Header() {
             Front-end study webpage
           </button>
         </div>
-        <div>
+        <div class='header-text2'>
           <nav>
               <ul>
-                  <ul className='header-text2'><a href="#ji">jiwon</a></ul>
-                  <ul className='header-text2'><a href="#su">subin</a></ul>
-                  <ul className='header-text2'><a href="#jae">jaewan</a></ul>
-                  <ul className='header-text2'><a href="#idea">idea</a></ul>
-                  <ul className='header-text2'><a href="#main">main</a></ul>
+                  <div class='header-text3'><li ><a href="#ji" >jiwon</a></li></div>
+                  <div class='header-text3'><li ><a href="#su" >subin</a></li></div>
+                  <div class='header-text3'><li ><a href="#jae" >jaewan</a></li></div>
+                  <div class='header-text3'><li ><a href="#idea" >idea</a></li></div>
+                  <div class='header-text3'><li ><a href="#main" >main</a></li></div>
                 <br/>
               </ul>
             </nav>
