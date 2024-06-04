@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef,useState } from 'react';
 import Header from './styledComponents/Header';
 import Mainbox from './styledComponents/Mainbox';
 import './styles.css';
@@ -12,6 +12,7 @@ function App() {
   const jaeRef = useRef(null);
   const suRef = useRef(null);
   const jiRef = useRef(null);
+  const [showAllSections, setShowAllSections] = useState(false);
 
   // scrollToSection 함수를 정의합니다.
   const scrollToSection = (section) => {
@@ -42,7 +43,8 @@ function App() {
       {/* Header 컴포넌트에 scrollToSection 함수를 전달합니다. */}
       <Header scrollToSection={scrollToSection} />
       {/* Mainbox 컴포넌트에 각 섹션을 가리키는 ref를 전달합니다. */}
-      <Mainbox mainRef={mainRef} ideaRef={ideaRef} jaeRef={jaeRef} suRef={suRef} jiRef={jiRef} />
+      <Mainbox mainRef={mainRef} ideaRef={ideaRef} jaeRef={jaeRef} suRef={suRef} jiRef={jiRef} showAllSections={showAllSections} 
+        setShowAllSections={setShowAllSections} />
       
     </div>
     </>
