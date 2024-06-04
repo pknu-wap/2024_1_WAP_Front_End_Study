@@ -1,13 +1,12 @@
 #home {
     padding: 100px 100px 150px 100px;
-    background: #d4c8c8;
     text-align: center;
     
   }
   .mainb {
     padding: 30px 60px;
     cursor: pointer;
-    background-color: white;
+    background-color: #06ABD8;
     margin-top: 100px;
     border-radius: 12px; 
     border: none;
@@ -15,10 +14,11 @@
     font-weight: bold;
     height: 180px;
     width: 300px;
-    color: #d4c8c8;
+    color: #ffffff;
+    position: relative;
   }
   .mainb:hover{
-    color: #d4c8c8;
+    color: #dcecf1;
     transition: 0.3;
 
   }
@@ -37,6 +37,7 @@
   #home h1 {
     font-size: 5em;
     margin-top: 100px;
+    position: relative;
     
   }
   

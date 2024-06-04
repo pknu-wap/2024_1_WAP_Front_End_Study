@@ -1,9 +1,9 @@
 import React from "react";
 
-function Idea({refs}) {
+function Idea() {
   return (
     <main>
-      <section id="idea" ref={refs?.ideaRef}>
+      <section id="idea" >
         <br/>
         <br/>
         <br/>
