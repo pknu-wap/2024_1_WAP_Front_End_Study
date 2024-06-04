@@ -22,10 +22,15 @@ import Ji from './mainbox/Ji';
     </div>
     <div className="Mainbox">
       <div ref={mainRef}><Main/></div>
+      <hr/>
       <div ref={ideaRef}><Idea/></div>
+      <hr/>
       <div ref={jaeRef}><Jae/></div>
+      <hr/>
       <div ref={suRef}><Su/></div>
+      <hr/>
       <div ref={jiRef}><Ji/></div>
+      <hr/>
     </div>
     </>
     </div>

@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import Header from './styledComponents/Header';
-import Footer from './styledComponents/Footer';
 import Mainbox from './styledComponents/Mainbox';
 import './styles.css';
 import './App.css';
@@ -45,7 +44,6 @@ function App() {
       {/* Mainbox 컴포넌트에 각 섹션을 가리키는 ref를 전달합니다. */}
       <Mainbox mainRef={mainRef} ideaRef={ideaRef} jaeRef={jaeRef} suRef={suRef} jiRef={jiRef} />
       
-      <Footer />
     </div>
     </>
     

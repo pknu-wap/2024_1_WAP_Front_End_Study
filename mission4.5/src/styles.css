@@ -177,8 +177,8 @@ main{
     color: #06ABD8;
     text-align: left;
     margin-left: 610px;
+    width: 300px;
 }
-
 .jiinformation{
     color: #06ABD8;
     text-align: left;
@@ -251,3 +251,13 @@ main{
 
 }
 
+.su{
+    background-color: #06ABD8;
+}
+
+hr{
+    background-color: #06ABD8;
+    height : 3px;
+    width: 400px;
+    border : 0;
+}

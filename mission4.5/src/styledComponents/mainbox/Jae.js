@@ -41,12 +41,13 @@ function Jae() {
             <h4>프로젝트1:프론트 토이 프로젝트</h4>
             <h4>프로젝트2:</h4>
           </div>
+          <br/>
         </div>
       </section>
-      <br/>
-      <br/>
+    <br/>
+    <br/>
     </main>
-
+    
     
   );
 }
