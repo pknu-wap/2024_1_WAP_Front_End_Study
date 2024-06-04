@@ -2,23 +2,23 @@ import React from 'react';
 import '../styles.css';
 import '../index.css';
 
-function Header({ scrollToSection }) {
+function Header() {
   return (
     <header>
       <br/>
       <button className="custom-button">
         Front-end study webpage
       </button>
-      <nav>
-        <ul>
-          <button className='ji-button' style={{float:'right'}} onClick={() => scrollToSection('ji')}>Jiwon</button>
-          <button className='su-button' style={{float:'right'}} onClick={() => scrollToSection('su')}>Subin</button>
-          <button className='jae-button' style={{float:'right'}} onClick={() => scrollToSection('jae')}>Jaewan</button>
-          <button className='idea-button' style={{float:'right'}} onClick={() => scrollToSection('idea')}>idea</button>
-          <button className='main-button' style={{float:'right'}} onClick={() => scrollToSection('main')}>main</button>
-          <br/>
-        </ul>
-      </nav>
+        <nav>
+          <ul>
+            <ul><a href="#main">main</a></ul>
+            <ul><a href="#idea">idea</a></ul>
+            <ul><a href="#jae">jaewan</a></ul>
+            <ul><a href="#su">subin</a></ul>
+            <ul><a href="#ji">jiwon</a></ul>
+            <br/>
+          </ul>
+        </nav>
     </header>
   );
 }

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Main.css';
 
 
-function Main({refs}) {
+function Main() {
   const [fadeIn, setFadeIn] = useState(false);
 
    const handleButtonClick = () => {
@@ -11,7 +11,7 @@ function Main({refs}) {
 
   return (
     <main>
-      <section id="main" ref={refs?.mainRef}>
+      <section id="main" >
         <br/>
         <br/>
         <br/>

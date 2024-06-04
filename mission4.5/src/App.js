@@ -38,13 +38,18 @@ function App() {
   };
 
   return (
+    <>
     <div className="App">
       {/* Header 컴포넌트에 scrollToSection 함수를 전달합니다. */}
       <Header scrollToSection={scrollToSection} />
       {/* Mainbox 컴포넌트에 각 섹션을 가리키는 ref를 전달합니다. */}
       <Mainbox mainRef={mainRef} ideaRef={ideaRef} jaeRef={jaeRef} suRef={suRef} jiRef={jiRef} />
+      
       <Footer />
     </div>
+    </>
+    
+    
   );
 }
 

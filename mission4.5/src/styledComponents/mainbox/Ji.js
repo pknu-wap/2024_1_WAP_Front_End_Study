@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 
-function Ji({ refs }) {
-  const [color, setColor] = useState("#d4c8c8"); // 초기 글자 색상을 설정합니다.
+function Ji() {
+  const [color, setColor] = useState("#fff"); // 초기 글자 색상을 설정합니다.
   const [position, setPosition] = useState(0); // 버튼 위치를 관리하는 상태 변수
 
   const handleButtonClick = () => {
-    setColor((prevColor) => (prevColor === "#fff" ? "#d4c8c8" : "#fff"));
+    setColor((prevColor) => (prevColor === "#06ABD8" ? "#fff" : "#06ABD8"));
     setPosition((prevPosition) => (prevPosition === 0 ? -250 : 0));
   };
-
   return (
     <main>
-      <section id="ji" ref={refs?.jiRef}>
+      <section id="ji" >
         <br />
         <br />
         <br />

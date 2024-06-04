@@ -9,6 +9,17 @@ import Ji from './mainbox/Ji';
  function Mainbox({ mainRef, ideaRef, jaeRef, suRef, jiRef }){
 
   return (
+    <div class='body1'>
+    <>
+      <div class='bodyimg'>
+        <img src='img/react.png' alt=""/>
+      </div>
+      <div class='bodyimg2'>
+        <img src='img/react.png' alt=""/>
+    </div>
+    <div class='bodyimg3'>
+        <img src='img/react.png' alt=""/>
+    </div>
     <div className="Mainbox">
       <div ref={mainRef}><Main/></div>
       <div ref={ideaRef}><Idea/></div>
@@ -16,6 +27,10 @@ import Ji from './mainbox/Ji';
       <div ref={suRef}><Su/></div>
       <div ref={jiRef}><Ji/></div>
     </div>
+    </>
+    </div>
+    
+    
   );
 }
 

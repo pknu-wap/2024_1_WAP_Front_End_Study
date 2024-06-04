@@ -1,100 +1,79 @@
 h2{
-    font-family: "Nanum Myeongjo", serif;
+    font-family: "Ubuntu", sans-serif;
     text-align: center;
-    color: #fff;
+    color: #06ABD8;
 }
 
 body{
-    background-color: #d4c8c8;
+    background-color: #ffffff;
 }
 
 .custom-button{
-    height: 100px;
-    width: 1000px;
-    font-size: 40px;
+    height: 50px;
+    width: 700px;
+    float: left;
+    margin-left: 20px;
+    font-size: 50px;
+    background-color: #06ABD8;
     color: #fff;
-    font-family: "Nanum Myeongjo", serif;
-    background-color: #e2d6d6;
+    font-family: "Ubuntu", sans-serif;
     border: 0px 
 }
 
-.ji-button{
-    font-family: "Nanum Myeongjo", serif;
-    height: 40px;
-    width: 70px;
-    font-size: 20px;
-    text-align: center;
-    margin-left: 10px;
-    color: #fff;
-    background-color: #e2d6d6;
-    border: 0px;
-    border-radius: 5px;
+.header-wrap{
+    position: relative;
 }
 
-.su-button{
-    font-family: "Nanum Myeongjo", serif;
-    height: 40px;
-    width: 70px;
-    font-size: 20px;
-    text-align: center;
-    margin-left: 10px;
-    color: #fff;
-    background-color: #e2d6d6;
+.headerimg {
+    background-image: url('img/headerimg2.png');
+    height: 400px;
+    width: 1480px;
     border: 0px;
-    border-radius: 5px;
+    top: -120px;
+    background-size: cover;
+    position: absolute;
+    margin-left: -10px;
 }
 
-.jae-button{
-    font-family: "Nanum Myeongjo", serif;
-    height: 40px;
-    width: 70px;
-    font-size: 20px;
-    text-align: center;
-    margin-left: 10px;
+.header-text{
+    position:absolute;
+    transform: translate(0%,10%);
+}
+.header-text2{
+    position:absolute;
+    transform: translate(0%,50%);
+    text-align: left;
+    text-decoration: underline;
     color: #fff;
-    background-color: #e2d6d6;
-    border: 0px;
-    border-radius: 5px;
+    margin-left: 100px;
+    position:absolute;
+    transform: translate(1000%,10%);
+    text-decoration: none;
 }
 
-.idea-button{
-    font-family: "Nanum Myeongjo", serif;
-    height: 40px;
-    width: 70px;
-    font-size: 20px;
-    text-align: center;
-    margin-left: 10px;
-    color: #fff;
-    background-color: #e2d6d6;
-    border: 0px;
-    border-radius: 5px;
-}
+    
 
-.main-button{
-    font-family: "Nanum Myeongjo", serif;
-    height: 40px;
-    width: 70px;
+a{
+    font-weight: bolder;
     font-size: 20px;
-    text-align: center;
-    margin-left: 10px;
+    font-family: "Ubuntu", sans-serif;
     color: #fff;
-    background-color: #e2d6d6;
-    border: 0px;
-    border-radius: 5px;
+    text-decoration: none;
 }
 
 Header{
     background-color: #d4c8c8;
     position: sticky;
-    top: 0px; /* 도달했을때 고정시킬 위치 */
+    top: -10px; /* 도달했을때 고정시킬 위치 */
     padding: 5px;
     border: 1px;
     z-index: 10;
+    text-decoration-line: none;
     
 }
 
 .nanum-myeongjo-regular {
-    font-family: "Nanum Myeongjo", serif;
+    font-family: "Ubuntu", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
@@ -102,10 +81,13 @@ Header{
 .Mainbox {
     width: 1300px; /* 사각형의 너비 */
     height: 3000px; /* 사각형의 높이 */
-    background-color: #d4c8c8; /* 사각형의 배경 색상 */
+    background-color: #fff; /* 사각형의 배경 색상 */
     border: 0px; /* 사각형의 테두리 */
-    margin: auto;
-    color: #e3f6f9;
+    margin-left: 100px;
+    color: #06ABD8;
+    top:100px;
+    
+    
 }
 
 html {
@@ -124,6 +106,7 @@ main{
     margin-left: -150px;
     background-size: cover;
     position: absolute;
+    border-radius:10px;
 }
 
 
@@ -137,6 +120,7 @@ main{
     margin-left: -150px;
     background-size: cover;/*안하면 이미지 짤림...*/
     position: absolute; 
+    border-radius:10px;
 }
 
 
@@ -148,6 +132,7 @@ main{
     margin-left: -150px;
     background-size: cover;
     position: absolute;
+    border-radius:10px;
 }
 
 .suim-button:hover {
@@ -173,19 +158,20 @@ main{
 }
 
 .suinformation{
-    color: #fff;
+    color: #06ABD8;
     text-align: left;
     margin-left: 610px;
 }
 
 .jiinformation{
-    color: #d4c8c8;
+    color: #06ABD8;
     text-align: left;
     margin-left: 610px;
+    
 }
 
 .jaeinformation{
-    color: #d4c8c8;
+    color: #06ABD8;
     text-align: left;
     margin-left: 610px;
    
@@ -199,18 +185,53 @@ main{
     text-align: left;
     margin-left: 350px;
     font-size: 15px;
-    color: #fff;
+    color: #06ABD8;
 }
 
 .big{
     font-size: 23px;
     font-weight: bolder;
-    color: #fff;
+    color: #06ABD8;
 }
 
-a{
-    text-decoration: underline;
-    color: #fff;
-    font-weight: bolder; 
-    font-size: 18px;
+
+.bodyimg{
+    background-image: url('img/react.png');
+    height: 700px;
+    width: 800px;
+    top: 1100px;
+    background-size: cover;
+    position: absolute;
+    margin-left: -250px;
+    margin-top: 100px;
+    opacity: 0.3;
 }
+.body1{
+    position: relative;
+}
+
+.bodyimg2{
+    background-image: url('img/react.png');
+    height: 660px;
+    width: 700px;
+    top: 400px;
+    background-size: cover;
+    position: absolute;
+    margin-left: 800px;
+    margin-top: -100px;
+    opacity: 0.3;
+}
+
+.bodyimg3{
+    background-image: url('img/react.png');
+    height: 670px;
+    width: 700px;
+    top: 2500px;
+    background-size: cover;
+    position: absolute;
+    margin-left: 800px;
+    margin-top: -200px;
+    opacity: 0.3;
+
+}
+
