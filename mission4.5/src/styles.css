@@ -25,6 +25,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 .headerimg {
@@ -46,18 +47,15 @@ body{
 
 .header-text2{
     position:absolute;
-    transform: translate(700%,10%);
-   
     align-items: center;
     top: 17px;
-    
-       
 }
 
 
 .header-text3 {
     padding-left: 3px;
-    margin-right: -20px;
+    margin-right: 10px;
+    float: left;
   }   
 
 a{
@@ -67,15 +65,18 @@ a{
     color: #fff;
     text-decoration: none;
     
+    
 }
 
 nav ul {
     display: flex;
     list-style: none;
     padding: 0px;
-    margin: 0px;
-    margin-left: 10px;
+    margin-top: 20px;
+    margin-left: 1100px;
+    
 }
+
 
 Header{
     background-color: #d4c8c8;
@@ -85,6 +86,7 @@ Header{
     border: 1px;
     z-index: 10;
     text-decoration-line: none;
+    
     
 }
 
