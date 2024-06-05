@@ -19,11 +19,11 @@ function Header() {
         <div class='header-text2'>
           <nav>
               <ul>
-                  <div class='header-text3'><li ><a href="#ji" >jiwon</a></li></div>
-                  <div class='header-text3'><li ><a href="#su" >subin</a></li></div>
-                  <div class='header-text3'><li ><a href="#jae" >jaewan</a></li></div>
-                  <div class='header-text3'><li ><a href="#idea" >idea</a></li></div>
                   <div class='header-text3'><li ><a href="#main" >main</a></li></div>
+                  <div class='header-text3'><li ><a href="#idea" >idea</a></li></div>
+                  <div class='header-text3'><li ><a href="#jae" >jaewan</a></li></div>
+                  <div class='header-text3'><li ><a href="#su" >subin</a></li></div>
+                  <div class='header-text3'><li ><a href="#ji" >jiwon</a></li></div>
                 <br/>
               </ul>
             </nav>
