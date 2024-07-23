@@ -9,7 +9,7 @@ function App() {
   const years = ['1학년', '2학년', '3학년', '4학년'];
   const depts = ['컴퓨터공학과', '전자공학과', '기계공학과', '화학공학과'];
 
-  // 각 학년별 문서
+  
   const yearDocuments = {
     '1학년': ['1학년 문서1', '1학년 문서2'],
     '2학년': ['2학년 문서1', '2학년 문서2'],
@@ -17,7 +17,7 @@ function App() {
     '4학년': ['4학년 문서1', '4학년 문서2']
   };
 
-  // 각 학과별 문서
+  
   const deptDocuments = {
     '컴퓨터공학과': ['컴퓨터공학과 문서1', '컴퓨터공학과 문서2'],
     '전자공학과': ['전자공학과 문서1', '전자공학과 문서2'],
@@ -81,7 +81,6 @@ function App() {
           )}
         </div>
         <div className="content">
-          <h2>화면나오는곳</h2>
           <ul>
             {activeSidebar === '학년' && selectedYear && yearDocuments[selectedYear]?.map((doc, index) => (
               <li key={index}>{doc}</li>
@@ -97,3 +96,4 @@ function App() {
 }
 
 export default App;
+
