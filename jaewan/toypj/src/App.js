@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
+import { signUp } from './api/signUp';
+import { login } from './api/login';
+import { getSession } from './api/session';
+import {useEffect} from 'react';
 
 function App() {
   const [activeSidebar, setActiveSidebar] = useState('학년');
@@ -46,6 +50,7 @@ function App() {
         <div className="nav-item" onClick={() => handleNavClick('학과')}>학과</div>
         <div className="nav-item">자주 방문하는 글</div>
         <div className="nav-item">유형</div>
+        <div className="nav-item" onClick={() => handleNavClick('마이페이지')}>마이페이지</div>
         <div className="search-bar">
           <input type="text" placeholder="검색창" />
           <button>검색</button>
@@ -87,6 +92,10 @@ function App() {
         <div className="content">
 
           <h2>화면나오는곳</h2>
+          {activeSidebar === '마이페이지' ? ( 
+            <Mypage/>) : ( <ProjectIframe/>) 
+          }
+
             <ProjectIframe />
 
           <ul>
@@ -95,7 +104,7 @@ function App() {
             ))}
             {activeSidebar === '학과' && selectedDept && deptDocuments[selectedDept]?.map((doc, index) => (
               <li key={index}>{doc}</li>
-            ))}
+            ))}          
           </ul>
 
         </div>
@@ -136,6 +145,105 @@ const ProjectIframe = () => {
       ></iframe>
     </div>
   );
+};
+
+const Mypage = () => {
+  const [inputId,setInputId] = useState('');
+  const [inputPassword,setInputPassword] = useState('');
+
+  const onChangeId = (event) => {
+    setInputId(event.target.value);
+    };
+  const onChangePassword = (event) => {
+    setInputPassword(event.target.value);
+    };
+  
+  const signUpFunc = () => {
+    signUp(inputId, inputPassword).then(
+      (result) => {
+        if (result) {
+          alert('이메일 인증을 하시고 회원가입을 완료하시면 됩니다')
+      
+          return ; 
+        }
+          alert('회원가입이 완료되었습니다')
+
+
+      }
+    )
+  }
+   
+  
+  const [loginId,setLoginId] = useState('');
+  const [loginPw,setLoginPw] = useState('');
+  const [showloginComponent,setShowLoginComponent] = useState(true);
+
+  const onChangeloginId = (event) => {
+    setLoginId(event.target.value);
+    };
+  const onChangeloginPw = (event) => {
+    setLoginPw(event.target.value);
+    };
+  
+  const loginFunc = () => {
+    login(loginId, loginPw).then(
+      (result) => {
+        if (result) {
+          alert('로그인완료')
+          window.location.reload();
+      
+          return ; 
+        }
+          alert('로그인 실패')
+
+
+      }
+    )
+  }
+  
+  useEffect(() => {
+    getSession().then((result) => {
+      if (result.session !== undefined){
+        setShowLoginComponent(false)
+
+        
+        return ;
+      }
+      
+      setShowLoginComponent(true)
+    })
+  },[])
+    
+  
+  return(
+
+   <div>
+    {showloginComponent ? ( <>
+    <div>
+      <input type='text' value={loginId} onChange={onChangeloginId}/>
+      <input type='password' value={loginPw} onChange={onChangeloginPw}/>
+      <button onClick={loginFunc}>login</button>
+    </div>
+    <div>
+      <input type='text' value={inputId} onChange={onChangeId}/>
+      <input type='password'value={inputPassword} onChange={onChangePassword}/>
+      <button onClick={signUpFunc}>Sign in</button>
+    </div></>
+            ) : (<div>환영합니다</div> ) 
+          }
+    <div>
+      <input type='text' value={loginId} onChange={onChangeloginId}/>
+      <input type='password' value={loginPw} onChange={onChangeloginPw}/>
+      <button onClick={loginFunc}>login</button>
+    </div>
+    <div>
+      <input type='text' value={inputId} onChange={onChangeId}/>
+      <input type='password'value={inputPassword} onChange={onChangePassword}/>
+      <button onClick={signUpFunc}>Sign in</button>
+    </div>
+   </div>
+  )
+
 };
 
 export default App;
