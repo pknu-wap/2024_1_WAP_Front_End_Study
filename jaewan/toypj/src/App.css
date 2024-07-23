@@ -96,8 +96,12 @@ body {
   border: 1px solid black;
   border-radius: 4px;
   overflow-y: auto;
-  
-  
+
+  background-image: url('./univ_logo01.png');
+  background-size: 30%;
+  background-position: center; 
+  background-repeat: no-repeat;
+
 }
 
 .b2 {
