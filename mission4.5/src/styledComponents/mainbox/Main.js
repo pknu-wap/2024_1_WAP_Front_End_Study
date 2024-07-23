@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import './Main.css';
 
 
-function Main() {
+function Main({setShowAllSections }) {
   const [fadeIn, setFadeIn] = useState(false);
 
    const handleButtonClick = () => {
     setFadeIn(true);
+    setShowAllSections(true);
   };
 
   return (
@@ -34,4 +35,3 @@ function Main() {
 }
 
 export default Main;
-
