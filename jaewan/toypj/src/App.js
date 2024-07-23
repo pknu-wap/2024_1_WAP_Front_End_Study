@@ -16,6 +16,7 @@ function App() {
       </header>
       <div className="main">
         <div className="sidebar">
+          <ProjectSummary />
           <h2>학년</h2>
           <ul>
             <li>1학년</li>
@@ -25,12 +26,46 @@ function App() {
           </ul>
         </div>
         <div className="content">
-          <h2>화면나오는곳</h2>
-      
+          <ProjectIframe />
         </div>
       </div>
     </div>
   );
 }
 
+const ProjectSummary = () => {
+  return (
+    <div className="b1">
+      <nav>
+        <ul>
+          <li>
+            <a href="https://example.com/project1" target="n_call">
+              2024.03.20 ~ 2024.06.04:<br /> 웹 프론트엔드 스터디 및 토이 플젝
+            </a>
+          </li>
+          <br />
+          <li>
+            <a href="https://blog.naver.com/sona_ta/80143292237" target="n_call">
+              2024.06.20 ~ 2025.01.01:<br /> 프로젝트1
+            </a>
+          </li>
+          <br />
+        </ul>
+      </nav>
+    </div>
+  );
+};
+
+const ProjectIframe = () => {
+  return (
+    <div className="b2" id="b2">
+      <iframe
+        name="n_call"
+        title="Project Iframe"
+      ></iframe>
+    </div>
+  );
+};
+
 export default App;
+
