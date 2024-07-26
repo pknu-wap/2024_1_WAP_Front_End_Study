@@ -6,26 +6,17 @@ import { getSession } from './api/session';
 import { logout } from './api/logout';
 import {useEffect} from 'react';
 import { documentGet } from './api/documentGet';
+import { downloadDoc } from './api/downloadDoc';
 
 function App() {
   const [activeSidebar, setActiveSidebar] = useState('학년');
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedDept, setSelectedDept] = useState(null);
-
+  
   const years = ['1학년', '2학년', '3학년', '4학년'];
   const depts = ['컴퓨터공학과', '전자공학과', '기계공학과', '화학공학과'];
 
-  useEffect(() => {
-    documentGet().then((response) => {
-      if (response.length === 0) {
-        alert('문서를 가지고 오는데 실패하였습니다!');
-        return ;
-        
-      }
-      console.log(response)
-    });
-    
-  },[])
+
   
   const yearDocuments = {
     '1학년': ['1학년 문서1', '1학년 문서2'],
@@ -164,13 +155,21 @@ const ProjectIframe = () => {
 };
 
 const DocList = () => {
-  const documentList = [
-    { id: 1, grade: '1학년', type: '보고서', uploadDate: '2023-07-20', favorites: 5 },
-    { id: 2, grade: '2학년', type: '에세이', uploadDate: '2023-06-15', favorites: 12 },
-    { id: 3, grade: '3학년', type: '프로젝트', uploadDate: '2023-05-10', favorites: 8 },
-    { id: 4, grade: '4학년', type: '논문', uploadDate: '2023-04-25', favorites: 15 },
-    // 추가 데이터는 여기 삽입
-];
+  const [docList, setDocList] = useState([]);
+
+  useEffect(() => {
+    documentGet().then((response) => {
+      if (response.length === 0) {
+        alert('문서를 가지고 오는데 실패하였습니다!');
+        return ;
+      }
+      // console.log(response)
+      setDocList(response)
+    });
+    
+  },[])
+
+
   return (
     <div className="app">
 
@@ -183,19 +182,21 @@ const DocList = () => {
                     <tr>
                         <th>순번</th>
                         <th>필요 학년</th>
+                        <th>필요 전공</th>
                         <th>문서 유형</th>
                         <th>업로드 일자</th>
                         <th>즐겨찾기 수</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {documentList.map((doc, index) => (
-                        <tr key={doc.id}>
+                    {docList.map((doc, index) => (
+                        <tr key={doc.id} onClick={() => downloadDoc(doc.id)}>
                             <td>{index + 1}</td>
                             <td>{doc.grade}</td>
-                            <td>{doc.type}</td>
-                            <td>{doc.uploadDate}</td>
-                            <td>{doc.favorites}</td>
+                            <td>{doc.major}</td>
+                            <td>{doc.doc_type}</td>
+                            <td>{doc.created_at}</td>
+                            <td>{doc.likes}</td>
                         </tr>
                     ))}
                 </tbody>
