@@ -5,6 +5,7 @@ import { login } from './api/login';
 import { getSession } from './api/session';
 import { logout } from './api/logout';
 import {useEffect} from 'react';
+import { documentGet } from './api/documentGet';
 
 function App() {
   const [activeSidebar, setActiveSidebar] = useState('학년');
@@ -14,6 +15,17 @@ function App() {
   const years = ['1학년', '2학년', '3학년', '4학년'];
   const depts = ['컴퓨터공학과', '전자공학과', '기계공학과', '화학공학과'];
 
+  useEffect(() => {
+    documentGet().then((response) => {
+      if (response.length === 0) {
+        alert('문서를 가지고 오는데 실패하였습니다!');
+        return ;
+        
+      }
+      console.log(response)
+    });
+    
+  },[])
   
   const yearDocuments = {
     '1학년': ['1학년 문서1', '1학년 문서2'],
@@ -60,7 +72,7 @@ function App() {
       <div className="main">
         <div className="sidebar">
 
-          <ProjectSummary />
+          {/* <ProjectSummary /> */}
           
 
           {activeSidebar === '학년' && (
@@ -94,10 +106,13 @@ function App() {
 
           <h2>화면나오는곳</h2>
           {activeSidebar === '마이페이지' ? ( 
-            <Mypage/>) : ( <ProjectIframe/>) 
+            <Mypage/>) : ( 
+              <>
+            {/* <ProjectIframe/> */}
+            <DocList/>
+            </>) 
+            
           }
-
-            <ProjectIframe />
 
           <ul>
             {activeSidebar === '학년' && selectedYear && yearDocuments[selectedYear]?.map((doc, index) => (
@@ -114,28 +129,28 @@ function App() {
   );
 }
 
-const ProjectSummary = () => {
-  return (
-    <div className="b1">
-      <nav>
-        <ul>
-          <li>
-            <a href="https://example.com/project1" target="n_call">
-              2024.03.20 ~ 2024.06.04:<br /> 웹 프론트엔드 스터디 및 토이 플젝
-            </a>
-          </li>
-          <br />
-          <li>
-            <a href="https://blog.naver.com/sona_ta/80143292237" target="n_call">
-              2024.06.20 ~ 2025.01.01:<br /> 프로젝트1
-            </a>
-          </li>
-          <br />
-        </ul>
-      </nav>
-    </div>
-  );
-};
+// const ProjectSummary = () => {
+//   return (
+//     <div className="b1">
+//       <nav>
+//         <ul>
+//           <li>
+//             <a href="https://example.com/project1" target="n_call">
+//               2024.03.20 ~ 2024.06.04:<br /> 웹 프론트엔드 스터디 및 토이 플젝
+//             </a>
+//           </li>
+//           <br />
+//           <li>
+//             <a href="https://www.pknu.ac.kr/main/163" target="n_call">
+//               2024.06.20 ~ 2025.01.01:<br /> 프로젝트1
+//             </a>
+//           </li>
+//           <br />
+//         </ul>
+//       </nav>
+//     </div>
+//   );
+// };
 
 const ProjectIframe = () => {
   return (
@@ -148,6 +163,49 @@ const ProjectIframe = () => {
   );
 };
 
+const DocList = () => {
+  const documentList = [
+    { id: 1, grade: '1학년', type: '보고서', uploadDate: '2023-07-20', favorites: 5 },
+    { id: 2, grade: '2학년', type: '에세이', uploadDate: '2023-06-15', favorites: 12 },
+    { id: 3, grade: '3학년', type: '프로젝트', uploadDate: '2023-05-10', favorites: 8 },
+    { id: 4, grade: '4학년', type: '논문', uploadDate: '2023-04-25', favorites: 15 },
+    // 추가 데이터는 여기 삽입
+];
+  return (
+    <div className="app">
+
+    <div className="main">
+
+        <div className="content">
+            <h2>Document List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>순번</th>
+                        <th>필요 학년</th>
+                        <th>문서 유형</th>
+                        <th>업로드 일자</th>
+                        <th>즐겨찾기 수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {documentList.map((doc, index) => (
+                        <tr key={doc.id}>
+                            <td>{index + 1}</td>
+                            <td>{doc.grade}</td>
+                            <td>{doc.type}</td>
+                            <td>{doc.uploadDate}</td>
+                            <td>{doc.favorites}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+  )
+}
 const Mypage = () => {
   const [inputId,setInputId] = useState('');
   const [inputPassword,setInputPassword] = useState('');
