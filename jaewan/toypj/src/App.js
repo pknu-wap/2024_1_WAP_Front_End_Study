@@ -3,6 +3,7 @@ import './App.css';
 import { signUp } from './api/signUp';
 import { login } from './api/login';
 import { getSession } from './api/session';
+import { logout } from './api/logout';
 import {useEffect} from 'react';
 
 function App() {
@@ -169,9 +170,11 @@ const Mypage = () => {
           alert('회원가입이 완료되었습니다')
 
 
-      }
-    )
-  }
+       }
+     )
+   }
+
+
    
   
   const [loginId,setLoginId] = useState('');
@@ -213,38 +216,43 @@ const Mypage = () => {
       setShowLoginComponent(true)
     })
   },[])
+  const logoutfunc = () => {
+    logout().then((result) => {
+      if (result){
+        setShowLoginComponent(true)
+        return;
+      }
+      alert('로그아웃 실패'); 
+    })
+  }
     
   
   return(
 
    <div>
-    {showloginComponent ? ( <>
-    <div>
+     {showloginComponent ? ( <>
+     <div>
       <input type='text' value={loginId} onChange={onChangeloginId}/>
       <input type='password' value={loginPw} onChange={onChangeloginPw}/>
       <button onClick={loginFunc}>login</button>
-    </div>
-    <div>
+     </div>
+     <div>
       <input type='text' value={inputId} onChange={onChangeId}/>
       <input type='password'value={inputPassword} onChange={onChangePassword}/>
       <button onClick={signUpFunc}>Sign in</button>
-    </div></>
-            ) : (<div>환영합니다</div> ) 
+     </div></>
+            ) : (<div>
+              <div>환영합니다</div>
+              <button onClick={logoutfunc}>logout</button>
+              </div>
+             ) 
           }
-    <div>
-      <input type='text' value={loginId} onChange={onChangeloginId}/>
-      <input type='password' value={loginPw} onChange={onChangeloginPw}/>
-      <button onClick={loginFunc}>login</button>
-    </div>
-    <div>
-      <input type='text' value={inputId} onChange={onChangeId}/>
-      <input type='password'value={inputPassword} onChange={onChangePassword}/>
-      <button onClick={signUpFunc}>Sign in</button>
-    </div>
-   </div>
+    </div>      
+    
   )
+}
 
-};
+
 
 export default App;
 
