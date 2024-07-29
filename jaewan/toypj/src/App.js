@@ -53,22 +53,30 @@ function App() {
 
   const toggleYears = () => {
     setShowYears(!showYears);
+    setShowMypage(false);
   };
 
   const toggleDepts = () => {
     setShowDepts(!showDepts);
+    setShowMypage(false);
   };
 
   const toggleLikes = () => {
     setShowLikes(!showLikes);
+    setShowMypage(false);
   };
 
   const toggleTypes = () => {
     setShowTypes(!showTypes);
+    setShowMypage(false);
   };
 
-  const toggleMypage = () => {
-    setShowMypage(!showMypage);
+  const showMypageSection = () => {
+    setShowMypage(true);
+    setShowYears(false);
+    setShowDepts(false);
+    setShowLikes(false);
+    setShowTypes(false);
   };
 
   const handleYearClick = (year) => {
@@ -142,7 +150,7 @@ function App() {
               ))}
             </ul>
           )}
-          <div className="nav-item" onClick={toggleMypage}>마이페이지</div>
+          <div className="nav-item" onClick={showMypageSection}>마이페이지</div>
         </div>
 
         <div className="content">
