@@ -12,10 +12,10 @@ function App() {
   const [showDepts, setShowDepts] = useState(false);
   const [showLikes, setShowLikes] = useState(false);
   const [showTypes, setShowTypes] = useState(false);
-  const [selectedYear, setSelectedYear] = useState(null);
-  const [selectedDept, setSelectedDept] = useState(null);
-  const [selectedType, setSelectedType] = useState(null);
-  const [selectedLikes, setSelectedLikes] = useState(null);
+  const [selectedYear, setSelectedYear] = useState([]);
+  const [selectedDept, setSelectedDept] = useState([]);
+  const [selectedType, setSelectedType] = useState([]);
+  const [selectedLikes, setSelectedLikes] = useState([]);
   const [showMypage, setShowMypage] = useState(false);
 
   const years = ['1학년', '2학년', '3학년', '4학년'];
@@ -79,20 +79,15 @@ function App() {
     setShowTypes(false);
   };
 
-  const handleYearClick = (year) => {
-    setSelectedYear(year === selectedYear ? null : year);
-  };
-
-  const handleDeptClick = (dept) => {
-    setSelectedDept(dept === selectedDept ? null : dept);
-  };
-
-  const handleTypeClick = (type) => {
-    setSelectedType(type === selectedType ? null : type);
-  };
-
-  const handleLikesClick = (likes) => {
-    setSelectedLikes(likes === selectedLikes ? null : likes);
+  // Handler for multiple selections, used for all categories
+  const handleSelection = (selectedItems, setFunction, item) => {
+    setFunction(prevItems => {
+      if (prevItems.includes(item)) {
+        return prevItems.filter(i => i !== item);
+      } else {
+        return [...prevItems, item];
+      }
+    });
   };
 
   return (
@@ -110,8 +105,8 @@ function App() {
           {showYears && (
             <ul>
               {years.map((year) => (
-                <li key={year} onClick={() => handleYearClick(year)}>
-                  <input type="checkbox" checked={selectedYear === year} readOnly />
+                <li key={year} onClick={() => handleSelection(selectedYear, setSelectedYear, year)}>
+                  <input type="checkbox" checked={selectedYear.includes(year)} readOnly />
                   {year}
                 </li>
               ))}
@@ -121,8 +116,8 @@ function App() {
           {showDepts && (
             <ul>
               {depts.map((dept) => (
-                <li key={dept} onClick={() => handleDeptClick(dept)}>
-                  <input type="checkbox" checked={selectedDept === dept} readOnly />
+                <li key={dept} onClick={() => handleSelection(selectedDept, setSelectedDept, dept)}>
+                  <input type="checkbox" checked={selectedDept.includes(dept)} readOnly />
                   {dept}
                 </li>
               ))}
@@ -132,8 +127,8 @@ function App() {
           {showLikes && (
             <ul>
               {likes.map((like) => (
-                <li key={like} onClick={() => handleLikesClick(like)}>
-                  <input type="checkbox" checked={selectedLikes === like} readOnly />
+                <li key={like} onClick={() => handleSelection(selectedLikes, setSelectedLikes, like)}>
+                  <input type="checkbox" checked={selectedLikes.includes(like)} readOnly />
                   {like}
                 </li>
               ))}
@@ -143,8 +138,8 @@ function App() {
           {showTypes && (
             <ul>
               {types.map((type) => (
-                <li key={type} onClick={() => handleTypeClick(type)}>
-                  <input type="checkbox" checked={selectedType === type} readOnly />
+                <li key={type} onClick={() => handleSelection(selectedType, setSelectedType, type)}>
+                  <input type="checkbox" checked={selectedType.includes(type)} readOnly />
                   {type}
                 </li>
               ))}
@@ -162,18 +157,18 @@ function App() {
           )}
 
           <ul>
-            {showYears && selectedYear && yearDocuments[selectedYear]?.map((doc, index) => (
-              <li key={index}>{doc}</li>
-            ))}
-            {showDepts && selectedDept && deptDocuments[selectedDept]?.map((doc, index) => (
-              <li key={index}>{doc}</li>
-            ))}
-            {showLikes && selectedLikes && likesDocuments[selectedLikes]?.map((doc, index) => (
-              <li key={index}>{doc}</li>
-            ))}
-            {showTypes && selectedType && typeDocuments[selectedType]?.map((doc, index) => (
-              <li key={index}>{doc}</li>
-            ))}
+            {showYears && selectedYear.length > 0 && selectedYear.map(year => yearDocuments[year]?.map((doc, index) => (
+              <li key={`${year}-${index}`}>{doc}</li>
+            )))}
+            {showDepts && selectedDept.length > 0 && selectedDept.map(dept => deptDocuments[dept]?.map((doc, index) => (
+              <li key={`${dept}-${index}`}>{doc}</li>
+            )))}
+            {showLikes && selectedLikes.length > 0 && selectedLikes.map(like => likesDocuments[like]?.map((doc, index) => (
+              <li key={`${like}-${index}`}>{doc}</li>
+            )))}
+            {showTypes && selectedType.length > 0 && selectedType.map(type => typeDocuments[type]?.map((doc, index) => (
+              <li key={`${type}-${index}`}>{doc}</li>
+            )))}
           </ul>
         </div>
       </div>
