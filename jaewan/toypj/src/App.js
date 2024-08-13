@@ -1,19 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { signUp } from './api/signUp.js';
+import { signUp } from './api/signUp';
 import { login } from './api/login';
-import { getSession } from './api/session.js';
+import { getSession } from './api/session';
 import { logout } from './api/logout';
 import { documentGet } from './api/documentGet';
 import { downloadDoc } from './api/downloadDoc';
 
 function App() {
-  const [activeSidebar, setActiveSidebar] = useState('학년');
-  const [selectedYear, setSelectedYear] = useState(null);
-  const [selectedDept, setSelectedDept] = useState(null);
+  const [showYears, setShowYears] = useState(false);
+  const [showDepts, setShowDepts] = useState(false);
+  const [showLikes, setShowLikes] = useState(false);
+  const [showTypes, setShowTypes] = useState(false);
+  const [selectedYear, setSelectedYear] = useState([]);
+  const [selectedDept, setSelectedDept] = useState([]);
+  const [selectedType, setSelectedType] = useState([]);
+  const [selectedLikes, setSelectedLikes] = useState([]);
+  const [visibleYears, setVisibleYears] = useState([]);
+  const [visibleDepts, setVisibleDepts] = useState([]);
+  const [visibleTypes, setVisibleTypes] = useState([]);
+  const [visibleLikes, setVisibleLikes] = useState([]);
+  const [showMypage, setShowMypage] = useState(false);
 
   const years = ['1학년', '2학년', '3학년', '4학년'];
   const depts = ['컴퓨터공학과', '전자공학과', '기계공학과', '화학공학과'];
+  const types = ['수강신청', '전과', '휴학', '자퇴'];
+  const likes = ['a', 's', 'w', 'f'];
 
   const yearDocuments = {
     '1학년': ['1학년 문서1', '1학년 문서2'],
@@ -29,77 +41,135 @@ function App() {
     '화학공학과': ['화학공학과 문서1', '화학공학과 문서2']
   };
 
-  const handleNavClick = (item) => {
-    setActiveSidebar(item);
-    setSelectedYear(null);
-    setSelectedDept(null);
+  const typeDocuments = {
+    '수강신청': ['수강신청 문서1', '수강신청 문서2'],
+    '전과': ['전과 문서1', '전과 문서2'],
+    '휴학': ['휴학 문서1', '휴학 문서2'],
+    '자퇴': ['자퇴 문서1', '자퇴 문서2']
   };
 
-  const handleYearClick = (year) => {
-    setSelectedYear(year === selectedYear ? null : year);
+  const likesDocuments = {
+    'a': ['a 문서1', 'a 문서2'],
+    's': ['s 문서1', 's 문서2'],
+    'w': ['w 문서1', 'w 문서2'],
+    'f': ['f 문서1', 'f 문서2']
   };
 
-  const handleDeptClick = (dept) => {
-    setSelectedDept(dept === selectedDept ? null : dept);
+  const toggleYears = () => {
+    setShowYears(!showYears);
+    setShowMypage(false);
+  };
+
+  const toggleDepts = () => {
+    setShowDepts(!showDepts);
+    setShowMypage(false);
+  };
+
+  const toggleLikes = () => {
+    setShowLikes(!showLikes);
+    setShowMypage(false);
+  };
+
+  const toggleTypes = () => {
+    setShowTypes(!showTypes);
+    setShowMypage(false);
+  };
+
+  const showMypageSection = () => {
+    setShowMypage(true);
+    setShowYears(false);
+    setShowDepts(false);
+    setShowLikes(false);
+    setShowTypes(false);
+  };
+
+  const handleSelection = ( setFunction, visibleFunction, item) => {
+    setFunction(prevItems => {
+      const newItems = prevItems.includes(item) ? prevItems.filter(i => i !== item) : [...prevItems, item];
+      visibleFunction(newItems);  // 문서 목록 보이도록 업데이트
+      return newItems;
+    });
   };
 
   return (
     <div className="app">
       <header className="navbar">
-        <div className="nav-item" onClick={() => handleNavClick('학년')}>학년</div>
-        <div className="nav-item" onClick={() => handleNavClick('학과')}>학과</div>
-        <div className="nav-item">자주 방문하는 글</div>
-        <div className="nav-item">유형</div>
-        <div className="nav-item" onClick={() => handleNavClick('마이페이지')}>마이페이지</div>
         <div className="search-bar">
           <input type="text" placeholder="검색창" />
           <button>검색</button>
         </div>
       </header>
+
       <div className="main">
         <div className="sidebar">
-          {activeSidebar === '학년' && (
-            <>
-              <h2>학년</h2>
-              <ul>
-                {years.map((year) => (
-                  <li key={year} onClick={() => handleYearClick(year)}>
-                    <input type="checkbox" checked={selectedYear === year} readOnly />
-                    {year}
-                  </li>
-                ))}
-              </ul>
-            </>
+          <div className="nav-item" onClick={toggleYears}>학년</div>
+          {showYears && (
+            <ul>
+              {years.map((year) => (
+                <li key={year} onClick={() => handleSelection(selectedYear, setSelectedYear, setVisibleYears, year)}>
+                  <input type="checkbox" checked={selectedYear.includes(year)} readOnly />
+                  {year}
+                </li>
+              ))}
+            </ul>
           )}
-          {activeSidebar === '학과' && (
-            <>
-              <h2>학과</h2>
-              <ul>
-                {depts.map((dept) => (
-                  <li key={dept} onClick={() => handleDeptClick(dept)}>
-                    <input type="checkbox" checked={selectedDept === dept} readOnly />
-                    {dept}
-                  </li>
-                ))}
-              </ul>
-            </>
+          <div className="nav-item" onClick={toggleDepts}>학과</div>
+          {showDepts && (
+            <ul>
+              {depts.map((dept) => (
+                <li key={dept} onClick={() => handleSelection(selectedDept, setSelectedDept, setVisibleDepts, dept)}>
+                  <input type="checkbox" checked={selectedDept.includes(dept)} readOnly />
+                  {dept}
+                </li>
+              ))}
+            </ul>
           )}
+          <div className="nav-item" onClick={toggleLikes}>자주 방문하는 글</div>
+          {showLikes && (
+            <ul>
+              {likes.map((like) => (
+                <li key={like} onClick={() => handleSelection(selectedLikes, setSelectedLikes, setVisibleLikes, like)}>
+                  <input type="checkbox" checked={selectedLikes.includes(like)} readOnly />
+                  {like}
+                </li>
+              ))}
+            </ul>
+          )}
+          <div className="nav-item" onClick={toggleTypes}>유형</div>
+          {showTypes && (
+            <ul>
+              {types.map((type) => (
+                <li key={type} onClick={() => handleSelection(selectedType, setSelectedType, setVisibleTypes, type)}>
+                  <input type="checkbox" checked={selectedType.includes(type)} readOnly />
+                  {type}
+                </li>
+              ))}
+            </ul>
+          )}
+          <div className="nav-item" onClick={showMypageSection}>마이페이지</div>
         </div>
+
         <div className="content">
-          {activeSidebar === '마이페이지' ? (
+          
+          {showMypage ? (
             <Mypage />
           ) : (
-            <>
-              <DocList />
-            </>
+            <DocList />
           )}
+
           <ul>
-            {activeSidebar === '학년' && selectedYear && yearDocuments[selectedYear]?.map((doc, index) => (
-              <li key={index}>{doc}</li>
-            ))}
-            {activeSidebar === '학과' && selectedDept && deptDocuments[selectedDept]?.map((doc, index) => (
-              <li key={index}>{doc}</li>
-            ))}
+            {visibleYears.map(year => yearDocuments[year]?.map((doc, index) => (
+              <li key={`${year}-${index}`}>{doc}</li>
+            )))}
+            {visibleDepts.map(dept => deptDocuments[dept]?.map((doc, index) => (
+              <li key={`${dept}-${index}`}>{doc}</li>
+            )))}
+            {visibleLikes.map(like => likesDocuments[like]?.map((doc, index) => (
+              <li key={`${like}-${index}`}>{doc}</li>
+            )))}
+            {visibleTypes.map(type => typeDocuments[type]?.map((doc, index) => (
+              <li key={`${type}-${index}`}>{doc}</li>
+            )))}
           </ul>
         </div>
       </div>
@@ -107,36 +177,80 @@ function App() {
   );
 }
 
+
+
+
+
+
+
+const DocList = () => {
+  const [docList, setDocList] = useState([]);
+
+  useEffect(() => {
+    documentGet().then((response) => {
+      if (response.length === 0) {
+        alert('문서를 가지고 오는데 실패하였습니다!');
+        return;
+      }
+      setDocList(response);
+    });
+  }, []);
+
+  return (
+    <div className="app">
+      <div className="main">
+        <div className="content">
+          <h2>Document List</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>순번</th>
+                <th>필요 학년</th>
+                <th>필요 전공</th>
+                <th>문서 유형</th>
+                <th>업로드 일자</th>
+                <th>즐겨찾기 수</th>
+              </tr>
+            </thead>
+            <tbody>
+              {docList.map((doc, index) => (
+                <tr key={doc.id} onClick={() => downloadDoc(doc.id)}>
+                  <td>{index + 1}</td>
+                  <td>{doc.grade}</td>
+                  <td>{doc.major}</td>
+                  <td>{doc.doc_type}</td>
+                  <td>{doc.created_at}</td>
+                  <td>{doc.likes}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Mypage = () => {
   const [inputId, setInputId] = useState('');
   const [inputPassword, setInputPassword] = useState('');
-  const [loginId, setLoginId] = useState('');
-  const [loginPw, setLoginPw] = useState('');
-  const [showLoginComponent, setShowLoginComponent] = useState(true);
   const [signUpBoxActive, setSignUpBoxActive] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const onChangeId = (event) => {
-    setInputId(event.target.value);
+  const signUpFunc = async () => {
+    const result = await signUp(email, password);
+    if (result) {
+      alert('이메일 인증을 하시고 회원가입을 완료하시면 됩니다');
+      return;
+    }
+    alert('회원가입이 완료되었습니다');
   };
 
-  const onChangePassword = (event) => {
-    setInputPassword(event.target.value);
-  };
-
-  const signUpFunc = () => {
-    signUp(inputId, inputPassword).then(
-      (result) => {
-        if (result) {
-          alert('이메일 인증을 하시고 회원가입을 완료하시면 됩니다');
-          return;
-        }
-        alert('회원가입이 완료되었습니다');
-      }
-    );
-  };
+  const [loginId, setLoginId] = useState('');
+  const [loginPw, setLoginPw] = useState('');
+  const [showLoginComponent, setShowLoginComponent] = useState(true);
 
   const onChangeloginId = (event) => {
     setLoginId(event.target.value);
@@ -146,17 +260,14 @@ const Mypage = () => {
     setLoginPw(event.target.value);
   };
 
-  const loginFunc = () => {
-    login(loginId, loginPw).then(
-      (result) => {
-        if (result) {
-          alert('로그인 완료');
-          window.location.reload();
-          return;
-        }
-        alert('로그인 실패');
-      }
-    );
+  const loginFunc = async () => {
+    const result = await login(loginId, loginPw);
+    if (result) {
+      alert('로그인완료');
+      window.location.reload();
+      return;
+    }
+    alert('로그인 실패');
   };
 
   useEffect(() => {
@@ -167,32 +278,34 @@ const Mypage = () => {
       }
       setShowLoginComponent(true);
     });
-  }, [setShowLoginComponent]);
+  }, []);
 
-  const logoutFunc = () => {
-    logout().then((result) => {
-      if (result) {
-        setShowLoginComponent(true);
-        return;
-      }
-      alert('로그아웃 실패');
-    });
+  const logoutfunc = async () => {
+    const result = await logout();
+    if (result) {
+      setShowLoginComponent(true);
+      return;
+    }
+    alert('로그아웃 실패');
   };
 
   const handleSignUpBoxClick = () => {
-    if (signUpBoxActive) return;
     setSignUpBoxActive(true);
   };
 
-  const handleRemoveActive = () => {
+  const handleRemoveActive = (e) => {
+    if (e) {
+      e.stopPropagation(); 
+    }
     setSignUpBoxActive(false);
   };
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     if (name === '' || email === '' || password === '') {
       return;
     }
-    handleRemoveActive();
+    await signUpFunc();
+    handleRemoveActive(); // 호출 시 이벤트 객체를 전달하지 않음
   };
 
   return (
@@ -202,14 +315,17 @@ const Mypage = () => {
           <input type="text" value={loginId} onChange={onChangeloginId} placeholder="Email" />
           <input type="password" value={loginPw} onChange={onChangeloginPw} placeholder="Password" />
           <button onClick={loginFunc}>Login</button>
-          <div className={`sign-up-box ${signUpBoxActive ? 'active' : ''}`} onClick={handleSignUpBoxClick}>
+          <div 
+            className={`sign-up-box ${signUpBoxActive ? 'active' : ''}`} 
+            onClick={handleSignUpBoxClick}
+          >
             {signUpBoxActive ? (
               <>
-                <span onClick={(e) => { e.stopPropagation(); handleRemoveActive(); }}>X</span>
+                <span onClick={(e) => handleRemoveActive(e)}>X</span>
                 <input type="text" name="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <button onClick={(e) => { e.stopPropagation(); handleSignUp(); }}>Sign up</button>
+                <button onClick={handleSignUp}>Sign up</button>
               </>
             ) : (
               <i className="material-icons">SignUp</i>
@@ -217,38 +333,15 @@ const Mypage = () => {
           </div>
         </div>
       ) : (
-        <div className='logoutpage'>
+        <div className="logoutpage">
           <div>환영합니다</div>
-          <button className='logoutbutton' onClick={logoutFunc}>Logout</button>
+          <button className="logoutbutton" onClick={logoutfunc}>Logout</button>
         </div>
       )}
     </div>
   );
 };
 
-const DocList = () => {
-  const [docList, setDocList] = useState([]);
 
-  useEffect(() => {
-    documentGet().then((response) => {
-      if (response.length === 0) {
-        return;
-      }
-      setDocList(response);
-    });
-  }, []);
-
-  return (
-    <div>
-      <ul>
-        {docList.map((doc, index) => (
-          <li key={index}>
-            <button onClick={() => downloadDoc(doc)}>Download {doc}</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
 
 export default App;
