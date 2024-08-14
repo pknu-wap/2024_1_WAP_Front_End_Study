@@ -1,7 +1,7 @@
 import { supabase } from "../lib/supabase";
 
 export const documentGet = async() => {
-    const { data, error } = await supabase
+    const { data } = await supabase
         .from('school_doc')
         .select('*')
 

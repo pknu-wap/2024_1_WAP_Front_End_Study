@@ -232,8 +232,7 @@ const DocList = () => {
 };
 
 const Mypage = () => {
-  const [inputId, setInputId] = useState('');
-  const [inputPassword, setInputPassword] = useState('');
+  
   const [signUpBoxActive, setSignUpBoxActive] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

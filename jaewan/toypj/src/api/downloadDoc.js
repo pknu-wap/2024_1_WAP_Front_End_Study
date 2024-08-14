@@ -6,7 +6,7 @@ export const downloadDoc = async (fileName) =>  {
 
     let countError = 0
     extension_list.map(async extenstion => {
-        const { data, error } = await supabase
+        const { data } = await supabase
         .storage
         .from('documents')
         .download(`${fileName}${extenstion}`)
