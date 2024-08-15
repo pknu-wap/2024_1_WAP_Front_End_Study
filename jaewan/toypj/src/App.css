@@ -19,7 +19,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #5a9dee;
   color: white;
   margin-bottom: 10px;
 }
@@ -135,12 +135,20 @@ th {
   color: white;
 }
 
-tbody tr {
-  background-color: #ffffff; 
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --padding: 60px;
+}
 .box {
   position: relative;
   margin: 50px auto;
@@ -173,8 +181,8 @@ tbody tr {
 .box button:hover {
   transition: all 0.5s ease;
   transform: scale(1.1);
-}
 
+}
 .sign-up-box {
   position: absolute;
   width: 70px;
@@ -193,6 +201,11 @@ tbody tr {
   font-size: 1.3em;
   color: black;
 }
+.sign-up-box:hover {
+  transition: all 0.5s ease;
+  transform: scale(1.1);
+}
+
 
 
 .sign-up-box.active {
@@ -243,8 +256,8 @@ tbody tr {
   border-radius: 4px;
   width: 100px;
   height: 30px;
-}
 
+}
 .logoutbutton:hover {
   transition: all 0.5s ease;
   transform: scale(1.1);
@@ -259,3 +272,4 @@ tbody tr {
 .listname:hover {
   background-color: rgb(218, 209, 209);
 }
+
