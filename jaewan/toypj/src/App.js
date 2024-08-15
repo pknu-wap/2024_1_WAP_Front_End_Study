@@ -313,6 +313,10 @@ const Mypage = () => {
     <div>
       {showLoginComponent ? (
         <div className="box">
+          <div className='logindiv'>
+            <h1>Login</h1>
+            <p>Sign in to document organization page</p>
+          </div>  
           <input type="text" value={loginId} onChange={onChangeloginId} placeholder="Email" />
           <input type="password" value={loginPw} onChange={onChangeloginPw} placeholder="Password" />
           <button onClick={loginFunc}>Login</button>
@@ -322,6 +326,10 @@ const Mypage = () => {
           >
             {signUpBoxActive ? (
               <>
+                <div className='signupdiv'>
+                  <h1>SignUp</h1>
+                  <p>Welcome to document organization page!</p>
+                </div>
                 <span onClick={(e) => handleRemoveActive(e)}>X</span>
                 <input type="text" name="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />

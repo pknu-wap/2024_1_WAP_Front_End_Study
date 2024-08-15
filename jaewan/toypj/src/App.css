@@ -19,7 +19,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #5a9dee;
+  background-color: #007bff;
   color: white;
   margin-bottom: 10px;
 }
@@ -73,7 +73,7 @@ body {
   padding: 20px;
   margin-right: 20px;
   overflow-y: auto;
-  border: 1px solid black;
+  border: 1px solid rgb(172, 166, 166);
   border-radius: 4px;
 }
 
@@ -93,7 +93,7 @@ body {
   flex: 1;
   padding: 20px;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid rgb(172, 166, 166);
   border-radius: 4px;
   overflow-y: auto;
   background-image: url('./univ_logo01.png');
@@ -152,15 +152,17 @@ tr:nth-child(even) {
 .box {
   position: relative;
   margin: 50px auto;
-  margin-top: 125px;
-  width: 800px;
-  height: 450px;
+  margin-top: 70px;
+  width: 1200px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: var(--padding);
-  background-color: #c4dfff;
-  border-radius: 7px;
+  background-color: white;
+  box-shadow: 5px 5px 5px 5px gray
+  
+
 }
 
 .box input,
@@ -171,12 +173,23 @@ tr:nth-child(even) {
 }
 .box input {
   margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid rgb(230, 223, 223);
+  width: 300px;
+  height: 20px;
+  border-radius: 7px;
+  font-size: 15px;
 }
 
 .box button {
-  background-color: #ffe4c4;
-  color: black;
+  margin-top: 30px;
+  background-color: #258fff;
+  width: 300px;
+  color: white;
   border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .box button:hover {
   transition: all 0.5s ease;
@@ -188,7 +201,7 @@ tr:nth-child(even) {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: #86acd9;
+  background-color: #258fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -199,12 +212,10 @@ tr:nth-child(even) {
 }
 .sign-up-box i {
   font-size: 1.3em;
-  color: black;
+  color: white;
 }
-.sign-up-box:hover {
-  transition: all 0.5s ease;
-  transform: scale(1.1);
-}
+
+
 
 
 
@@ -220,15 +231,33 @@ tr:nth-child(even) {
   align-items: stretch;
   padding: 30px;
   cursor: default;
+  background-color: white;
   border-radius: 7px;
 }
 
-.sign-up-box.active input,
+.sign-up-box.active input {
+  padding: 15px;
+  font-size: 1.2em;
+  border: none;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border: 2px solid rgb(230, 223, 223);
+  width: 300px;
+  height: 20px;
+  border-radius: 7px;
+  font-size: 15px;
+
+}
 .sign-up-box.active button {
   padding: 15px;
   font-size: 1.2em;
   border: none;
   margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
 }
 .sign-up-box.active input {
   margin-bottom: 10px;
@@ -238,21 +267,21 @@ tr:nth-child(even) {
   position: absolute;
   width: 30px;
   height: 30px;
-  background-color: #ffe4c4;
+  background-color: #258fff;
   border-radius: 50%;
   top: 5px;
   right: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: white;
   font-weight: 700;
   cursor: pointer;
 }
 
 .logoutbutton {
-  background-color: #ffe4c4;
-  color: black;
+  background-color: #258fff;
+  color: white;
   border-radius: 4px;
   width: 100px;
   height: 30px;
@@ -272,4 +301,13 @@ tr:nth-child(even) {
 .listname:hover {
   background-color: rgb(218, 209, 209);
 }
+.logindiv {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
+.signupdiv {
+  text-align: center;
+  margin-bottom: 20px;
+}
+  
