@@ -196,6 +196,10 @@ const DocList = () => {
     });
   }, []);
 
+  const handleDocDownload = (fileName) => {
+    downloadDoc(fileName);
+  };
+
   return (
     <div className="app">
       <div className="main">
@@ -204,22 +208,26 @@ const DocList = () => {
           <table>
             <thead>
               <tr>
-                <th>순번</th>
                 <th>필요 학년</th>
                 <th>필요 전공</th>
+                <th>문서 이름</th>
                 <th>문서 유형</th>
                 <th>업로드 일자</th>
+                <th>링크</th>
                 <th>즐겨찾기 수</th>
               </tr>
             </thead>
             <tbody>
               {docList.map((doc, index) => (
-                <tr key={doc.id} onClick={() => downloadDoc(doc.id)}>
-                  <td>{index + 1}</td>
+                <tr key={index}>
                   <td>{doc.grade}</td>
                   <td>{doc.major}</td>
+                  <td onClick={() => handleDocDownload(doc.list_name)} style={{ cursor: 'pointer', color: 'blue' }}>
+                    {doc.list_name}
+                  </td>
                   <td>{doc.doc_type}</td>
                   <td>{doc.created_at}</td>
+                  <td>{doc.link}</td>
                   <td>{doc.likes}</td>
                 </tr>
               ))}
@@ -230,6 +238,7 @@ const DocList = () => {
     </div>
   );
 };
+
 
 const Mypage = () => {
   
