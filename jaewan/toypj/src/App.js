@@ -196,10 +196,6 @@ const DocList = () => {
     });
   }, []);
 
-  const handleDocDownload = (fileName) => {
-    downloadDoc(fileName);
-  };
-
   return (
     <div className="app">
       <div className="main">
@@ -218,13 +214,11 @@ const DocList = () => {
               </tr>
             </thead>
             <tbody>
-              {docList.map((doc, index) => (
-                <tr key={index}>
+              {docList.map((doc) => (
+                <tr>
                   <td>{doc.grade}</td>
                   <td>{doc.major}</td>
-                  <td onClick={() => handleDocDownload(doc.list_name)} style={{ cursor: 'pointer', color: 'blue' }}>
-                    {doc.list_name}
-                  </td>
+                  <td className='listname' key={doc.grade} onClick={() => downloadDoc(doc.grade)}>{doc.list_name}</td>
                   <td>{doc.doc_type}</td>
                   <td>{doc.created_at}</td>
                   <td>{doc.link}</td>
@@ -238,7 +232,6 @@ const DocList = () => {
     </div>
   );
 };
-
 
 const Mypage = () => {
   

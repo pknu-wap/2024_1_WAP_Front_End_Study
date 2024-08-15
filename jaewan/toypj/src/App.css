@@ -268,3 +268,7 @@ tr:nth-child(even) {
   justify-content: center;
   margin-top: 300px;
 }
+
+.listname:hover {
+  background-color: rgb(218, 209, 209);
+}
