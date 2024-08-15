@@ -343,7 +343,7 @@ const Mypage = () => {
         </div>
       ) : (
         <div className="logoutpage">
-          <div>환영합니다</div>
+          <h3>환영합니다!</h3>
           <button className="logoutbutton" onClick={logoutfunc}>Logout</button>
         </div>
       )}

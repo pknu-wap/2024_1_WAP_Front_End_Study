@@ -19,7 +19,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #258fff;
   color: white;
   margin-bottom: 10px;
 }
@@ -33,7 +33,7 @@ body {
 }
 
 .nav-item:hover {
-  background-color: #0056b3;
+  background-color: #3496ff;
   border-radius: 4px;
 }
 
@@ -131,7 +131,7 @@ th, td {
 }
 
 th {
-  background-color: #007bff;
+  background-color: #258fff;
   color: white;
 }
 
@@ -293,9 +293,10 @@ tr:nth-child(even) {
 }
 
 .logoutpage {
-  display: flex;
-  justify-content: center;
-  margin-top: 300px;
+  margin-top: 100px;
+  margin-left: 500px;
+  
+  
 }
 
 .listname:hover {
