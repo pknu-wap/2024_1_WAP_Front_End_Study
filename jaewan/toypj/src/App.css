@@ -19,7 +19,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #5a9dee;
+  background-color: #007bff;
   color: white;
   margin-bottom: 10px;
 }
@@ -135,20 +135,12 @@ th {
   color: white;
 }
 
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+tbody tr {
+  background-color: #ffffff; 
 }
 
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-:root {
-  --padding: 60px;
-}
+
 .box {
   position: relative;
   margin: 50px auto;
@@ -181,8 +173,8 @@ tr:nth-child(even) {
 .box button:hover {
   transition: all 0.5s ease;
   transform: scale(1.1);
-
 }
+
 .sign-up-box {
   position: absolute;
   width: 70px;
@@ -201,11 +193,6 @@ tr:nth-child(even) {
   font-size: 1.3em;
   color: black;
 }
-.sign-up-box:hover {
-  transition: all 0.5s ease;
-  transform: scale(1.1);
-}
-
 
 
 .sign-up-box.active {
@@ -256,8 +243,8 @@ tr:nth-child(even) {
   border-radius: 4px;
   width: 100px;
   height: 30px;
-
 }
+
 .logoutbutton:hover {
   transition: all 0.5s ease;
   transform: scale(1.1);
