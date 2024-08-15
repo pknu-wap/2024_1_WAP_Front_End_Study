@@ -19,7 +19,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #04B2D9;
   color: white;
   margin-bottom: 10px;
 }
@@ -33,7 +33,7 @@ body {
 }
 
 .nav-item:hover {
-  background-color: #0056b3;
+  background-color: #023E73;
   border-radius: 4px;
 }
 
@@ -54,7 +54,7 @@ body {
 .search-bar button {
   padding: 5px 10px;
   border: none;
-  background-color: #0056b3;
+  background-color: #023E73;
   color: white;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
@@ -131,7 +131,7 @@ th, td {
 }
 
 th {
-  background-color: #007bff;
+  background-color: #04B2D9;
   color: white;
 }
 
