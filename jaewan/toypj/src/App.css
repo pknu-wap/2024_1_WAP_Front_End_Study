@@ -19,7 +19,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #258fff;
   color: white;
   margin-bottom: 10px;
 }
@@ -33,7 +33,7 @@ body {
 }
 
 .nav-item:hover {
-  background-color: #0056b3;
+  background-color: #3496ff;
   border-radius: 4px;
 }
 
@@ -69,11 +69,11 @@ body {
 
 .sidebar {
   width: 20%;
-  background-color: #f4f4f4;
+  background-color: white;
   padding: 20px;
   margin-right: 20px;
   overflow-y: auto;
-  border: 1px solid black;
+  border: 1px solid rgb(172, 166, 166);
   border-radius: 4px;
 }
 
@@ -92,8 +92,8 @@ body {
 .content {
   flex: 1;
   padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid black;
+  background-color: white;
+  border: 1px solid rgb(172, 166, 166);
   border-radius: 4px;
   overflow-y: auto;
   background-image: url('./univ_logo01.png');
@@ -131,14 +131,184 @@ th, td {
 }
 
 th {
-  background-color: #007bff;
+  background-color: #258fff;
   color: white;
 }
+
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-tr:hover {
-  background-color: #ddd;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+:root {
+  --padding: 60px;
+}
+.box {
+  position: relative;
+  margin: 50px auto;
+  margin-top: 70px;
+  width: 1200px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--padding);
+  background-color: white;
+  box-shadow: 5px 5px 5px 5px gray
+  
+
+}
+
+.box input,
+.box button {
+  padding: 15px;
+  font-size: 1.2em;
+  border: none;
+}
+.box input {
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid rgb(230, 223, 223);
+  width: 300px;
+  height: 20px;
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+.box button {
+  margin-top: 30px;
+  background-color: #258fff;
+  width: 300px;
+  color: white;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box button:hover {
+  transition: all 0.5s ease;
+  transform: scale(1.1);
+
+}
+.sign-up-box {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #258fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: var(--padding);
+  right: -35px;
+  cursor: pointer;
+  transition: all 500ms ease-in-out;
+}
+.sign-up-box i {
+  font-size: 1.3em;
+  color: white;
+}
+
+
+
+
+
+.sign-up-box.active {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 30px;
+  cursor: default;
+  background-color: white;
+  border-radius: 7px;
+}
+
+.sign-up-box.active input {
+  padding: 15px;
+  font-size: 1.2em;
+  border: none;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border: 2px solid rgb(230, 223, 223);
+  width: 300px;
+  height: 20px;
+  border-radius: 7px;
+  font-size: 15px;
+
+}
+.sign-up-box.active button {
+  padding: 15px;
+  font-size: 1.2em;
+  border: none;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+.sign-up-box.active input {
+  margin-bottom: 10px;
+}
+
+.sign-up-box.active > span {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #258fff;
+  border-radius: 50%;
+  top: 5px;
+  right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.logoutbutton {
+  background-color: #258fff;
+  color: white;
+  border-radius: 4px;
+  width: 100px;
+  height: 30px;
+
+}
+.logoutbutton:hover {
+  transition: all 0.5s ease;
+  transform: scale(1.1);
+}
+
+.logoutpage {
+  margin-top: 100px;
+  margin-left: 500px;
+  
+  
+}
+
+.listname:hover {
+  background-color: rgb(218, 209, 209);
+}
+.logindiv {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.signupdiv {
+  text-align: center;
+  margin-bottom: 20px;
+}
+  
