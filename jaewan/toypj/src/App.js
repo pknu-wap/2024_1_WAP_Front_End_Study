@@ -91,12 +91,16 @@ function App() {
     });
   };
 
+
   return (
     <div className="app">
       <header className="navbar">
         <div className="search-bar">
           <input type="text" placeholder="검색창" />
           <button>검색</button>
+        </div>
+        <div className='searchbarright'>
+        <p>환영합니다 OOO님!</p>
         </div>
       </header>
 
@@ -265,6 +269,7 @@ const Mypage = () => {
   const loginFunc = async () => {
     const result = await login(loginId, loginPw);
     if (result) {
+
       alert('로그인완료');
       window.location.reload();
       return;
@@ -307,16 +312,16 @@ const Mypage = () => {
       return;
     }
     await signUpFunc();
-    handleRemoveActive(); // 호출 시 이벤트 객체를 전달하지 않음
+    handleRemoveActive(); 
   };
 
   return (
-    <div>
+    <div className='bigbox'>
       {showLoginComponent ? (
         <div className="box">
           <div className='logindiv'>
             <h1>Login</h1>
-            <p>Sign in to document organization page</p>
+            <p>국립부경대학교 문서 정리 페이지입니다!</p>
           </div>  
           <input type="text" value={loginId} onChange={onChangeloginId} placeholder="Email" />
           <input type="password" value={loginPw} onChange={onChangeloginPw} placeholder="Password" />
@@ -329,10 +334,10 @@ const Mypage = () => {
               <>
                 <div className='signupdiv'>
                   <h1>SignUp</h1>
-                  <p>Welcome to document organization page!</p>
+                  <p>국립부경대학교 문서 정리 페이지에 오신것을 환영합니다!</p>
                 </div>
                 <span onClick={(e) => handleRemoveActive(e)}>X</span>
-                <input type="text" name="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                <input className="Name" type="text" name="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button onClick={handleSignUp}>Sign up</button>
@@ -355,3 +360,5 @@ const Mypage = () => {
 
 
 export default App;
+
+
