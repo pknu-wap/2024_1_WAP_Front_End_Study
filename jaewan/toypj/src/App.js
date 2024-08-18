@@ -15,25 +15,34 @@ function App() {
   const [showDept, setShowDept] = useState(false);
   const [showType, setShowType] = useState(false);
   const [showMypage, setShowMypage] = useState(false);
-  const [showFavorites, setShowFavorites] = useState(false);  
-  const [favorites, setFavorites] = useState([]);  
+  const [showFavorites, setShowFavorites] = useState(false);
+  const [favorites, setFavorites] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
   const addToFavorites = (doc) => {
     setFavorites((prevFavorites) => [...prevFavorites, doc]);
   };
 
+  const resetView = () => {
+    setShowMypage(false);
+    setShowFavorites(false);
+  };
+
   return (
     <div className="app">
       <header className="navbar">
         <div className="search-bar">
-          <input type="text" placeholder="검색창" value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}/>
+          <input
+            type="text"
+            placeholder="검색창"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
           <button>검색</button>
         </div>
-        <div className='searchbarright'>
+        <div className="searchbarright">
           <p>환영합니다 OOO님!</p>
-        </div>  
+        </div>
       </header>
       <div className="main">
         <Sidebar
@@ -53,18 +62,19 @@ function App() {
           setShowMypage={setShowMypage}
           showFavorites={showFavorites}
           setShowFavorites={setShowFavorites}
+          resetView={resetView}
         />
         {showMypage ? (
           <Mypage favorites={favorites} setShowMypage={setShowMypage} />
         ) : showFavorites ? (
-          <Favorites favorites={favorites} /> 
+          <Favorites favorites={favorites} />
         ) : (
           <DocList
             selectedYear={selectedYear}
             selectedDept={selectedDept}
             selectedType={selectedType}
-            addToFavorites={addToFavorites}  
-            setFavorites={setFavorites}  
+            addToFavorites={addToFavorites}
+            setFavorites={setFavorites}
             searchQuery={searchQuery}
           />
         )}
@@ -97,7 +107,11 @@ function Favorites({ favorites }) {
                 <td>{doc.list_name}</td>
                 <td>{doc.doc_type}</td>
                 <td>{doc.created_at}</td>
-                <td><a href={doc.link} target="_blank" rel="noopener noreferrer">다운로드</a></td>
+                <td>
+                  <a href={doc.link} target="_blank" rel="noopener noreferrer">
+                    다운로드
+                  </a>
+                </td>
               </tr>
             ))
           ) : (
@@ -112,28 +126,41 @@ function Favorites({ favorites }) {
 }
 
 function Sidebar({
-  showYear, setShowYear, selectedYear, setSelectedYear,
-  showDept, setShowDept, selectedDept, setSelectedDept,
-  showType, setShowType, selectedType, setSelectedType,
-  showMypage, setShowMypage, showFavorites, setShowFavorites
+  showYear,
+  setShowYear,
+  selectedYear,
+  setSelectedYear,
+  showDept,
+  setShowDept,
+  selectedDept,
+  setSelectedDept,
+  showType,
+  setShowType,
+  selectedType,
+  setSelectedType,
+  showMypage,
+  setShowMypage,
+  showFavorites,
+  setShowFavorites,
+  resetView,
 }) {
   const years = ['1학년', '2학년', '3학년', '4학년'];
   const depts = ['컴퓨터공학과', '전자공학과', '기계공학과', '화학공학과'];
   const types = ['수강신청', '전과', '휴학', '자퇴'];
 
   function toggleSelection(setSelected, item) {
-    setSelected(prev => {
+    setSelected((prev) => {
       const idx = prev.indexOf(item);
       if (idx === -1) {
         return [...prev, item];
       } else {
-        return prev.filter(x => x !== item);
+        return prev.filter((x) => x !== item);
       }
     });
   }
+
   const handleHomeClick = () => {
-    setShowMypage(false);
-    setShowFavorites(false);
+    resetView();
     setShowYear(false);
     setShowDept(false);
     setShowType(false);
@@ -141,11 +168,21 @@ function Sidebar({
 
   return (
     <div className="sidebar">
-      <div className='nav-item' onClick={handleHomeClick}>Home</div>
-      <div className="nav-item" onClick={() => { setShowYear(!showYear); setShowMypage(false); }}>학년</div>
+      <div className="nav-item" onClick={handleHomeClick}>
+        Home
+      </div>
+      <div
+        className="nav-item"
+        onClick={() => {
+          handleHomeClick();
+          setShowYear(!showYear);
+        }}
+      >
+        학년
+      </div>
       {showYear && (
         <ul>
-          {years.map(year => (
+          {years.map((year) => (
             <li key={year} onClick={() => toggleSelection(setSelectedYear, year)}>
               <input type="checkbox" checked={selectedYear.includes(year)} readOnly />
               {year}
@@ -153,10 +190,18 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div className="nav-item" onClick={() => { setShowDept(!showDept); setShowMypage(false); }}>학과</div>
+      <div
+        className="nav-item"
+        onClick={() => {
+          handleHomeClick();
+          setShowDept(!showDept);
+        }}
+      >
+        학과
+      </div>
       {showDept && (
         <ul>
-          {depts.map(dept => (
+          {depts.map((dept) => (
             <li key={dept} onClick={() => toggleSelection(setSelectedDept, dept)}>
               <input type="checkbox" checked={selectedDept.includes(dept)} readOnly />
               {dept}
@@ -164,10 +209,18 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div className="nav-item" onClick={() => { setShowType(!showType); setShowMypage(false); }}>유형</div>
+      <div
+        className="nav-item"
+        onClick={() => {
+          handleHomeClick();
+          setShowType(!showType);
+        }}
+      >
+        유형
+      </div>
       {showType && (
         <ul>
-          {types.map(type => (
+          {types.map((type) => (
             <li key={type} onClick={() => toggleSelection(setSelectedType, type)}>
               <input type="checkbox" checked={selectedType.includes(type)} readOnly />
               {type}
@@ -175,8 +228,24 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div className="nav-item" onClick={() => setShowFavorites(true)}>즐겨찾기</div>
-      <div className="nav-item" onClick={() => setShowMypage(true)}>마이페이지</div>
+      <div
+        className="nav-item"
+        onClick={() => {
+          resetView();
+          setShowFavorites(true);
+        }}
+      >
+        즐겨찾기
+      </div>
+      <div
+        className="nav-item"
+        onClick={() => {
+          resetView();
+          setShowMypage(true);
+        }}
+      >
+        마이페이지
+      </div>
     </div>
   );
 }
@@ -213,7 +282,7 @@ const Mypage = ({ favorites, setShowMypage }) => {
     if (result) {
       alert('로그인 완료');
       setShowMypage(false);
-      setShowLoginComponent(false); 
+      setShowLoginComponent(false);
       return;
     }
     alert('로그인 실패');
@@ -245,7 +314,7 @@ const Mypage = ({ favorites, setShowMypage }) => {
 
   const handleRemoveActive = (e) => {
     if (e) {
-      e.stopPropagation(); 
+      e.stopPropagation();
     }
     setSignUpBoxActive(false);
   };
@@ -255,34 +324,52 @@ const Mypage = ({ favorites, setShowMypage }) => {
       return;
     }
     await signUpFunc();
-    handleRemoveActive(); 
+    handleRemoveActive();
   };
 
   return (
     <div>
       {showLoginComponent ? (
         <div className="box">
-          <div className='logindiv'>
+          <div className="logindiv">
             <h1>Login</h1>
             <p>국립부경대학교 문서 정리 페이지입니다</p>
-          </div>    
+          </div>
           <input type="text" value={loginId} onChange={onChangeloginId} placeholder="Email" />
           <input type="password" value={loginPw} onChange={onChangeloginPw} placeholder="Password" />
           <button onClick={loginFunc}>Login</button>
-          <div 
-            className={`sign-up-box ${signUpBoxActive ? 'active' : ''}`} 
+          <div
+            className={`sign-up-box ${signUpBoxActive ? 'active' : ''}`}
             onClick={handleSignUpBoxClick}
           >
             {signUpBoxActive ? (
               <>
-                <div className='signupdiv'>
+                <div className="signupdiv">
                   <h1>SignUp</h1>
                   <p>국립부경대학교 문서 정리 페이지에 오신것을 환영합니다!</p>
                 </div>
                 <span onClick={(e) => handleRemoveActive(e)}>X</span>
-                <input type="text" name="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-                <input type="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
                 <button onClick={handleSignUp}>Sign up</button>
               </>
             ) : (
@@ -291,10 +378,12 @@ const Mypage = ({ favorites, setShowMypage }) => {
           </div>
         </div>
       ) : (
-        <div className='content2'>
+        <div className="content2">
           <div className="logoutpage">
             <h3>환영합니다!</h3>
-            <button className="logoutbutton" onClick={logoutfunc}>Logout</button>
+            <button className="logoutbutton" onClick={logoutfunc}>
+              Logout
+            </button>
             <h4>즐겨찾기된 문서 목록:</h4>
             <ul>
               {favorites.map((doc, index) => (
@@ -308,7 +397,7 @@ const Mypage = ({ favorites, setShowMypage }) => {
   );
 };
 
-function DocList({ selectedYear, selectedDept, selectedType, setFavorites,  searchQuery }) {
+function DocList({ selectedYear, selectedDept, selectedType, setFavorites, searchQuery }) {
   const [docList, setDocList] = useState([]);
   const [filteredDocs, setFilteredDocs] = useState([]);
 
@@ -329,16 +418,16 @@ function DocList({ selectedYear, selectedDept, selectedType, setFavorites,  sear
 
     let tempDocs = docList;
     if (selectedYear.length > 0) {
-      tempDocs = tempDocs.filter(doc => selectedYear.includes(doc.grade));
+      tempDocs = tempDocs.filter((doc) => selectedYear.includes(doc.grade));
     }
     if (selectedDept.length > 0) {
-      tempDocs = tempDocs.filter(doc => selectedDept.includes(doc.major));
+      tempDocs = tempDocs.filter((doc) => selectedDept.includes(doc.major));
     }
     if (selectedType.length > 0) {
-      tempDocs = tempDocs.filter(doc => selectedType.includes(doc.doc_type));
+      tempDocs = tempDocs.filter((doc) => selectedType.includes(doc.doc_type));
     }
     if (searchQuery) {
-      tempDocs = tempDocs.filter(doc =>
+      tempDocs = tempDocs.filter((doc) =>
         doc.list_name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
@@ -347,8 +436,8 @@ function DocList({ selectedYear, selectedDept, selectedType, setFavorites,  sear
   }, [selectedYear, selectedDept, selectedType, searchQuery, docList]);
 
   const addToFavorites = (doc) => {
-    setFavorites(prevFavorites => {
-      if (prevFavorites.some(fav => fav.list_name === doc.list_name)) {
+    setFavorites((prevFavorites) => {
+      if (prevFavorites.some((fav) => fav.list_name === doc.list_name)) {
         alert('이미 즐겨찾기 목록에 추가된 문서입니다.');
         return prevFavorites;
       }
@@ -377,11 +466,19 @@ function DocList({ selectedYear, selectedDept, selectedType, setFavorites,  sear
               <tr key={index}>
                 <td>{doc.grade}</td>
                 <td>{doc.major}</td>
-                <td className='listname' onClick={() => downloadDoc(doc.list_name)}>{doc.list_name}</td>
+                <td className="listname" onClick={() => downloadDoc(doc.list_name)}>
+                  {doc.list_name}
+                </td>
                 <td>{doc.doc_type}</td>
                 <td>{doc.created_at}</td>
-                <td><a href={doc.link} target="_blank" rel="noopener noreferrer">다운로드</a></td>
-                <td className="favoritesbutton" onClick={() => addToFavorites(doc)}>{doc.likes}</td>
+                <td>
+                  <a href={doc.link} target="_blank" rel="noopener noreferrer">
+                    다운로드
+                  </a>
+                </td>
+                <td className="favoritesbutton" onClick={() => addToFavorites(doc)}>
+                  {doc.likes}
+                </td>
               </tr>
             ))
           ) : (
