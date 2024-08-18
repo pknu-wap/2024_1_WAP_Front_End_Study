@@ -8,88 +8,14 @@ import { documentGet } from './api/documentGet';
 import { downloadDoc } from './api/downloadDoc';
 
 function App() {
-  const [showYears, setShowYears] = useState(false);
-  const [showDepts, setShowDepts] = useState(false);
-  const [showLikes, setShowLikes] = useState(false);
-  const [showTypes, setShowTypes] = useState(false);
   const [selectedYear, setSelectedYear] = useState([]);
   const [selectedDept, setSelectedDept] = useState([]);
   const [selectedType, setSelectedType] = useState([]);
   const [selectedLikes, setSelectedLikes] = useState([]);
-  const [visibleYears, setVisibleYears] = useState([]);
-  const [visibleDepts, setVisibleDepts] = useState([]);
-  const [visibleTypes, setVisibleTypes] = useState([]);
-  const [visibleLikes, setVisibleLikes] = useState([]);
-  const [showMypage, setShowMypage] = useState(false);
-
-  const years = ['1학년', '2학년', '3학년', '4학년'];
-  const depts = ['컴퓨터공학과', '전자공학과', '기계공학과', '화학공학과'];
-  const types = ['수강신청', '전과', '휴학', '자퇴'];
-  const likes = ['a', 's', 'w', 'f'];
-
-  const yearDocuments = {
-    '1학년': ['1학년 문서1', '1학년 문서2'],
-    '2학년': ['2학년 문서1', '2학년 문서2'],
-    '3학년': ['3학년 문서1', '3학년 문서2'],
-    '4학년': ['4학년 문서1', '4학년 문서2']
-  };
-
-  const deptDocuments = {
-    '컴퓨터공학과': ['컴퓨터공학과 문서1', '컴퓨터공학과 문서2'],
-    '전자공학과': ['전자공학과 문서1', '전자공학과 문서2'],
-    '기계공학과': ['기계공학과 문서1', '기계공학과 문서2'],
-    '화학공학과': ['화학공학과 문서1', '화학공학과 문서2']
-  };
-
-  const typeDocuments = {
-    '수강신청': ['수강신청 문서1', '수강신청 문서2'],
-    '전과': ['전과 문서1', '전과 문서2'],
-    '휴학': ['휴학 문서1', '휴학 문서2'],
-    '자퇴': ['자퇴 문서1', '자퇴 문서2']
-  };
-
-  const likesDocuments = {
-    'a': ['a 문서1', 'a 문서2'],
-    's': ['s 문서1', 's 문서2'],
-    'w': ['w 문서1', 'w 문서2'],
-    'f': ['f 문서1', 'f 문서2']
-  };
-
-  const toggleYears = () => {
-    setShowYears(!showYears);
-    setShowMypage(false);
-  };
-
-  const toggleDepts = () => {
-    setShowDepts(!showDepts);
-    setShowMypage(false);
-  };
-
-  const toggleLikes = () => {
-    setShowLikes(!showLikes);
-    setShowMypage(false);
-  };
-
-  const toggleTypes = () => {
-    setShowTypes(!showTypes);
-    setShowMypage(false);
-  };
-
-  const showMypageSection = () => {
-    setShowMypage(true);
-    setShowYears(false);
-    setShowDepts(false);
-    setShowLikes(false);
-    setShowTypes(false);
-  };
-
-  const handleSelection = ( setFunction, visibleFunction, item) => {
-    setFunction(prevItems => {
-      const newItems = prevItems.includes(item) ? prevItems.filter(i => i !== item) : [...prevItems, item];
-      visibleFunction(newItems);  // 문서 목록 보이도록 업데이트
-      return newItems;
-    });
-  };
+  const [showYear, setShowYear] = useState(false);
+  const [showDept, setShowDept] = useState(false);
+  const [showType, setShowType] = useState(false);
+  const [showLikes, setShowLikes] = useState(false);
 
   return (
     <div className="app">
@@ -99,140 +25,183 @@ function App() {
           <button>검색</button>
         </div>
       </header>
-
       <div className="main">
-        <div className="sidebar">
-          <div className="nav-item" onClick={toggleYears}>학년</div>
-          {showYears && (
-            <ul>
-              {years.map((year) => (
-                <li key={year} onClick={() => handleSelection(selectedYear, setSelectedYear, setVisibleYears, year)}>
-                  <input type="checkbox" checked={selectedYear.includes(year)} readOnly />
-                  {year}
-                </li>
-              ))}
-            </ul>
-          )}
-          <div className="nav-item" onClick={toggleDepts}>학과</div>
-          {showDepts && (
-            <ul>
-              {depts.map((dept) => (
-                <li key={dept} onClick={() => handleSelection(selectedDept, setSelectedDept, setVisibleDepts, dept)}>
-                  <input type="checkbox" checked={selectedDept.includes(dept)} readOnly />
-                  {dept}
-                </li>
-              ))}
-            </ul>
-          )}
-          
-          <div className="nav-item" onClick={toggleTypes}>유형</div>
-          {showTypes && (
-            <ul>
-              {types.map((type) => (
-                <li key={type} onClick={() => handleSelection(selectedType, setSelectedType, setVisibleTypes, type)}>
-                  <input type="checkbox" checked={selectedType.includes(type)} readOnly />
-                  {type}
-                </li>
-              ))}
-            </ul>
-          )}
-          <div className="nav-item" onClick={toggleLikes}>즐겨찾기</div>
-          {showLikes && (
-            <ul>
-              {likes.map((like) => (
-                <li key={like} onClick={() => handleSelection(selectedLikes, setSelectedLikes, setVisibleLikes, like)}>
-                  <input type="checkbox" checked={selectedLikes.includes(like)} readOnly />
-                  {like}
-                </li>
-              ))}
-            </ul>
-          )}
-          <div className="nav-item" onClick={showMypageSection}>마이페이지</div>
-        </div>
-
-        <div className="content">
-          
-          {showMypage ? (
-            <Mypage />
-          ) : (
-            <DocList />
-          )}
-
-          <ul>
-            {visibleYears.map(year => yearDocuments[year]?.map((doc, index) => (
-              <li key={`${year}-${index}`}>{doc}</li>
-            )))}
-            {visibleDepts.map(dept => deptDocuments[dept]?.map((doc, index) => (
-              <li key={`${dept}-${index}`}>{doc}</li>
-            )))}
-            {visibleLikes.map(like => likesDocuments[like]?.map((doc, index) => (
-              <li key={`${like}-${index}`}>{doc}</li>
-            )))}
-            {visibleTypes.map(type => typeDocuments[type]?.map((doc, index) => (
-              <li key={`${type}-${index}`}>{doc}</li>
-            )))}
-          </ul>
-        </div>
+        <Sidebar
+          showYear={showYear}
+          setShowYear={setShowYear}
+          selectedYear={selectedYear}
+          setSelectedYear={setSelectedYear}
+          showDept={showDept}
+          setShowDept={setShowDept}
+          selectedDept={selectedDept}
+          setSelectedDept={setSelectedDept}
+          showType={showType}
+          setShowType={setShowType}
+          selectedType={selectedType}
+          setSelectedType={setSelectedType}
+          showLikes={showLikes}
+          setShowLikes={setShowLikes}
+          selectedLikes={selectedLikes}
+          setSelectedLikes={setSelectedLikes}
+        />
+        <DocList
+          selectedYear={selectedYear}
+          selectedDept={selectedDept}
+          selectedType={selectedType}
+          selectedLikes={selectedLikes}
+        />
       </div>
     </div>
   );
 }
 
+function Sidebar({
+  showYear, setShowYear, selectedYear, setSelectedYear,
+  showDept, setShowDept, selectedDept, setSelectedDept,
+  showType, setShowType, selectedType, setSelectedType,
+  showLikes, setShowLikes, selectedLikes, setSelectedLikes
+}) {
+  const years = ['1', '2', '3', '4'];
+  const depts = ['컴퓨터공학과', '전자공학과', '기계공학과', '화학공학과'];
+  const types = ['수강신청', '전과', '휴학', '자퇴'];
+  const likes = ['a', 's', 'w', 'f'];
 
+  function toggleSelection(setSelected, item) {
+    setSelected(prev => {
+      const idx = prev.indexOf(item);
+      if (idx === -1) {
+        return [...prev, item];
+      } else {
+        return prev.filter(x => x !== item);
+      }
+    });
+  }
 
+  return (
+    <div className="sidebar">
+      <div onClick={() => setShowYear(!showYear)}>학년</div>
+      {showYear && (
+        <ul>
+          {years.map(year => (
+            <li key={year} onClick={() => toggleSelection(setSelectedYear, year)}>
+              <input type="checkbox" checked={selectedYear.includes(year)} readOnly />
+              {year}
+            </li>
+          ))}
+        </ul>
+      )}
+      <div onClick={() => setShowDept(!showDept)}>학과</div>
+      {showDept && (
+        <ul>
+          {depts.map(dept => (
+            <li key={dept} onClick={() => toggleSelection(setSelectedDept, dept)}>
+              <input type="checkbox" checked={selectedDept.includes(dept)} readOnly />
+              {dept}
+            </li>
+          ))}
+        </ul>
+      )}
+      <div onClick={() => setShowType(!showType)}>유형</div>
+      {showType && (
+        <ul>
+          {types.map(type => (
+            <li key={type} onClick={() => toggleSelection(setSelectedType, type)}>
+              <input type="checkbox" checked={selectedType.includes(type)} readOnly />
+              {type}
+            </li>
+          ))}
+        </ul>
+      )}
+      <div onClick={() => setShowLikes(!showLikes)}>즐겨찾기</div>
+      {showLikes && (
+        <ul>
+          {likes.map(like => (
+            <li key={like} onClick={() => toggleSelection(setSelectedLikes, like)}>
+              <input type="checkbox" checked={selectedLikes.includes(like)} readOnly />
+              {like}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
 
-
-
-
-const DocList = () => {
+function DocList({ selectedYear, selectedDept, selectedType, selectedLikes }) {
   const [docList, setDocList] = useState([]);
+  const [filteredDocs, setFilteredDocs] = useState([]);
 
   useEffect(() => {
-    documentGet().then((response) => {
-      if (response.length === 0) {
-        alert('문서를 가지고 오는데 실패하였습니다!');
-        return;
+    documentGet().then((docs) => {
+      if (!docs) {
+        alert('문서를 가져오는데 실패하였습니다!');
+      } else {
+        setDocList(docs);
       }
-      setDocList(response);
     });
   }, []);
 
+  useEffect(() => {
+    if (!docList || docList.length === 0) {
+      return;
+    }
+
+    let tempDocs = docList;
+    if (selectedYear.length > 0) {
+      tempDocs = tempDocs.filter(doc => selectedYear.includes(doc.grade));
+    }
+    if (selectedDept.length > 0) {
+      tempDocs = tempDocs.filter(doc => selectedDept.includes(doc.major));
+    }
+    if (selectedType.length > 0) {
+      tempDocs = tempDocs.filter(doc => selectedType.includes(doc.doc_type));
+    }
+    if (selectedLikes.length > 0) {
+      tempDocs = tempDocs.filter(doc => selectedLikes.some(like => doc.likes.includes(like)));
+    }
+    setFilteredDocs(tempDocs);
+  }, [selectedYear, selectedDept, selectedType, selectedLikes, docList]);
+
   return (
-    <div className="app">
-      <div className="main">
-        <div className="content">
-          <h2>Document List</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>필요 학년</th>
-                <th>필요 전공</th>
-                <th>문서 이름</th>
-                <th>문서 유형</th>
-                <th>업로드 일자</th>
-                <th>링크</th>
-                <th>즐겨찾기 수</th>
+    <div className="content">
+      <h2>Document List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>필요 학년</th>
+            <th>필요 전공</th>
+            <th>문서 이름</th>
+            <th>문서 유형</th>
+            <th>업로드 일자</th>
+            <th>링크</th>
+            <th>즐겨찾기 수</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredDocs.length > 0 ? (
+            filteredDocs.map((doc, index) => (
+              <tr key={index}>
+                <td>{doc.grade}</td>
+                <td>{doc.major}</td>
+                <td className='listname' onClick={() => downloadDoc(doc.list_name)}>{doc.list_name}</td>
+                <td>{doc.doc_type}</td>
+                <td>{doc.created_at}</td>
+                <td><a href={doc.link} target="_blank" rel="noopener noreferrer">다운로드</a></td>
+                <td>{doc.likes}</td>
               </tr>
-            </thead>
-            <tbody>
-              {docList.map((doc) => (
-                <tr>
-                  <td>{doc.grade}</td>
-                  <td>{doc.major}</td>
-                  <td className='listname' key={doc.grade} onClick={() => downloadDoc(doc.grade)}>{doc.list_name}</td>
-                  <td>{doc.doc_type}</td>
-                  <td>{doc.created_at}</td>
-                  <td>{doc.link}</td>
-                  <td>{doc.likes}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="7">No documents found.</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
   );
-};
+}
+
+
 
 const Mypage = () => {
   
