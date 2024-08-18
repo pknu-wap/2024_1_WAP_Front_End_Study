@@ -16,6 +16,7 @@ function App() {
   const [showDept, setShowDept] = useState(false);
   const [showType, setShowType] = useState(false);
   const [showLikes, setShowLikes] = useState(false);
+  const [showMypage, setShowMypage] = useState(false);
 
   return (
     <div className="app">
@@ -43,13 +44,17 @@ function App() {
           setShowLikes={setShowLikes}
           selectedLikes={selectedLikes}
           setSelectedLikes={setSelectedLikes}
+          showMypage={showMypage}
+          setShowMypage={setShowMypage}
         />
-        <DocList
-          selectedYear={selectedYear}
-          selectedDept={selectedDept}
-          selectedType={selectedType}
-          selectedLikes={selectedLikes}
-        />
+        {showMypage ? <Mypage /> : (
+          <DocList
+            selectedYear={selectedYear}
+            selectedDept={selectedDept}
+            selectedType={selectedType}
+            selectedLikes={selectedLikes}
+          />
+        )}
       </div>
     </div>
   );
@@ -59,9 +64,10 @@ function Sidebar({
   showYear, setShowYear, selectedYear, setSelectedYear,
   showDept, setShowDept, selectedDept, setSelectedDept,
   showType, setShowType, selectedType, setSelectedType,
-  showLikes, setShowLikes, selectedLikes, setSelectedLikes
+  showLikes, setShowLikes, selectedLikes, setSelectedLikes,
+  showMypage, setShowMypage
 }) {
-  const years = ['1', '2', '3', '4'];
+  const years = ['1학년', '2학년', '3학년', '4학년'];
   const depts = ['컴퓨터공학과', '전자공학과', '기계공학과', '화학공학과'];
   const types = ['수강신청', '전과', '휴학', '자퇴'];
   const likes = ['a', 's', 'w', 'f'];
@@ -79,7 +85,7 @@ function Sidebar({
 
   return (
     <div className="sidebar">
-      <div onClick={() => setShowYear(!showYear)}>학년</div>
+      <div onClick={() => { setShowYear(!showYear); setShowMypage(false); }}>학년</div>
       {showYear && (
         <ul>
           {years.map(year => (
@@ -90,7 +96,7 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div onClick={() => setShowDept(!showDept)}>학과</div>
+      <div onClick={() => { setShowDept(!showDept); setShowMypage(false); }}>학과</div>
       {showDept && (
         <ul>
           {depts.map(dept => (
@@ -101,7 +107,7 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div onClick={() => setShowType(!showType)}>유형</div>
+      <div onClick={() => { setShowType(!showType); setShowMypage(false); }}>유형</div>
       {showType && (
         <ul>
           {types.map(type => (
@@ -112,7 +118,7 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div onClick={() => setShowLikes(!showLikes)}>즐겨찾기</div>
+      <div onClick={() => { setShowLikes(!showLikes); setShowMypage(false); }}>즐겨찾기</div>
       {showLikes && (
         <ul>
           {likes.map(like => (
@@ -123,85 +129,10 @@ function Sidebar({
           ))}
         </ul>
       )}
+      <div onClick={() => setShowMypage(true)}>마이페이지</div>
     </div>
   );
 }
-
-function DocList({ selectedYear, selectedDept, selectedType, selectedLikes }) {
-  const [docList, setDocList] = useState([]);
-  const [filteredDocs, setFilteredDocs] = useState([]);
-
-  useEffect(() => {
-    documentGet().then((docs) => {
-      if (!docs) {
-        alert('문서를 가져오는데 실패하였습니다!');
-      } else {
-        setDocList(docs);
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    if (!docList || docList.length === 0) {
-      return;
-    }
-
-    let tempDocs = docList;
-    if (selectedYear.length > 0) {
-      tempDocs = tempDocs.filter(doc => selectedYear.includes(doc.grade));
-    }
-    if (selectedDept.length > 0) {
-      tempDocs = tempDocs.filter(doc => selectedDept.includes(doc.major));
-    }
-    if (selectedType.length > 0) {
-      tempDocs = tempDocs.filter(doc => selectedType.includes(doc.doc_type));
-    }
-    if (selectedLikes.length > 0) {
-      tempDocs = tempDocs.filter(doc => selectedLikes.some(like => doc.likes.includes(like)));
-    }
-    setFilteredDocs(tempDocs);
-  }, [selectedYear, selectedDept, selectedType, selectedLikes, docList]);
-
-  return (
-    <div className="content">
-      <h2>Document List</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>필요 학년</th>
-            <th>필요 전공</th>
-            <th>문서 이름</th>
-            <th>문서 유형</th>
-            <th>업로드 일자</th>
-            <th>링크</th>
-            <th>즐겨찾기 수</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredDocs.length > 0 ? (
-            filteredDocs.map((doc, index) => (
-              <tr key={index}>
-                <td>{doc.grade}</td>
-                <td>{doc.major}</td>
-                <td className='listname' onClick={() => downloadDoc(doc.list_name)}>{doc.list_name}</td>
-                <td>{doc.doc_type}</td>
-                <td>{doc.created_at}</td>
-                <td><a href={doc.link} target="_blank" rel="noopener noreferrer">다운로드</a></td>
-                <td>{doc.likes}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="7">No documents found.</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-
 
 const Mypage = () => {
   
@@ -321,6 +252,78 @@ const Mypage = () => {
   );
 };
 
+function DocList({ selectedYear, selectedDept, selectedType, selectedLikes }) {
+  const [docList, setDocList] = useState([]);
+  const [filteredDocs, setFilteredDocs] = useState([]);
 
+  useEffect(() => {
+    documentGet().then((docs) => {
+      if (!docs) {
+        alert('문서를 가져오는데 실패하였습니다!');
+      } else {
+        setDocList(docs);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!docList || docList.length === 0) {
+      return;
+    }
+
+    let tempDocs = docList;
+    if (selectedYear.length > 0) {
+      tempDocs = tempDocs.filter(doc => selectedYear.includes(doc.grade));
+    }
+    if (selectedDept.length > 0) {
+      tempDocs = tempDocs.filter(doc => selectedDept.includes(doc.major));
+    }
+    if (selectedType.length > 0) {
+      tempDocs = tempDocs.filter(doc => selectedType.includes(doc.doc_type));
+    }
+    if (selectedLikes.length > 0) {
+      tempDocs = tempDocs.filter(doc => selectedLikes.some(like => doc.likes.includes(like)));
+    }
+    setFilteredDocs(tempDocs);
+  }, [selectedYear, selectedDept, selectedType, selectedLikes, docList]);
+
+  return (
+    <div className="content">
+      <h2>Document List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>필요 학년</th>
+            <th>필요 전공</th>
+            <th>문서 이름</th>
+            <th>문서 유형</th>
+            <th>업로드 일자</th>
+            <th>링크</th>
+            <th>즐겨찾기 수</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredDocs.length > 0 ? (
+            filteredDocs.map((doc, index) => (
+              <tr key={index}>
+                <td>{doc.grade}</td>
+                <td>{doc.major}</td>
+                <td className='listname' onClick={() => downloadDoc(doc.list_name)}>{doc.list_name}</td>
+                <td>{doc.doc_type}</td>
+                <td>{doc.created_at}</td>
+                <td><a href={doc.link} target="_blank" rel="noopener noreferrer">다운로드</a></td>
+                <td>{doc.likes}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="7">No documents found.</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 export default App;
