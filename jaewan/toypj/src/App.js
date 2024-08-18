@@ -7,6 +7,7 @@ import { logout } from './api/logout';
 import { documentGet } from './api/documentGet';
 import { downloadDoc } from './api/downloadDoc';
 
+
 function App() {
   const [selectedYear, setSelectedYear] = useState([]);
   const [selectedDept, setSelectedDept] = useState([]);
@@ -85,7 +86,7 @@ function Sidebar({
 
   return (
     <div className="sidebar">
-      <div onClick={() => { setShowYear(!showYear); setShowMypage(false); }}>학년</div>
+      <div className="nav-item" onClick={() => { setShowYear(!showYear); setShowMypage(false); }}>학년</div>
       {showYear && (
         <ul>
           {years.map(year => (
@@ -96,7 +97,7 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div onClick={() => { setShowDept(!showDept); setShowMypage(false); }}>학과</div>
+      <div className="nav-item" onClick={() => { setShowDept(!showDept); setShowMypage(false); }}>학과</div>
       {showDept && (
         <ul>
           {depts.map(dept => (
@@ -107,7 +108,7 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div onClick={() => { setShowType(!showType); setShowMypage(false); }}>유형</div>
+      <div className="nav-item" onClick={() => { setShowType(!showType); setShowMypage(false); }}>유형</div>
       {showType && (
         <ul>
           {types.map(type => (
@@ -118,7 +119,7 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div onClick={() => { setShowLikes(!showLikes); setShowMypage(false); }}>즐겨찾기</div>
+      <div className="nav-item" onClick={() => { setShowLikes(!showLikes); setShowMypage(false); }}>즐겨찾기</div>
       {showLikes && (
         <ul>
           {likes.map(like => (
@@ -129,7 +130,7 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div onClick={() => setShowMypage(true)}>마이페이지</div>
+      <div className="nav-item" onClick={() => setShowMypage(true)}>마이페이지</div>
     </div>
   );
 }
