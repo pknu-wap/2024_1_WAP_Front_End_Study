@@ -7,27 +7,32 @@ import { logout } from './api/logout';
 import { documentGet } from './api/documentGet';
 import { downloadDoc } from './api/downloadDoc';
 
-
 function App() {
   const [selectedYear, setSelectedYear] = useState([]);
   const [selectedDept, setSelectedDept] = useState([]);
   const [selectedType, setSelectedType] = useState([]);
-  const [selectedLikes, setSelectedLikes] = useState([]);
   const [showYear, setShowYear] = useState(false);
   const [showDept, setShowDept] = useState(false);
   const [showType, setShowType] = useState(false);
-  const [showLikes, setShowLikes] = useState(false);
   const [showMypage, setShowMypage] = useState(false);
+  const [showFavorites, setShowFavorites] = useState(false);  
+  const [favorites, setFavorites] = useState([]);  
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const addToFavorites = (doc) => {
+    setFavorites((prevFavorites) => [...prevFavorites, doc]);
+  };
 
   return (
     <div className="app">
       <header className="navbar">
         <div className="search-bar">
-          <input type="text" placeholder="검색창" />
+          <input type="text" placeholder="검색창" value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}/>
           <button>검색</button>
         </div>
         <div className='searchbarright'>
-        <p>환영합니다 OOO님!</p>
+          <p>환영합니다 OOO님!</p>
         </div>  
       </header>
       <div className="main">
@@ -44,22 +49,64 @@ function App() {
           setShowType={setShowType}
           selectedType={selectedType}
           setSelectedType={setSelectedType}
-          showLikes={showLikes}
-          setShowLikes={setShowLikes}
-          selectedLikes={selectedLikes}
-          setSelectedLikes={setSelectedLikes}
           showMypage={showMypage}
           setShowMypage={setShowMypage}
+          showFavorites={showFavorites}
+          setShowFavorites={setShowFavorites}
         />
-        {showMypage ? <Mypage /> : (
+        {showMypage ? (
+          <Mypage favorites={favorites} setShowMypage={setShowMypage} />
+        ) : showFavorites ? (
+          <Favorites favorites={favorites} /> 
+        ) : (
           <DocList
             selectedYear={selectedYear}
             selectedDept={selectedDept}
             selectedType={selectedType}
-            selectedLikes={selectedLikes}
+            addToFavorites={addToFavorites}  
+            setFavorites={setFavorites}  
+            searchQuery={searchQuery}
           />
         )}
       </div>
+    </div>
+  );
+}
+
+function Favorites({ favorites }) {
+  return (
+    <div className="content">
+      <h2>즐겨찾기 목록</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>필요 학년</th>
+            <th>필요 전공</th>
+            <th>문서 이름</th>
+            <th>문서 유형</th>
+            <th>업로드 일자</th>
+            <th>링크</th>
+          </tr>
+        </thead>
+        <tbody>
+          {favorites.length > 0 ? (
+            favorites.map((doc, index) => (
+              <tr key={index}>
+                <td>{doc.grade}</td>
+                <td>{doc.major}</td>
+                <td>{doc.list_name}</td>
+                <td>{doc.doc_type}</td>
+                <td>{doc.created_at}</td>
+                <td><a href={doc.link} target="_blank" rel="noopener noreferrer">다운로드</a></td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="6">즐겨찾기된 문서가 없습니다.</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -68,13 +115,11 @@ function Sidebar({
   showYear, setShowYear, selectedYear, setSelectedYear,
   showDept, setShowDept, selectedDept, setSelectedDept,
   showType, setShowType, selectedType, setSelectedType,
-  showLikes, setShowLikes, selectedLikes, setSelectedLikes,
-  showMypage, setShowMypage
+  showMypage, setShowMypage, showFavorites, setShowFavorites
 }) {
   const years = ['1학년', '2학년', '3학년', '4학년'];
   const depts = ['컴퓨터공학과', '전자공학과', '기계공학과', '화학공학과'];
   const types = ['수강신청', '전과', '휴학', '자퇴'];
-  const likes = ['a', 's', 'w', 'f'];
 
   function toggleSelection(setSelected, item) {
     setSelected(prev => {
@@ -86,9 +131,17 @@ function Sidebar({
       }
     });
   }
+  const handleHomeClick = () => {
+    setShowMypage(false);
+    setShowFavorites(false);
+    setShowYear(false);
+    setShowDept(false);
+    setShowType(false);
+  };
 
   return (
     <div className="sidebar">
+      <div className='nav-item' onClick={handleHomeClick}>Home</div>
       <div className="nav-item" onClick={() => { setShowYear(!showYear); setShowMypage(false); }}>학년</div>
       {showYear && (
         <ul>
@@ -122,24 +175,13 @@ function Sidebar({
           ))}
         </ul>
       )}
-      <div className="nav-item" onClick={() => { setShowLikes(!showLikes); setShowMypage(false); }}>즐겨찾기</div>
-      {showLikes && (
-        <ul>
-          {likes.map(like => (
-            <li key={like} onClick={() => toggleSelection(setSelectedLikes, like)}>
-              <input type="checkbox" checked={selectedLikes.includes(like)} readOnly />
-              {like}
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="nav-item" onClick={() => setShowFavorites(true)}>즐겨찾기</div>
       <div className="nav-item" onClick={() => setShowMypage(true)}>마이페이지</div>
     </div>
   );
 }
 
-const Mypage = () => {
-  
+const Mypage = ({ favorites, setShowMypage }) => {
   const [signUpBoxActive, setSignUpBoxActive] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -169,8 +211,9 @@ const Mypage = () => {
   const loginFunc = async () => {
     const result = await login(loginId, loginPw);
     if (result) {
-      alert('로그인완료');
-      window.location.reload();
+      alert('로그인 완료');
+      setShowMypage(false);
+      setShowLoginComponent(false); 
       return;
     }
     alert('로그인 실패');
@@ -178,11 +221,12 @@ const Mypage = () => {
 
   useEffect(() => {
     getSession().then((result) => {
-      if (result.session !== undefined) {
+      if (result && result.session) {
+        setShowMypage(true);
         setShowLoginComponent(false);
-        return;
+      } else {
+        setShowLoginComponent(true);
       }
-      setShowLoginComponent(true);
     });
   }, []);
 
@@ -211,7 +255,7 @@ const Mypage = () => {
       return;
     }
     await signUpFunc();
-    handleRemoveActive(); // 호출 시 이벤트 객체를 전달하지 않음
+    handleRemoveActive(); 
   };
 
   return (
@@ -232,8 +276,8 @@ const Mypage = () => {
             {signUpBoxActive ? (
               <>
                 <div className='signupdiv'>
-                 <h1>SignUp</h1>
-                 <p>국립부경대학교 문서 정리 페이지에 오신것을 환영합니다!</p>
+                  <h1>SignUp</h1>
+                  <p>국립부경대학교 문서 정리 페이지에 오신것을 환영합니다!</p>
                 </div>
                 <span onClick={(e) => handleRemoveActive(e)}>X</span>
                 <input type="text" name="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
@@ -248,17 +292,23 @@ const Mypage = () => {
         </div>
       ) : (
         <div className='content2'>
-         <div className="logoutpage">
-          <h3>환영합니다!</h3>
-          <button className="logoutbutton" onClick={logoutfunc}>Logout</button>
-         </div>
+          <div className="logoutpage">
+            <h3>환영합니다!</h3>
+            <button className="logoutbutton" onClick={logoutfunc}>Logout</button>
+            <h4>즐겨찾기된 문서 목록:</h4>
+            <ul>
+              {favorites.map((doc, index) => (
+                <li key={index}>{doc.list_name}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>
   );
 };
 
-function DocList({ selectedYear, selectedDept, selectedType, selectedLikes }) {
+function DocList({ selectedYear, selectedDept, selectedType, setFavorites,  searchQuery }) {
   const [docList, setDocList] = useState([]);
   const [filteredDocs, setFilteredDocs] = useState([]);
 
@@ -287,11 +337,24 @@ function DocList({ selectedYear, selectedDept, selectedType, selectedLikes }) {
     if (selectedType.length > 0) {
       tempDocs = tempDocs.filter(doc => selectedType.includes(doc.doc_type));
     }
-    if (selectedLikes.length > 0) {
-      tempDocs = tempDocs.filter(doc => selectedLikes.some(like => doc.likes.includes(like)));
+    if (searchQuery) {
+      tempDocs = tempDocs.filter(doc =>
+        doc.list_name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
     }
+
     setFilteredDocs(tempDocs);
-  }, [selectedYear, selectedDept, selectedType, selectedLikes, docList]);
+  }, [selectedYear, selectedDept, selectedType, searchQuery, docList]);
+
+  const addToFavorites = (doc) => {
+    setFavorites(prevFavorites => {
+      if (prevFavorites.some(fav => fav.list_name === doc.list_name)) {
+        alert('이미 즐겨찾기 목록에 추가된 문서입니다.');
+        return prevFavorites;
+      }
+      return [...prevFavorites, doc];
+    });
+  };
 
   return (
     <div className="content">
@@ -305,7 +368,7 @@ function DocList({ selectedYear, selectedDept, selectedType, selectedLikes }) {
             <th>문서 유형</th>
             <th>업로드 일자</th>
             <th>링크</th>
-            <th>즐겨찾기 수</th>
+            <th>즐겨찾기</th>
           </tr>
         </thead>
         <tbody>
@@ -318,7 +381,7 @@ function DocList({ selectedYear, selectedDept, selectedType, selectedLikes }) {
                 <td>{doc.doc_type}</td>
                 <td>{doc.created_at}</td>
                 <td><a href={doc.link} target="_blank" rel="noopener noreferrer">다운로드</a></td>
-                <td>{doc.likes}</td>
+                <td className="favoritesbutton" onClick={() => addToFavorites(doc)}>{doc.likes}</td>
               </tr>
             ))
           ) : (

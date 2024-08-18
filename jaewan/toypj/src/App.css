@@ -377,4 +377,9 @@ tr:nth-child(even) {
   font-size: 45px;
   margin-bottom: 10px;
 }
-  
+
+
+
+.favoritesbutton:hover {
+  background-color: rgb(218, 209, 209);
+}
