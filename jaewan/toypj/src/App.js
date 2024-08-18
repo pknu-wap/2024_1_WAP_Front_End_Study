@@ -321,7 +321,7 @@ const Mypage = () => {
         <div className="box">
           <div className='logindiv'>
             <h1>Login</h1>
-            <p>국립부경대학교 문서 정리 페이지입니다!</p>
+            <p>국립부경대학교 문서 정리 페이지입니다</p>
           </div>  
           <input type="text" value={loginId} onChange={onChangeloginId} placeholder="Email" />
           <input type="password" value={loginPw} onChange={onChangeloginPw} placeholder="Password" />
