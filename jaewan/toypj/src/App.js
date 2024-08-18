@@ -26,6 +26,9 @@ function App() {
           <input type="text" placeholder="검색창" />
           <button>검색</button>
         </div>
+        <div className='searchbarright'>
+        <p>환영합니다 OOO님!</p>
+        </div>  
       </header>
       <div className="main">
         <Sidebar
@@ -217,8 +220,8 @@ const Mypage = () => {
         <div className="box">
           <div className='logindiv'>
             <h1>Login</h1>
-            <p>Sign in to document organization page</p>
-          </div>  
+            <p>국립부경대학교 문서 정리 페이지입니다</p>
+          </div>    
           <input type="text" value={loginId} onChange={onChangeloginId} placeholder="Email" />
           <input type="password" value={loginPw} onChange={onChangeloginPw} placeholder="Password" />
           <button onClick={loginFunc}>Login</button>
@@ -229,8 +232,8 @@ const Mypage = () => {
             {signUpBoxActive ? (
               <>
                 <div className='signupdiv'>
-                  <h1>SignUp</h1>
-                  <p>Welcome to document organization page!</p>
+                 <h1>SignUp</h1>
+                 <p>국립부경대학교 문서 정리 페이지에 오신것을 환영합니다!</p>
                 </div>
                 <span onClick={(e) => handleRemoveActive(e)}>X</span>
                 <input type="text" name="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
@@ -244,9 +247,11 @@ const Mypage = () => {
           </div>
         </div>
       ) : (
-        <div className="logoutpage">
+        <div className='content2'>
+         <div className="logoutpage">
           <h3>환영합니다!</h3>
           <button className="logoutbutton" onClick={logoutfunc}>Logout</button>
+         </div>
         </div>
       )}
     </div>

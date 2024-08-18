@@ -13,15 +13,16 @@ body {
   flex-direction: column;
   height: 100vh;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #258fff;
+  padding: 20px 20px;
   color: white;
   margin-bottom: 10px;
+  background-image: url('./image/상단바배경.png');
+  background-repeat: no-repeat;
+  background-size: 22%;
 }
 
 .nav-item {
@@ -40,15 +41,34 @@ body {
 .nav-item:last-child {
   margin-right: auto;
 }
-
+.searchbarright{
+  background-image: url('./image/서치바오른쪽.png');
+  background-repeat: no-repeat;
+  background-position: 300px 12px;
+  background-size: 23%;
+  height: 160%;
+ 
+}
+.searchbarright p {
+  color: black;
+  margin-right: 310px;
+  font-size: 25px;
+  margin-top: 35px;
+}
 .search-bar {
   display: flex;
+  margin-left: 500px;
+  margin-top: 5px;
+  
 }
 
 .search-bar input {
-  padding: 5px;
+  padding: 15px 200px;
   border: none;
   border-radius: 4px 0 0 4px;
+  border: 2px solid #ddd;
+  font-size: 20px;
+  text-align: center;
 }
 
 .search-bar button {
@@ -75,6 +95,10 @@ body {
   overflow-y: auto;
   border: 1px solid rgb(172, 166, 166);
   border-radius: 4px;
+  background-image: url('./image/사이드바배경.jpg');
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center bottom;
 }
 
 .sidebar h2 {
@@ -91,15 +115,26 @@ body {
 
 .content {
   flex: 1;
-  padding: 20px;
+  padding: 20px ;
   background-color: white;
   border: 1px solid rgb(172, 166, 166);
   border-radius: 4px;
   overflow-y: auto;
-  background-image: url('./univ_logo01.png');
-  background-size: 30%;
+  background-image: url('./image/메인배경.png');
+  background-size: 20%;
   background-position: center; 
   background-repeat: no-repeat;
+}
+
+.content2 {
+  border: 1px solid rgb(172, 166, 166);
+  width: 1500px;
+  height: 780px;
+  background-image: url('./image/메인배경.png');
+  background-size: 20%;
+  background-position: center; 
+  background-repeat: no-repeat;
+  border-radius: 4px;
 }
 
 .content h2 {
@@ -149,18 +184,29 @@ tr:nth-child(even) {
 :root {
   --padding: 60px;
 }
+
+.bigbox {
+  margin-bottom: 200px;
+}
 .box {
+  background-image: url('./image/로그인배경.png');
+  
+  background-repeat: no-repeat;
+  background-size: 49%;
   position: relative;
   margin: 50px auto;
-  margin-top: 70px;
-  width: 1200px;
-  height: 600px;
+  margin-top: 0px;
+  margin-left: 0px;
+  width: 1450px;
+  height: 780px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: var(--padding);
   background-color: white;
   box-shadow: 5px 5px 5px 5px gray
+  
+
   
 
 }
@@ -173,8 +219,7 @@ tr:nth-child(even) {
 }
 .box input {
   margin-bottom: 25px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 868px;
   border: 2px solid rgb(230, 223, 223);
   width: 300px;
   height: 20px;
@@ -188,8 +233,8 @@ tr:nth-child(even) {
   width: 300px;
   color: white;
   border-radius: 4px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 868px;
+  
 }
 .box button:hover {
   transition: all 0.5s ease;
@@ -201,7 +246,7 @@ tr:nth-child(even) {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: #258fff;
+  background-color: #1a538b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -209,11 +254,17 @@ tr:nth-child(even) {
   right: -35px;
   cursor: pointer;
   transition: all 500ms ease-in-out;
+  background-image: url('./image/사인업배경.png');
+  background-repeat: no-repeat;
+  background-size: 10%;
+  background-position: 650px 25px;
 }
+
 .sign-up-box i {
   font-size: 1.3em;
   color: white;
 }
+
 
 
 
@@ -243,9 +294,10 @@ tr:nth-child(even) {
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
+  margin-bottom: 20px;
   border: 2px solid rgb(230, 223, 223);
-  width: 300px;
-  height: 20px;
+  width: 400px;
+  height: 40px;
   border-radius: 7px;
   font-size: 15px;
 
@@ -258,9 +310,6 @@ tr:nth-child(even) {
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
-}
-.sign-up-box.active input {
-  margin-bottom: 10px;
 }
 
 .sign-up-box.active > span {
@@ -294,7 +343,7 @@ tr:nth-child(even) {
 
 .logoutpage {
   margin-top: 100px;
-  margin-left: 500px;
+  margin-left: 670px;
   
   
 }
@@ -304,11 +353,28 @@ tr:nth-child(even) {
 }
 .logindiv {
   text-align: center;
+
   margin-bottom: 40px;
 }
 
+.logindiv h1 {
+  margin-left: 700px;
+  margin-bottom: 5px;
+  font-size: 43px;
+  color: b;
+}
+
+.logindiv p {
+  margin-left: 700px;
+  font-size: 17px;
+}
 .signupdiv {
   text-align: center;
   margin-bottom: 20px;
+
+}
+.signupdiv h1 {
+  font-size: 45px;
+  margin-bottom: 10px;
 }
   
