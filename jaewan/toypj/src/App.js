@@ -18,6 +18,8 @@ function App() {
   const [showFavorites, setShowFavorites] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [docList, setDocList] = useState([]);
+  const [showLoginComponent, setShowLoginComponent] = useState(true);
 
   const addToFavorites = (doc) => {
     setFavorites((prevFavorites) => [...prevFavorites, doc]);
@@ -27,6 +29,30 @@ function App() {
     setShowMypage(false);
     setShowFavorites(false);
   };
+
+  useEffect(() => {
+    const clearSession = async () => {
+      await logout(); // 로그아웃을 호출하여 세션을 초기화
+      setShowLoginComponent(true);
+    };
+
+    clearSession(); // 앱이 시작할 때 세션을 초기화
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const docs = await documentGet();
+      if (!docs) {
+        alert('문서를 가져오는데 실패하였습니다!');
+      } else {
+        setDocList(docs);
+      }
+    };
+
+    if (docList.length === 0) {
+      fetchData();
+    }
+  }, [docList]);
 
   return (
     <div className="app">
@@ -76,6 +102,7 @@ function App() {
             addToFavorites={addToFavorites}
             setFavorites={setFavorites}
             searchQuery={searchQuery}
+            docList={docList}
           />
         )}
       </div>
@@ -397,19 +424,8 @@ const Mypage = ({ favorites, setShowMypage }) => {
   );
 };
 
-function DocList({ selectedYear, selectedDept, selectedType, setFavorites, searchQuery }) {
-  const [docList, setDocList] = useState([]);
+function DocList({ selectedYear, selectedDept, selectedType, setFavorites, searchQuery, docList }) {
   const [filteredDocs, setFilteredDocs] = useState([]);
-
-  useEffect(() => {
-    documentGet().then((docs) => {
-      if (!docs) {
-        alert('문서를 가져오는데 실패하였습니다!');
-      } else {
-        setDocList(docs);
-      }
-    });
-  }, []);
 
   useEffect(() => {
     if (!docList || docList.length === 0) {
